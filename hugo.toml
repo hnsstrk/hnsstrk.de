@@ -1,0 +1,28 @@
+baseURL = "https://hnsstrk.de/"
+languageCode = "de"
+defaultContentLanguage = "de"
+title = "Hans Jürgen Stark"
+enableRobotsTXT = true
+enableGitInfo = false
+
+[params]
+  description = "Persönliche Profilseite von Hans Jürgen Stark — Developer, Maker, Gamer"
+  author = "Hans Jürgen Stark"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[menus.main]]
+  name = "Über mich"
+  url = "/ueber-mich/"
+  weight = 10
+
+[[menus.main]]
+  name = "Projekte"
+  url = "/projekte/"
+  weight = 20
+
+[[menus.main]]
+  name = "Links"
+  url = "/links/"
+  weight = 30
