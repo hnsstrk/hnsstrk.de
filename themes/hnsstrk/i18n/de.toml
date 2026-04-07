@@ -1,0 +1,67 @@
+# Accessibility
+[skipToContent]
+other = "Zum Inhalt springen"
+
+[headingPermalink]
+other = "Permanentlink"
+
+# Theme Switcher
+[themeLight]
+other = "Helles Theme"
+
+[themeMirage]
+other = "Mirage-Theme"
+
+[themeDark]
+other = "Dunkles Theme"
+
+[themeSwitch]
+other = "Theme wechseln"
+
+# Footer
+[footerPoweredBy]
+other = "Betrieben mit"
+
+[footerCopyright]
+other = "Alle Rechte vorbehalten."
+
+# Navigation
+[menuHome]
+other = "Startseite"
+
+# 404
+[notFoundTitle]
+other = "Seite nicht gefunden"
+
+[notFoundDescription]
+other = "Die angeforderte Seite existiert nicht."
+
+# Content
+[readingTime]
+one = "{{ .Count }} Minute Lesezeit"
+other = "{{ .Count }} Minuten Lesezeit"
+
+[wordCount]
+one = "{{ .Count }} Wort"
+other = "{{ .Count }} Wörter"
+
+[publishedOn]
+other = "Veröffentlicht am"
+
+[lastUpdated]
+other = "Zuletzt aktualisiert"
+
+[tableOfContents]
+other = "Inhaltsverzeichnis"
+
+[tags]
+other = "Tags"
+
+[categories]
+other = "Kategorien"
+
+[backToTop]
+other = "Nach oben"
+
+[externalLink]
+other = "Externer Link"

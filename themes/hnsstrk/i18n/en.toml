@@ -1,0 +1,67 @@
+# Accessibility
+[skipToContent]
+other = "Skip to content"
+
+[headingPermalink]
+other = "Permalink"
+
+# Theme Switcher
+[themeLight]
+other = "Light theme"
+
+[themeMirage]
+other = "Mirage theme"
+
+[themeDark]
+other = "Dark theme"
+
+[themeSwitch]
+other = "Switch theme"
+
+# Footer
+[footerPoweredBy]
+other = "Powered by"
+
+[footerCopyright]
+other = "All rights reserved."
+
+# Navigation
+[menuHome]
+other = "Home"
+
+# 404
+[notFoundTitle]
+other = "Page not found"
+
+[notFoundDescription]
+other = "The requested page does not exist."
+
+# Content
+[readingTime]
+one = "{{ .Count }} minute read"
+other = "{{ .Count }} minutes read"
+
+[wordCount]
+one = "{{ .Count }} word"
+other = "{{ .Count }} words"
+
+[publishedOn]
+other = "Published on"
+
+[lastUpdated]
+other = "Last updated"
+
+[tableOfContents]
+other = "Table of contents"
+
+[tags]
+other = "Tags"
+
+[categories]
+other = "Categories"
+
+[backToTop]
+other = "Back to top"
+
+[externalLink]
+other = "External link"
