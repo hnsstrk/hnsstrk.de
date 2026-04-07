@@ -2,5 +2,14 @@
 <div class="animate-fade-in content-container flex-container" style="position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; overflow: hidden; width: 92vw; max-width: 1600px; margin: 0 auto;">
     <section class="board-section" id="board-container" style="width: 100%;"></section>
 </div>
-<script type="module" src="{{ "js/404-main.js" | relURL }}"></script>
+{{ $opts := dict "targetPath" "js/flipboard-404.js" "format" "esm" "minify" hugo.IsProduction }}
+{{ with resources.Get "js/404-main.js" | js.Build $opts }}
+  {{ if hugo.IsProduction }}
+    {{ with . | resources.Fingerprint }}
+      <script src="{{ .RelPermalink }}" type="module" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{ end }}
+  {{ else }}
+    <script src="{{ .RelPermalink }}" type="module"></script>
+  {{ end }}
+{{ end }}
 {{ end }}

@@ -59,13 +59,35 @@
 </script>
 {{ end }}
 
-{{/* CSS */}}
-<link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+{{/* CSS Bundle: reset + fonts + style + responsive */}}
+{{ $reset := resources.Get "css/reset.css" }}
+{{ $fonts := resources.Get "css/fonts.css" }}
+{{ $style := resources.Get "css/style.css" }}
+{{ $responsive := resources.Get "css/responsive.css" }}
+{{ $css := slice $reset $fonts $style $responsive | resources.Concat "css/bundle.css" }}
+{{ if hugo.IsProduction }}
+  {{ $css = $css | resources.Minify | resources.Fingerprint }}
+{{ end }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous"{{ end }}>
+
+{{/* Board CSS — nur auf Home + 404 */}}
 {{ if or .IsHome (eq .Layout "404") }}
-<link rel="stylesheet" href="{{ "css/board.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/tile.css" | relURL }}">
+  {{ $board := resources.Get "css/board.css" }}
+  {{ $tile := resources.Get "css/tile.css" }}
+  {{ $boardCss := slice $board $tile | resources.Concat "css/board-bundle.css" }}
+  {{ if hugo.IsProduction }}
+    {{ $boardCss = $boardCss | resources.Minify | resources.Fingerprint }}
+  {{ end }}
+  <link rel="stylesheet" href="{{ $boardCss.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $boardCss.Data.Integrity }}" crossorigin="anonymous"{{ end }}>
 {{ end }}
 
-{{/* Theme JS (muss im Head stehen wegen FOUC) */}}
-<script src="{{ "js/theme.js" | relURL }}"></script>
+{{/* Theme JS — im Head für FOUC-Vermeidung */}}
+{{ with resources.Get "js/theme.js" }}
+  {{ if hugo.IsProduction }}
+    {{ with . | resources.Minify | resources.Fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{ end }}
+  {{ else }}
+    <script src="{{ .RelPermalink }}"></script>
+  {{ end }}
+{{ end }}
