@@ -1,6 +1,7 @@
 ---
 title: "Links"
 description: "Alle meine Profile und Projekte im Netz"
+date: 2026-04-05
 layout: "links"
 ---
 

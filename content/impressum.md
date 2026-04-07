@@ -1,6 +1,7 @@
 ---
 title: "Impressum"
 description: "Impressum von hnsstrk.de"
+date: 2026-04-05
 layout: "single"
 ---
 

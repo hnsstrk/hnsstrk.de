@@ -1,4 +1,13 @@
 name = "hnsstrk"
 license = "MIT"
-description = "A modern, sleek Hugo theme focusing on typography and Monaspace."
-min_version = "0.159.1"
+licenselink = "https://github.com/hnsstrk/hnsstrk.de/blob/main/LICENSE"
+description = "A modern split-flap display theme with Ayu colors and Monaspace typography."
+homepage = "https://github.com/hnsstrk/hnsstrk.de"
+demosite = "https://hnsstrk.de/"
+tags = ["responsive", "dark-mode", "monospace", "split-flap", "ayu", "minimal", "personal"]
+features = ["3 color themes (light/mirage/dark)", "split-flap display", "Monaspace fonts", "Nerd Font icons"]
+min_version = "0.146.0"
+
+[author]
+  name = "Hans Jürgen Stark"
+  homepage = "https://hnsstrk.de"

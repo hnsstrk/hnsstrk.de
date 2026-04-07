@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "de" }}">
+<html lang="{{ site.Language.LanguageCode | default site.LanguageCode | default "de" }}">
 <head>
     {{ partial "head.html" . }}
 </head>
 <body>
+    <a href="#main-content" class="skip-to-content">Zum Inhalt springen</a>
     <header class="site-header">
         <div class="container header-inner">
             <div class="logo">
@@ -36,7 +37,7 @@
         </button>
     </div>
 
-    <main>
+    <main id="main-content">
         {{ block "main" . }}{{ end }}
     </main>
 

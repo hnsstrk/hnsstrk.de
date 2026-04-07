@@ -2,11 +2,70 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
-<!-- CSS -->
+{{/* Canonical URL */}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* Description */}}
+{{ $description := .Description | default site.Params.description | default "" }}
+{{ with $description }}
+<meta name="description" content="{{ . }}">
+{{ end }}
+
+{{/* Author */}}
+{{ with site.Params.author }}
+<meta name="author" content="{{ . }}">
+{{ end }}
+
+{{/* Open Graph */}}
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with $description }}
+<meta property="og:description" content="{{ . }}">
+{{ end }}
+{{ with site.Params.ogImage }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{ end }}
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:locale" content="de_DE">
+
+{{/* Twitter Card */}}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ .Title }}">
+{{ with $description }}
+<meta name="twitter:description" content="{{ . }}">
+{{ end }}
+{{ with site.Params.ogImage }}
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{ end }}
+
+{{/* Favicon */}}
+<link rel="icon" href="{{ "images/favicon.ico" | relURL }}" type="image/x-icon">
+<link rel="icon" href="{{ "images/favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ "images/apple-touch-icon.png" | relURL }}">
+
+{{/* JSON-LD Structured Data */}}
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.Params.author }}",
+  "url": "{{ site.BaseURL }}",
+  "description": "{{ site.Params.description }}"{{ with site.Params.email }},
+  "email": "{{ . }}"{{ end }}{{ with site.Params.social.github }},
+  "sameAs": ["https://github.com/{{ . }}"]{{ end }}
+}
+</script>
+{{ end }}
+
+{{/* CSS */}}
 <link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}">
 <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-{{ if .IsHome }}
+{{ if or .IsHome (eq .Layout "404") }}
 <link rel="stylesheet" href="{{ "css/board.css" | relURL }}">
 <link rel="stylesheet" href="{{ "css/tile.css" | relURL }}">
 {{ end }}
+
+{{/* Theme JS (muss im Head stehen wegen FOUC) */}}
 <script src="{{ "js/theme.js" | relURL }}"></script>

@@ -6,14 +6,41 @@ enableRobotsTXT = true
 enableGitInfo = true
 theme = "hnsstrk"
 
+# Sitemap-Konfiguration
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+
+# Parameter (Theme-Konfiguration)
 [params]
   description = "Persönliche Profilseite von Hans Jürgen Stark — Developer, Maker, Gamer"
   author = "Hans Jürgen Stark"
   email = "hans.juergen.stark@gmail.com"
 
+  # SEO
+  ogImage = "images/og-default.png"
+
+  # Theme
+  defaultTheme = "light"  # light | mirage | dark
+
+  # Social Links
+  [params.social]
+    github = "hnsstrk"
+    mastodon = "@hnsstrk"
+    email = "hans.juergen.stark@gmail.com"
+
+# Markup
 [markup.goldmark.renderer]
   unsafe = true
 
+[markup.goldmark.extensions.typographer]
+  disable = false
+
+[markup.highlight]
+  noClasses = false
+  lineNos = false
+
+# Menus
 [menus]
   [[menus.main]]
     name = "Über mich"
@@ -27,3 +54,12 @@ theme = "hnsstrk"
     name = "Links"
     url = "/links/"
     weight = 30
+
+  [[menus.footer]]
+    name = "Impressum"
+    url = "/impressum/"
+    weight = 10
+  [[menus.footer]]
+    name = "Datenschutz"
+    url = "/datenschutz/"
+    weight = 20

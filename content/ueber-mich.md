@@ -1,6 +1,7 @@
 ---
 title: "Über mich"
 description: "Hans Jürgen Stark — Hobbyist, Open-Source-Bastler und Pen-and-Paper-Spieler"
+date: 2026-04-05
 layout: "single"
 ---
 
