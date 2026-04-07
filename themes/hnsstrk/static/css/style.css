@@ -58,12 +58,14 @@
   --spacing-lg: 2rem;
   --spacing-xl: 4rem;
 
-  /* Fonts */
-  --font-logo: 'Monaspace Neon', monospace;
-  --font-body: 'Monaspace Argon', monospace;
-  --font-heading: 'Monaspace Neon', monospace;
-  --font-mono: 'Monaspace Neon', monospace;
-  --font-handwriting: 'Monaspace Radon', monospace;
+  /* Schriftkonzept — Monaspace Superfamilie */
+  --font-logo: 'Monaspace Krypton', monospace;        /* Mechanisch — Terminal-Prompt Ästhetik */
+  --font-heading: 'Monaspace Neon', monospace;         /* Neo-Grotesk — clean, technisch */
+  --font-body: 'Monaspace Argon', monospace;           /* Humanist — warm, lesefreundlich */
+  --font-ui: 'Monaspace Neon', monospace;              /* Neo-Grotesk — neutral für UI */
+  --font-code: 'Monaspace Xenon', monospace;           /* Slab Serif — autoritär, Schreibmaschine */
+  --font-handwriting: 'Monaspace Radon', monospace;    /* Handschrift — persönlich, kreativ */
+  --font-display: 'Monaspace Krypton', monospace;      /* Mechanisch — FlipBoard, Displays */
 }
 
 :root[data-theme='mirage'] {
@@ -177,9 +179,9 @@ html {
   background-color: var(--bg-primary);
   line-height: 1.6;
   font-size: 16px;
-  /* OpenType Features */
+  /* OpenType Features — Texture Healing + Ligaturen */
   font-variant-ligatures: contextual;
-  font-feature-settings: "calt" 1, "liga" 1;
+  font-feature-settings: "calt" 1, "liga" 1, "cv01" 1, "cv02" 1;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -231,6 +233,34 @@ blockquote, .emphasis {
   margin: var(--spacing-md) 0;
 }
 
+/* Code Blocks — Xenon (Slab Serif, Schreibmaschinen-Charakter) */
+code, pre, kbd, samp {
+  font-family: var(--font-code);
+  font-feature-settings: "calt" 1, "liga" 1, "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss06" 1, "ss07" 1, "ss08" 1, "ss09" 1;
+}
+
+pre {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: var(--spacing-md);
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+code {
+  font-size: 0.9em;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background-color: var(--bg-secondary);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
 /* Layout */
 .container {
   width: 100%;
@@ -262,7 +292,7 @@ blockquote, .emphasis {
   font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -283,7 +313,7 @@ blockquote, .emphasis {
   color: var(--text-secondary);
   font-weight: 500;
   font-size: 0.95rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-ui);
 }
 
 .nav-links a:hover {
@@ -366,7 +396,7 @@ blockquote, .emphasis {
 }
 
 .hero-tag {
-  font-family: var(--font-mono);
+  font-family: var(--font-ui);
   font-size: 0.9rem;
   color: var(--accent-primary);
   text-transform: uppercase;
@@ -392,7 +422,7 @@ blockquote, .emphasis {
   justify-content: center;
   padding: 0.75rem 1.5rem;
   border-radius: 6px;
-  font-family: var(--font-mono);
+  font-family: var(--font-ui);
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
@@ -448,7 +478,7 @@ blockquote, .emphasis {
 .footer-text {
   color: var(--text-muted);
   font-size: 0.875rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-ui);
 }
 
 /* Animations */
@@ -554,7 +584,7 @@ blockquote, .emphasis {
   font-size: 0.95rem;
 }
 .category-heading {
-  font-family: var(--font-mono);
+  font-family: var(--font-ui);
   text-transform: uppercase;
   color: var(--text-primary);
   letter-spacing: 0.1em;

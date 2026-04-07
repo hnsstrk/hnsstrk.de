@@ -1,52 +1,72 @@
-/* Monaspace Font Definitions */
+/* ==========================================================================
+   Monaspace Font Family — Variable Webfonts
+   Superfamilie von GitHub Next × Lettermatic
+   5 metrisch kompatible Varianten, 3 variable Achsen
+   ========================================================================== */
+
+/* --- Monaspace Neon (Neo-Grotesk Sans) ---
+   Rolle: Navigation, UI, Überschriften, Code, Footer
+   Stimmung: Technisch, präzise, neutral */
 @font-face {
     font-family: 'Monaspace Neon';
     src: url('../fonts/Monaspace%20Neon%20Var.woff2') format('woff2');
     font-weight: 200 800;
-    font-style: normal;
+    font-style: oblique 0deg 11deg;
+    font-stretch: 100% 125%;
     font-display: swap;
 }
 
+/* --- Monaspace Argon (Humanist Sans) ---
+   Rolle: Fließtext, Content-Bereiche, Dokumentation
+   Stimmung: Warm, einladend, lesefreundlich */
 @font-face {
     font-family: 'Monaspace Argon';
     src: url('../fonts/Monaspace%20Argon%20Var.woff2') format('woff2');
     font-weight: 200 800;
-    font-style: normal;
+    font-style: oblique 0deg 11deg;
+    font-stretch: 100% 125%;
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Monaspace Krypton';
-    src: url('../fonts/Monaspace%20Krypton%20Var.woff2') format('woff2');
-    font-weight: 200 800;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Monaspace Radon';
-    src: url('../fonts/Monaspace%20Radon%20Var.woff2') format('woff2');
-    font-weight: 200 800;
-    font-style: normal;
-    font-display: swap;
-}
-
+/* --- Monaspace Xenon (Slab Serif) ---
+   Rolle: Code-Blöcke, technische Hervorhebungen
+   Stimmung: Autoritär, strukturiert, Schreibmaschine */
 @font-face {
     font-family: 'Monaspace Xenon';
     src: url('../fonts/Monaspace%20Xenon%20Var.woff2') format('woff2');
     font-weight: 200 800;
-    font-style: normal;
+    font-style: oblique 0deg 11deg;
+    font-stretch: 100% 125%;
     font-display: swap;
 }
 
-/* Base Font Utility */
-.font-neon { font-family: 'Monaspace Neon', monospace; }
-.font-argon { font-family: 'Monaspace Argon', monospace; }
-.font-krypton { font-family: 'Monaspace Krypton', monospace; }
-.font-radon { font-family: 'Monaspace Radon', monospace; }
-.font-xenon { font-family: 'Monaspace Xenon', monospace; }
+/* --- Monaspace Radon (Handwriting) ---
+   Rolle: Zitate, persönliche Notizen, Emphasis
+   Stimmung: Persönlich, informell, kreativ */
+@font-face {
+    font-family: 'Monaspace Radon';
+    src: url('../fonts/Monaspace%20Radon%20Var.woff2') format('woff2');
+    font-weight: 200 800;
+    font-style: oblique 0deg 11deg;
+    font-stretch: 100% 125%;
+    font-display: swap;
+}
 
-/* Monaspace Neon NerdFont — fuer Icons */
+/* --- Monaspace Krypton (Mechanical Sans) ---
+   Rolle: Logo, FlipBoard Tiles, mechanische Displays
+   Stimmung: Mechanisch, industriell, maschinell */
+@font-face {
+    font-family: 'Monaspace Krypton';
+    src: url('../fonts/Monaspace%20Krypton%20Var.woff2') format('woff2');
+    font-weight: 200 800;
+    font-style: oblique 0deg 11deg;
+    font-stretch: 100% 125%;
+    font-display: swap;
+}
+
+/* --- Monaspace Neon NerdFont (Icon-Support) ---
+   Rolle: Nerd Font Icons in Navigation und UI
+   Statischer Font (nicht variabel), nur Regular */
 @font-face {
     font-family: 'Monaspace Neon NF';
     src: url('../fonts/MonaspaceNeonNF-Regular.woff2') format('woff2');
@@ -54,6 +74,16 @@
     font-style: normal;
     font-display: swap;
 }
+
+/* ==========================================================================
+   Font Utility Classes
+   ========================================================================== */
+
+.font-neon    { font-family: 'Monaspace Neon', monospace; }
+.font-argon   { font-family: 'Monaspace Argon', monospace; }
+.font-xenon   { font-family: 'Monaspace Xenon', monospace; }
+.font-radon   { font-family: 'Monaspace Radon', monospace; }
+.font-krypton { font-family: 'Monaspace Krypton', monospace; }
 
 /* Nerd Font Icon Utility */
 .nf-icon {
