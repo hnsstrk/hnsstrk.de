@@ -1,0 +1,12 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+{{ if .IsHome }}
+<link rel="stylesheet" href="{{ "css/board.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/tile.css" | relURL }}">
+{{ end }}
+<script src="{{ "js/theme.js" | relURL }}"></script>

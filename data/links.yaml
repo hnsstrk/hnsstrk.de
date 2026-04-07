@@ -1,0 +1,57 @@
+categories:
+  - name: "Code & Open Source"
+    links:
+      - title: "GitHub"
+        url: "https://github.com/hnsstrk"
+        description: "Alle meine Projekte und Repositories"
+        icon: "github"
+        featured: true
+      - title: "Codeberg"
+        url: "https://codeberg.org/hnsstrk"
+        description: "Mirror ausgewählter Repositories"
+        icon: "code"
+
+  - name: "Social Media"
+    links:
+      - title: "X / Twitter"
+        url: "https://x.com/hnsstrk"
+        description: "@hnsstrk"
+        icon: "twitter"
+      - title: "Instagram"
+        url: "https://instagram.com/hnsstrk"
+        description: "@hnsstrk"
+        icon: "instagram"
+      - title: "Reddit"
+        url: "https://reddit.com/u/hnsstrk"
+        description: "u/hnsstrk"
+        icon: "reddit"
+
+  - name: "Gaming"
+    links:
+      - title: "Twitch"
+        url: "https://twitch.tv/hnsstrk"
+        description: "Gelegentliche Streams"
+        icon: "twitch"
+      - title: "Steam"
+        url: "https://steamcommunity.com/id/hnsstrk"
+        description: "Steam-Profil"
+        icon: "steam"
+      - title: "Discord"
+        url: "#"
+        description: "hnsstrk"
+        icon: "discord"
+
+  - name: "RPG"
+    links:
+      - title: "online-resources.de"
+        url: "https://online-resources.de"
+        description: "Mein RPG-Hub — DSA, Fallout und mehr"
+        icon: "rpg"
+        featured: true
+
+  - name: "Kontakt"
+    links:
+      - title: "E-Mail"
+        url: "mailto:hans.juergen.stark@gmail.com"
+        description: "hans.juergen.stark [at] gmail.com"
+        icon: "mail"

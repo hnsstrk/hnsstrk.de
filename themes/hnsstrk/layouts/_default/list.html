@@ -1,0 +1,25 @@
+{{ define "main" }}
+{{ $sectionVar := "var(--syntax-entity)" }}
+{{ if eq .Section "projekte" }}{{ $sectionVar = "var(--syntax-constant)" }}{{ end }}
+<div class="container animate-fade-in content-container mt-4 mb-4" style="--card-accent: {{ $sectionVar }};">
+    <section class="content-body">
+        <h1>{{ .Title }}</h1>
+        {{ if .Content }}
+        <div class="markdown-content mb-4">
+            {{ .Content }}
+        </div>
+        {{ end }}
+        
+        <ul class="list-none">
+            {{ range .Pages }}
+            <li class="card">
+                <a href="{{ .RelPermalink }}" class="card-link">
+                    <h3>{{ .Title }}</h3>
+                    {{ with .Description }}<p class="text-sm mt-2">{{ . }}</p>{{ end }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+</div>
+{{ end }}

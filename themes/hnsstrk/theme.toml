@@ -1,0 +1,4 @@
+name = "hnsstrk"
+license = "MIT"
+description = "A modern, sleek Hugo theme focusing on typography and Monaspace."
+min_version = "0.159.1"
