@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $sectionVar := "var(--syntax-entity)" }}
-{{ if eq .Section "projekte" }}{{ $sectionVar = "var(--syntax-constant)" }}{{ end }}
+{{ if eq .Section "projects" }}{{ $sectionVar = "var(--syntax-constant)" }}{{ end }}
 <div class="container animate-fade-in content-container mt-4 mb-4" style="--card-accent: {{ $sectionVar }};">
     <section class="content-body">
         <h1>{{ .Title }}</h1>

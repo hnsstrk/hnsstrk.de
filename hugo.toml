@@ -44,11 +44,11 @@ theme = "hnsstrk"
 [menus]
   [[menus.main]]
     name = "Über mich"
-    url = "/ueber-mich/"
+    url = "/about/"
     weight = 10
   [[menus.main]]
     name = "Projekte"
-    url = "/projekte/"
+    url = "/projects/"
     weight = 20
   [[menus.main]]
     name = "Links"
@@ -57,9 +57,9 @@ theme = "hnsstrk"
 
   [[menus.footer]]
     name = "Impressum"
-    url = "/impressum/"
+    url = "/legal/"
     weight = 10
   [[menus.footer]]
     name = "Datenschutz"
-    url = "/datenschutz/"
+    url = "/privacy/"
     weight = 20
