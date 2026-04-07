@@ -31,10 +31,10 @@ theme = "hnsstrk"
 
 # Markup
 [markup.goldmark.renderer]
-  unsafe = true
+  unsafe = false
 
 [markup.goldmark.extensions.typographer]
-  disable = false
+  disable = true
 
 [markup.highlight]
   noClasses = false

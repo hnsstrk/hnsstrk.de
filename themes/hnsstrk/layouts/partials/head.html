@@ -64,7 +64,8 @@
 {{ $fonts := resources.Get "css/fonts.css" }}
 {{ $style := resources.Get "css/style.css" }}
 {{ $responsive := resources.Get "css/responsive.css" }}
-{{ $css := slice $reset $fonts $style $responsive | resources.Concat "css/bundle.css" }}
+{{ $syntax := resources.Get "css/syntax.css" }}
+{{ $css := slice $reset $fonts $style $syntax $responsive | resources.Concat "css/bundle.css" }}
 {{ if hugo.IsProduction }}
   {{ $css = $css | resources.Minify | resources.Fingerprint }}
 {{ end }}
