@@ -39,18 +39,18 @@ export const MESSAGES = [
   [
     '',
     '',
-    'HANS JUERGEN STARK',
-    '',
     'AI ENTHUSIAST',
+    '',
     'MAKER // GAMER',
+    '',
     ''
   ],
   [
     '',
     '',
-    'BUILDING THINGS',
+    'BLATANTLY COPYING',
+    'STACK OVERFLOW',
     'SINCE 2013',
-    '',
     '',
     ''
   ],

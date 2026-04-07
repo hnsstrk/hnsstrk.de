@@ -144,10 +144,10 @@
   --syntax-constant: #d2a6ff;
   --syntax-operator: #f29668;
 
-  --board-bg: #1a1f2e;
-  --board-border: #1b1f29;
-  --tile-bg: #141821;
-  --tile-face: #1c2130;
+  --board-bg: #171b24;
+  --board-border: #1f242d;
+  --tile-bg: #11151d;
+  --tile-face: #1e232c;
   --tile-text: #bfbdb6;
   --tile-seam: rgba(0, 0, 0, 0.5);
   --tile-highlight: rgba(255, 255, 255, 0.05);
@@ -326,9 +326,12 @@ code {
 .nav-links a:nth-of-type(2) i, .nav-links a:nth-of-type(2) .nf-icon { color: var(--syntax-constant); }
 .nav-links a:nth-of-type(3) i, .nav-links a:nth-of-type(3) .nf-icon { color: var(--syntax-string); }
 
-/* Theme Switcher — Pill Toggle (ayutheme.com style) */
+/* Theme Switcher — Fixed Pill Toggle (ayutheme.com style) */
 .theme-switcher {
-  position: relative;
+  position: fixed;
+  top: calc((80px - 50px) / 2);
+  right: var(--spacing-lg);
+  z-index: 10000;
   display: flex;
   gap: 2px;
   padding: 4px;
@@ -337,6 +340,7 @@ code {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-color);
   border-radius: 9999px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .theme-indicator {
