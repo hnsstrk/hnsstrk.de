@@ -15,6 +15,7 @@
                 <a href="{{ .URL | relURL }}">
                     {{ if eq .Name "Über mich" }}<span class="nf-icon">&#xf007;</span>{{ end }}
                     {{ if eq .Name "Projekte" }}<span class="nf-icon">&#xf121;</span>{{ end }}
+                    {{ if eq .Name "Blog" }}<span class="nf-icon">&#xf02d;</span>{{ end }}
                     {{ if eq .Name "Links" }}<span class="nf-icon">&#xf0c1;</span>{{ end }}
                     {{ .Name }}
                 </a>

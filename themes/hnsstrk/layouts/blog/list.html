@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="container animate-fade-in content-container mt-4 mb-4" style="--card-accent: var(--syntax-markup);">
+    <section class="content-body">
+        <h1>{{ .Title }}</h1>
+        {{ if .Content }}
+        <div class="markdown-content mb-4">
+            {{ .Content }}
+        </div>
+        {{ end }}
+
+        <ul class="list-none">
+            {{ range .Pages.ByDate.Reverse }}
+            <li class="card">
+                <a href="{{ .RelPermalink }}" class="card-link">
+                    <div class="blog-card-meta">
+                        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+                        <span class="meta-separator">&middot;</span>
+                        <span>{{ i18n "readingTime" .ReadingTime }}</span>
+                    </div>
+                    <h3>{{ .Title }}</h3>
+                    {{ with .Description }}<p class="text-sm mt-2">{{ . }}</p>{{ end }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+</div>
+{{ end }}

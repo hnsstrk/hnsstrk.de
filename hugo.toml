@@ -40,6 +40,10 @@ theme = "hnsstrk"
   noClasses = false
   lineNos = false
 
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+
 # Menus
 [menus]
   [[menus.main]]
@@ -50,6 +54,10 @@ theme = "hnsstrk"
     name = "Projekte"
     url = "/projects/"
     weight = 20
+  [[menus.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 25
   [[menus.main]]
     name = "Links"
     url = "/links/"

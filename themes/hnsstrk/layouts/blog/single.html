@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="container animate-fade-in content-container mt-4 mb-4">
+    <article class="content-body blog-post">
+        <header class="blog-header">
+            <h1>{{ .Title }}</h1>
+            <div class="blog-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                    {{ .Date | time.Format ":date_long" }}
+                </time>
+                <span class="meta-separator">&middot;</span>
+                <span>{{ i18n "readingTime" .ReadingTime }}</span>
+            </div>
+        </header>
+        <div class="markdown-content">
+            {{ .Content }}
+        </div>
+        {{ with .Params.tags }}
+        <footer class="blog-footer">
+            <div class="blog-tags">
+                {{ range . }}
+                <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>
+                {{ end }}
+            </div>
+        </footer>
+        {{ end }}
+    </article>
+</div>
+{{ end }}

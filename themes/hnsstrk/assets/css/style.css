@@ -324,7 +324,8 @@ code {
 /* Nav Icons Colored via Ayu Syntax Palette */
 .nav-links a:nth-of-type(1) i, .nav-links a:nth-of-type(1) .nf-icon { color: var(--syntax-entity); }
 .nav-links a:nth-of-type(2) i, .nav-links a:nth-of-type(2) .nf-icon { color: var(--syntax-constant); }
-.nav-links a:nth-of-type(3) i, .nav-links a:nth-of-type(3) .nf-icon { color: var(--syntax-string); }
+.nav-links a:nth-of-type(3) i, .nav-links a:nth-of-type(3) .nf-icon { color: var(--syntax-markup); }
+.nav-links a:nth-of-type(4) i, .nav-links a:nth-of-type(4) .nf-icon { color: var(--syntax-string); }
 
 /* Theme Switcher — Fixed Pill Toggle (ayutheme.com style) */
 .theme-switcher {
@@ -596,4 +597,54 @@ code {
   margin-bottom: var(--spacing-md);
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.25rem;
+}
+
+/* Blog Styles */
+.blog-header {
+  margin-bottom: var(--spacing-xl);
+}
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: var(--spacing-sm);
+}
+.meta-separator {
+  color: var(--text-muted);
+}
+.blog-footer {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+}
+.blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background-color: color-mix(in srgb, var(--syntax-markup) 10%, var(--bg-primary));
+  border: 1px solid color-mix(in srgb, var(--syntax-markup) 30%, transparent);
+  border-radius: 4px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.tag:hover {
+  background-color: color-mix(in srgb, var(--syntax-markup) 20%, var(--bg-primary));
+  border-color: var(--syntax-markup);
+  text-decoration: none;
+  color: var(--text-primary);
+}
+.blog-card-meta {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
 }
