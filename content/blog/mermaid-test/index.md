@@ -11,7 +11,7 @@ mermaid:
     useWidth: 960
 ---
 
-Mermaid ist eine textbasierte Diagrammsprache, mit der sich technische Zusammenhänge direkt in Markdown dokumentieren lassen. Für den Blog ist das besonders nützlich, weil Diagramme versionierbar bleiben, in Pull Requests überprüft werden können und im gleichen redaktionellen Workflow entstehen wie der restliche Inhalt.
+Mermaid ist eine textbasierte Diagrammsprache, mit der sich technische Zusammenhänge direkt in Markdown dokumentieren lassen. Für den Blog ist das besonders nützlich, weil Diagramme versionierbar bleiben, sich in Pull Requests prüfen lassen und im gleichen redaktionellen Workflow entstehen wie der restliche Inhalt.
 
 <!--more-->
 
@@ -24,13 +24,13 @@ Die Farbskala basiert auf acht Ayu-Syntaxfarben aus dem NPM-Paket `ayu` und wird
 1. `markup` (rot)
 2. `keyword` (orange)
 3. `func` (gelb)
-4. `string` (gruen)
+4. `string` (grün)
 5. `regexp` (teal)
 6. `tag` (blau)
 7. `constant` (violett)
 8. `operator` (rosa)
 
-Die Node-Hintergruende verwenden die vollen Ayu-Syntaxfarben bei 100 % Saettigung. Schrift und Rahmen werden dynamisch per `darken()`-Funktion berechnet: gleicher Farbton, aber abgedunkelt (Text auf 45 %, Border auf 65 %). So entsteht ein stimmiger, monochromatischer Look pro Node, und der Kontrast bleibt ueber Light, Mirage und Dark konsistent.
+Die Node-Hintergründe verwenden die vollen Ayu-Syntaxfarben bei 100 % Sättigung. Schrift und Rahmen werden dynamisch per `darken()`-Funktion berechnet: gleicher Farbton, aber abgedunkelt (Text auf 45 %, Border auf 65 %). So entsteht ein stimmiger, monochromatischer Look pro Node, während der Kontrast über Light, Mirage und Dark hinweg konsistent bleibt.
 
 Beim Theme-Wechsel werden Diagramme neu gerendert. Dadurch übernehmen sie unmittelbar die passenden Variablen des aktiven Ayu-Themes.
 
