@@ -13,6 +13,18 @@ Eine Sammlung von Hintergrundbildern, erstellt mit Midjourney. Frei verfuegbar u
 
 ## Formate
 
-- **16x9** — Standardmonitore
-- **16x18** — Dual-Monitor (uebereinander)
-- **32x9** — Ultra-Wide / Dual-Monitor (nebeneinander)
+| Format | Einsatz |
+|--------|---------|
+| **16:9** | Standardmonitore |
+| **16:18** | Dual-Monitor (uebereinander) |
+| **32:9** | Ultra-Wide oder Dual-Monitor (nebeneinander) |
+
+Die Bilder sind nach Seitenverhaeltnis in separate Verzeichnisse sortiert und koennen direkt aus dem Repository heruntergeladen werden.
+
+## Lizenz
+
+CC BY 4.0 — Namensnennung erwuenscht, aber nicht erzwungen.
+
+## Links
+
+- [GitHub Repository](https://github.com/hnsstrk/wallpapers)
