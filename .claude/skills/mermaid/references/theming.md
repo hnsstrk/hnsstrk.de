@@ -166,6 +166,8 @@ Mermaid derives many variables automatically:
 |----------|-------------|
 | `labelColor` | Label text color |
 | `altBackground` | Alternative background for nested states |
+| `stateLabelColor` | State node label text color |
+| `transitionLabelColor` | Transition label text color |
 
 ### Class Diagram Variables
 
@@ -224,7 +226,7 @@ config:
 
 ## Ayu Theme Integration (hnsstrk.de)
 
-Auf hnsstrk.de werden **volle Ayu-Syntax-Farben** (100% Sättigung) als Node-Hintergründe verwendet. Borders sind auf ~80% abgedunkelt. Text auf farbigen Nodes ist immer `#2a2e38` (dunkelgrau).
+Auf hnsstrk.de werden **volle Ayu-Syntax-Farben** (100% Sättigung) als Node-Hintergründe verwendet. Text und Rahmen werden dynamisch per `darken(syntaxFarbe, faktor)` berechnet — Text auf 45 %, Border auf 65 % der Originalfarbe (gleicher Farbton).
 
 Quelle: NPM-Paket `ayu` — `import { dark, light, mirage } from 'ayu'`
 
@@ -241,11 +243,17 @@ Quelle: NPM-Paket `ayu` — `import { dark, light, mirage } from 'ayu'`
 | 6 | constant (violett) | `#A37ACC` | `#DFBFFF` | `#D2A6FF` |
 | 7 | operator (rosa) | `#ED9366` | `#F29E74` | `#F29668` |
 
+Dynamisch berechnete Variablen (nicht in Tabelle, zur Laufzeit per `darken()`):
+- `cScaleLabel0–11` = `darken(cScale, 0.45)` (Text pro Slot)
+- `cScalePeer0–11` = `darken(cScale, 0.65)` (Border pro Slot)
+- `classText`, `stateLabelColor`, `transitionLabelColor` = `darken(primaryColor, 0.45)`
+- `nodeBorder`, `actorBorder`, `noteBorderColor` = `darken(bgColor, 0.65)`
+
 ### Pie-Farben
 
 `pie1`–`pie12` werden automatisch aus den cScale-Werten gesetzt (zyklisch). Texte:
 
-- `pieSectionTextColor` = `#2a2e38` (dunkel, auf farbigen Slices)
+- `pieSectionTextColor` = `darken(_tints[0], 0.45)` (dynamisch, abgedunkelte Markup-Farbe)
 - `pieTitleTextColor` = `titleColor` (Theme-Textfarbe, auf Hintergrund)
 - `pieLegendTextColor` = `textColor` (Theme-Textfarbe, auf Hintergrund)
 
@@ -256,6 +264,7 @@ Quelle: NPM-Paket `ayu` — `import { dark, light, mirage } from 'ayu'`
 3. **Gantt immer mit `axisFormat`, `tickInterval`, `useWidth: 960`**
 4. **Alle drei Themes testen** (Light, Mirage, Dark)
 5. **Pie Charts** nutzen automatisch die cScale-Farben via pie1-pie12
+6. **Mindmap-Nodes**: `fixMindmapText()` setzt Text und Stroke per JS — keine themeVariable noetig
 
 ## Gotchas
 

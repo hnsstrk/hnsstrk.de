@@ -32,7 +32,7 @@ Nutze das Paket wenn Farben programmatisch abgefragt oder validiert werden solle
 
 - **Offizielle Palette**: [references/palette.md](references/palette.md) — Alle Ayu-Farben (Palette, Syntax, Surface, UI, Accent) für alle drei Themes
 - **CSS-Variablen**: [references/css-variables.md](references/css-variables.md) — Mapping der Ayu-Farben auf CSS Custom Properties in `style.css`
-- **Mermaid-Integration**: [references/mermaid.md](references/mermaid.md) — cScale-Mapping, themeVariables, Gantt-Config, Tint-Berechnung
+- **Mermaid-Integration**: [references/mermaid.md](references/mermaid.md) — cScale-Mapping, themeVariables, Gantt-Config, darken()-Berechnung
 
 ## Verbindliche Regeln
 
@@ -40,7 +40,7 @@ Nutze das Paket wenn Farben programmatisch abgefragt oder validiert werden solle
 2. **Nur offizielle Ayu-Farben verwenden** — Keine erfundenen Hex-Werte. Farben aus [references/palette.md](references/palette.md) ableiten
 3. **CSS-Variablen nutzen** — Nie Farben hardcoden, immer `var(--name)` verwenden
 4. **Mermaid: Keine inline `style`-Direktiven** — Das Theme steuert alle Diagrammfarben
-5. **Neue Tints berechnen** — `bg × (1 - α) + farbe × α` mit α=0.12 für Hintergründe, α=0.25 für Borders
+5. **Farben dynamisch berechnen** — `darken(syntaxFarbe, faktor)` mit faktor=0.45 für Text, faktor=0.65 für Borders
 6. **Kontrast prüfen** — Text auf Hintergrund muss in allen drei Themes lesbar sein
 
 ## Schnellreferenz: Kernfarben
