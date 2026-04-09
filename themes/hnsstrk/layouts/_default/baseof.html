@@ -21,6 +21,9 @@
                 </a>
                 {{ end }}
             </nav>
+            <button class="nav-toggle" aria-label="Navigation öffnen" aria-expanded="false">
+                <span class="nav-toggle-icon"></span>
+            </button>
         </div>
     </header>
 
@@ -42,16 +45,206 @@
         {{ block "main" . }}{{ end }}
     </main>
 
+    {{/* Mermaid.js — nur laden wenn Mermaid-Blöcke auf der Seite vorhanden */}}
+    {{ if .Store.Get "hasMermaid" }}
+      {{ with resources.Get "js/mermaid.min.js" }}
+        {{ if hugo.IsProduction }}
+          {{ with . | resources.Fingerprint }}
+            <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+          {{ end }}
+        {{ else }}
+          <script src="{{ .RelPermalink }}"></script>
+        {{ end }}
+      {{ end }}
+      <script>
+        (function() {
+          /* ── Ayu-themed Mermaid configuration ── */
+          var mermaidSources = new Map();
+          var shared = {
+            fontFamily: 'Monaspace Argon, monospace',
+            fontSize: '14px'
+          };
+
+          var themeConfigs = {
+            light: {
+              background: '#fcfcfc',
+              primaryColor: '#e8f4f8',
+              primaryTextColor: '#5c6166',
+              primaryBorderColor: '#55b4d4',
+              secondaryColor: '#f0f5e6',
+              secondaryTextColor: '#5c6166',
+              secondaryBorderColor: '#86b300',
+              tertiaryColor: '#f0eaf5',
+              tertiaryTextColor: '#5c6166',
+              tertiaryBorderColor: '#a37acc',
+              lineColor: '#828e9f',
+              textColor: '#5c6166',
+              mainBkg: '#e8f4f8',
+              nodeBorder: '#55b4d4',
+              nodeTextColor: '#5c6166',
+              clusterBkg: '#f8f9fa',
+              clusterBorder: '#e8e8e8',
+              titleColor: '#5c6166',
+              edgeLabelBackground: '#fcfcfc',
+              actorBkg: '#f8f9fa',
+              actorBorder: '#55b4d4',
+              actorTextColor: '#5c6166',
+              actorLineColor: '#828e9f',
+              signalColor: '#828e9f',
+              signalTextColor: '#5c6166',
+              noteBkgColor: '#fff8e6',
+              noteTextColor: '#5c6166',
+              noteBorderColor: '#f29718',
+              activationBkgColor: '#e8f4f8',
+              activationBorderColor: '#55b4d4',
+              labelBoxBkgColor: '#f8f9fa',
+              labelBoxBorderColor: '#e8e8e8',
+              labelTextColor: '#5c6166'
+            },
+            mirage: {
+              background: '#242936',
+              primaryColor: '#2d3345',
+              primaryTextColor: '#cccac2',
+              primaryBorderColor: '#5ccfe6',
+              secondaryColor: '#2a3530',
+              secondaryTextColor: '#cccac2',
+              secondaryBorderColor: '#d5ff80',
+              tertiaryColor: '#302a3d',
+              tertiaryTextColor: '#cccac2',
+              tertiaryBorderColor: '#dfbfff',
+              lineColor: '#707a8c',
+              textColor: '#cccac2',
+              mainBkg: '#2d3345',
+              nodeBorder: '#5ccfe6',
+              nodeTextColor: '#cccac2',
+              clusterBkg: '#1f2430',
+              clusterBorder: '#2b3040',
+              titleColor: '#cccac2',
+              edgeLabelBackground: '#242936',
+              actorBkg: '#282e3b',
+              actorBorder: '#5ccfe6',
+              actorTextColor: '#cccac2',
+              actorLineColor: '#707a8c',
+              signalColor: '#707a8c',
+              signalTextColor: '#cccac2',
+              noteBkgColor: '#3d3520',
+              noteTextColor: '#cccac2',
+              noteBorderColor: '#ffcc66',
+              activationBkgColor: '#2d3345',
+              activationBorderColor: '#5ccfe6',
+              labelBoxBkgColor: '#282e3b',
+              labelBoxBorderColor: '#2b3040',
+              labelTextColor: '#cccac2'
+            },
+            dark: {
+              background: '#0d1017',
+              primaryColor: '#1e232c',
+              primaryTextColor: '#bfbdb6',
+              primaryBorderColor: '#39bae6',
+              secondaryColor: '#1a2218',
+              secondaryTextColor: '#bfbdb6',
+              secondaryBorderColor: '#aad94c',
+              tertiaryColor: '#1e1a28',
+              tertiaryTextColor: '#bfbdb6',
+              tertiaryBorderColor: '#d2a6ff',
+              lineColor: '#5a6378',
+              textColor: '#bfbdb6',
+              mainBkg: '#1e232c',
+              nodeBorder: '#39bae6',
+              nodeTextColor: '#bfbdb6',
+              clusterBkg: '#0b0e14',
+              clusterBorder: '#1b1f29',
+              titleColor: '#bfbdb6',
+              edgeLabelBackground: '#0d1017',
+              actorBkg: '#141821',
+              actorBorder: '#39bae6',
+              actorTextColor: '#bfbdb6',
+              actorLineColor: '#5a6378',
+              signalColor: '#5a6378',
+              signalTextColor: '#bfbdb6',
+              noteBkgColor: '#2a2215',
+              noteTextColor: '#bfbdb6',
+              noteBorderColor: '#e6b450',
+              activationBkgColor: '#1e232c',
+              activationBorderColor: '#39bae6',
+              labelBoxBkgColor: '#141821',
+              labelBoxBorderColor: '#1b1f29',
+              labelTextColor: '#bfbdb6'
+            }
+          };
+
+          function getMermaidConfig(theme, startOnLoad) {
+            var vars = themeConfigs[theme] || themeConfigs.light;
+            return {
+              startOnLoad: !!startOnLoad,
+              theme: 'base',
+              themeVariables: Object.assign({}, shared, vars),
+              securityLevel: 'strict'
+            };
+          }
+
+          function storeSources() {
+            document.querySelectorAll('.mermaid').forEach(function(el) {
+              if (!mermaidSources.has(el)) {
+                mermaidSources.set(el, el.textContent);
+              }
+            });
+          }
+
+          function restoreSources() {
+            mermaidSources.forEach(function(src, el) {
+              el.removeAttribute('data-processed');
+              el.innerHTML = src;
+            });
+          }
+
+          /* Initial render */
+          var theme = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'mirage' : 'light');
+          storeSources();
+          mermaid.initialize(getMermaidConfig(theme, true));
+
+          /* Re-render on theme switch */
+          window.addEventListener('themechange', function(e) {
+            restoreSources();
+            mermaid.initialize(getMermaidConfig(e.detail.theme, false));
+            mermaid.run({ querySelector: '.mermaid' });
+          });
+        })();
+      </script>
+    {{ end }}
+
     <footer class="site-footer">
-        <div class="container footer-inner">
-            <div class="footer-text">
-                &copy; {{ now.Format "2006" }} {{ .Site.Title }}.<br>
-                {{ i18n "footerPoweredBy" }} <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>, <a href="https://github.com/ayu/ayu" target="_blank" rel="noopener">Ayu</a>, <a href="https://github.com/magnum6actual/flipoff" target="_blank" rel="noopener">FlipOff</a> &amp; <a href="https://monaspace.githubnext.com/" target="_blank" rel="noopener">Monaspace</a>.
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <span class="footer-brand"><span class="footer-prompt">{{ site.Params.logoPrompt | default ">" }}</span> {{ .Site.Title }}</span>
+                    {{ with site.Params.tagline }}<p class="footer-tagline">{{ . }}</p>{{ end }}
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">{{ i18n "footerPages" | default "Seiten" }}</span>
+                    <nav class="footer-nav">
+                        {{ range .Site.Menus.main }}
+                        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+                        {{ end }}
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">{{ i18n "footerElsewhere" | default "Anderswo" }}</span>
+                    <nav class="footer-nav">
+                        {{ with site.Params.social.github }}<a href="https://github.com/{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
+                        {{ with site.Params.social.mastodon }}<a href="https://mastodon.social/{{ . }}" target="_blank" rel="noopener">Mastodon</a>{{ end }}
+                        {{ with site.Params.social.bluesky }}<a href="https://bsky.app/profile/{{ . }}" target="_blank" rel="noopener">Bluesky</a>{{ end }}
+                        {{ with site.Params.social.linkedin }}<a href="https://linkedin.com/in/{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+                        <a href="{{ "index.xml" | absURL }}">RSS</a>
+                    </nav>
+                </div>
             </div>
-            <div class="footer-links">
-                {{ range .Site.Menus.footer }}
-                <a href="{{ .URL | relURL }}" class="footer-text">{{ .Name }}</a>
-                {{ end }}
+            <div class="footer-bottom">
+                <span class="footer-text">&copy; {{ now.Format "2006" }} {{ .Site.Title }} <span class="footer-separator">&middot;</span> {{ i18n "footerPoweredBy" | default "Powered by" }} <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>, <a href="https://github.com/magnum6actual/flipoff" target="_blank" rel="noopener">FlipOff</a>, <a href="https://monaspace.githubnext.com/" target="_blank" rel="noopener">Monaspace</a> &amp; <a href="https://github.com/ayu-theme" target="_blank" rel="noopener">Ayu</a></span>
+                <span class="footer-legal">
+                    {{ range $i, $item := .Site.Menus.footer }}{{ if $i }} <span class="footer-separator">&middot;</span> {{ end }}<a href="{{ .URL | relURL }}" class="footer-link">{{ .Name }}</a>{{ end }}
+                </span>
             </div>
         </div>
     </footer>
