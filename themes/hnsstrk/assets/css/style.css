@@ -18,16 +18,16 @@
 
   /* Ayu Syntax Colors */
   --syntax-tag: #55b4d4;
-  --syntax-func: #eba400;
-  --syntax-entity: #22a4e6;
+  --syntax-func: #f2a300;
+  --syntax-entity: #399ee6;
   --syntax-string: #86b300;
   --syntax-regexp: #4cbf99;
   --syntax-markup: #f07171;
-  --syntax-keyword: #fa8532;
-  --syntax-special: #e59645;
-  --syntax-comment: #adaeb1;
+  --syntax-keyword: #ff7e33;
+  --syntax-special: #d9b077;
+  --syntax-comment: #787b80;
   --syntax-constant: #a37acc;
-  --syntax-operator: #f2a191;
+  --syntax-operator: #ed9366;
 
   /* Logo Prompt */
   --logo-prompt: #95e6cb;
@@ -47,7 +47,7 @@
   --scramble-3: #a37acc;
   --scramble-4: #f07171;
   --scramble-5: #f29718;
-  --scramble-6: #22a4e6;
+  --scramble-6: #399ee6;
 
   /* Accent-Bar-Farben */
   --accent-bar-1: #4cbf99;
@@ -118,14 +118,14 @@
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
 
   --syntax-tag: #5ccfe6;
-  --syntax-func: #ffcd66;
+  --syntax-func: #ffd173;
   --syntax-entity: #73d0ff;
   --syntax-string: #d5ff80;
   --syntax-regexp: #95e6cb;
   --syntax-markup: #f28779;
-  --syntax-keyword: #ffa659;
-  --syntax-special: #d9be98;
-  --syntax-comment: #6e7c8f;
+  --syntax-keyword: #ffad66;
+  --syntax-special: #ffdfb3;
+  --syntax-comment: #b8cfe6;
   --syntax-constant: #dfbfff;
   --syntax-operator: #f29e74;
 
@@ -166,7 +166,7 @@
 
   --text-primary: #bfbdb6;
   --text-secondary: #5a6378;
-  --text-muted: #5a6673;
+  --text-muted: #565b66;
 
   --accent-primary: #e6b450;
   --accent-hover: #cc9f3d;
@@ -183,7 +183,7 @@
   --syntax-markup: #f07178;
   --syntax-keyword: #ff8f40;
   --syntax-special: #e6c08a;
-  --syntax-comment: #5a6673;
+  --syntax-comment: #99adbf;
   --syntax-constant: #d2a6ff;
   --syntax-operator: #f29668;
 
