@@ -287,6 +287,8 @@
             vars.tertiaryBorderColor = darken(cfg.tertiaryColor, bF);
             vars.nodeTextColor = darken(cfg.primaryColor, tF);
             vars.classText = darken(cfg.primaryColor, tF);
+            vars.stateLabelColor = darken(cfg.stateBkg || cfg.mainBkg, tF);
+            vars.transitionLabelColor = darken(cfg.stateBkg || cfg.mainBkg, tF);
             vars.nodeBorder = darken(cfg.primaryColor, bF);
             vars.actorTextColor = darken(cfg.actorBkg, tF);
             vars.actorBorder = darken(cfg.actorBkg, bF);
@@ -351,8 +353,10 @@
                 var m = fill.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
                 if (m) {
                   var hex = '#' + ((1<<24)+(+m[1]<<16)+(+m[2]<<8)+(+m[3])).toString(16).slice(1);
-                  var div = fo.querySelector('div');
-                  if (div) div.style.color = darken(hex, 0.45);
+                  var dark = darken(hex, 0.45);
+                  fo.querySelectorAll('div, span, p').forEach(function(el) {
+                    el.style.color = dark;
+                  });
                 }
               }
             });
