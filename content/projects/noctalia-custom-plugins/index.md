@@ -1,6 +1,6 @@
 ---
 title: "noctalia-custom-plugins"
-description: "Plugin-Repository fuer Noctalia Shell — einen Wayland-Compositor auf Basis von Quickshell"
+description: "Plugin-Repository für Noctalia Shell — einen Wayland-Compositor auf Basis von Quickshell"
 date: 2024-03-01
 tags: ["qml", "kde", "wayland", "linux", "desktop"]
 technologies: ["QML", "JavaScript", "Quickshell"]
@@ -9,16 +9,16 @@ category: "Desktop-Bastelei"
 weight: 1
 ---
 
-Plugin-Repository fuer [Noctalia Shell](https://github.com/hnsstrk/noctalia-custom-plugins), einen Wayland-Compositor auf Basis des Quickshell-Frameworks. Aktuell enthaelt das Repo ein Plugin — weitere sind in Planung.
+Plugin-Repository für [Noctalia Shell](https://github.com/hnsstrk/noctalia-custom-plugins), einen Wayland-Compositor auf Basis des Quickshell-Frameworks. Aktuell enthält das Repo ein Plugin — weitere sind in Planung.
 
 ## Taskwarrior-Plugin (v2.0.0)
 
-Ein vollstaendiger Taskwarrior-Client als QML/JavaScript-Plugin:
+Ein vollständiger Taskwarrior-Client als QML/JavaScript-Plugin:
 
-- **Statusbar-Widget** — zeigt offene, ueberfaellige und heute faellige Tasks
+- **Statusbar-Widget** — zeigt offene, überfällige und heute fällige Tasks
 - **Popup-Panel** — Taskliste mit Filtern, Sortierung und Inline-Bearbeitung
-- **IPC-Handler** — Plugin-Kommunikation ueber Noctalia-Messaging
-- **i18n** — Uebersetzungssystem fuer mehrsprachige Oberflaechen
+- **IPC-Handler** — Plugin-Kommunikation über Noctalia-Messaging
+- **i18n** — Übersetzungssystem für mehrsprachige Oberflächen
 
 ## Architektur
 

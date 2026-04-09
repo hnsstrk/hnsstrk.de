@@ -9,21 +9,21 @@ category: "Kreativ"
 weight: 4
 ---
 
-Eine Sammlung von Hintergrundbildern, erstellt mit Midjourney. Frei verfuegbar unter CC BY 4.0 fuer private und kommerzielle Nutzung.
+Eine Sammlung von Hintergrundbildern, erstellt mit Midjourney. Frei verfügbar unter CC BY 4.0 für private und kommerzielle Nutzung.
 
 ## Formate
 
 | Format | Einsatz |
 |--------|---------|
 | **16:9** | Standardmonitore |
-| **16:18** | Dual-Monitor (uebereinander) |
+| **16:18** | Dual-Monitor (übereinander) |
 | **32:9** | Ultra-Wide oder Dual-Monitor (nebeneinander) |
 
-Die Bilder sind nach Seitenverhaeltnis in separate Verzeichnisse sortiert und koennen direkt aus dem Repository heruntergeladen werden.
+Die Bilder sind nach Seitenverhältnis in separate Verzeichnisse sortiert und können direkt aus dem Repository heruntergeladen werden.
 
 ## Lizenz
 
-CC BY 4.0 — Namensnennung erwuenscht, aber nicht erzwungen.
+CC BY 4.0 — Namensnennung erwünscht, aber nicht erzwungen.
 
 ## Links
 

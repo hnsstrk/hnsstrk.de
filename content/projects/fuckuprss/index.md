@@ -8,19 +8,19 @@ category: "KI-Werkzeug"
 weight: 2
 ---
 
-Ein RSS-Aggregator mit einer 8-stufigen KI-Analyse-Pipeline, die vollstaendig lokal laeuft — gebaut mit Svelte 5, Tauri 2 und Ollama. Ohne Cloud, ohne API-Keys, ohne geteilte Daten. Der Name ist eine Referenz auf den F.U.C.K.U.P.-Computer aus der *Illuminatus!*-Trilogie.
+Ein RSS-Aggregator mit einer 8-stufigen KI-Analyse-Pipeline, die vollständig lokal läuft — gebaut mit Svelte 5, Tauri 2 und Ollama. Ohne Cloud, ohne API-Keys, ohne geteilte Daten. Der Name ist eine Referenz auf den F.U.C.K.U.P.-Computer aus der *Illuminatus!*-Trilogie.
 
 ## Die Pipeline
 
-Jeder neue Artikel durchlaeuft acht Verarbeitungsstufen:
+Jeder neue Artikel durchläuft acht Verarbeitungsstufen:
 
 1. **Hagbard's Retrieval** — Volltext-Extraktion per Readability
 2. **Statistical Pre-Analysis** — TF-IDF und MMR (rein statistisch)
 3. **Discordian Analysis** — LLM-Zusammenfassung, Kategorien, Keywords, Artikeltyp
 4. **Article Embedding** — Vektorisierung (Snowflake Arctic Embed, bis 8.192 Token)
 5. **Immanentize Network** — Schlagwort-Verarbeitung und Synonyme
-6. **Story Clustering** — Union-Find-Gruppierung (Aehnlichkeit > 0.78)
-7. **Briefing Generation** — Taegliche KI-Zusammenfassung der Top-Artikel
+6. **Story Clustering** — Union-Find-Gruppierung (Ähnlichkeit > 0.78)
+7. **Briefing Generation** — Tägliche KI-Zusammenfassung der Top-Artikel
 8. **Named Entity Recognition** — Personen, Organisationen, Orte, Events
 
 ## Illuminatus!-Terminologie
@@ -28,7 +28,7 @@ Jeder neue Artikel durchlaeuft acht Verarbeitungsstufen:
 | Begriff | Bedeutung | Herkunft |
 |---------|-----------|----------|
 | Fnord | Artikel | Das unsichtbare Wort |
-| Pentacle | Feed-Quelle | Das magische Fuenfeck |
+| Pentacle | Feed-Quelle | Das magische Fünfeck |
 | Sephiroth | Kategorie | Die 10 Emanationen der Kabbala |
 | Immanentize | Schlagwort | "Immanentize the Eschaton" |
 | Greyface Alert | Bias-Warnung | Der Feind des Chaos |
@@ -43,4 +43,4 @@ Jeder neue Artikel durchlaeuft acht Verarbeitungsstufen:
 
 ## Status
 
-Phase 4 abgeschlossen. Repository wird noch veroeffentlicht.
+Phase 4 abgeschlossen. Repository wird noch veröffentlicht.
