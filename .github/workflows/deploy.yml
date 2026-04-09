@@ -15,11 +15,12 @@ jobs:
           echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
           ssh-keyscan -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
 
-      - name: Build auf Server triggern
+      - name: Deploy via SSH-Trigger
         run: |
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
+          ssh -i ~/.ssh/id_ed25519 \
+            -o StrictHostKeyChecking=no \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} \
-            build-hnsstrk
+            "deploy-hugo hnsstrk.de"
 
       - name: SSH-Key aufräumen
         if: always()
