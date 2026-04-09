@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="container animate-fade-in content-container mt-4 mb-4" style="--card-accent: var(--syntax-regexp);">
+<div class="container animate-fade-in content-container mt-4 mb-4" style="--card-accent: var(--syntax-string);">
     <section class="content-body">
         <h1>{{ .Title }}</h1>
         {{ if .Content }}
@@ -14,7 +14,7 @@
             <div class="grid-2-col gap-4">
                 {{ range .links }}
                 <a href="{{ .url }}" class="card link-card {{ if .featured }}featured{{ end }}" target="_blank" rel="noopener noreferrer">
-                    <h3 style="display: flex; align-items: center; gap: 0.5rem;">
+                    <h3>
                         {{ if .icon }}
                             <span class="nf-icon">{{ if eq .icon "github" }}&#xf09b;{{ else if eq .icon "mastodon" }}&#xf0ad1;{{ else if eq .icon "steam" }}&#xf1b6;{{ else if eq .icon "code" }}&#xf121;{{ else if eq .icon "mail" }}&#xf0e0;{{ else if eq .icon "rpg" }}&#xf1b2;{{ else if eq .icon "link" }}&#xf0c1;{{ else if eq .icon "youtube" }}&#xf167;{{ else if eq .icon "twitter" }}&#xf099;{{ else if eq .icon "linkedin" }}&#xf0e1;{{ else if eq .icon "reddit" }}&#xf281;{{ else }}&#xf0c1;{{ end }}</span>
                         {{ end }}

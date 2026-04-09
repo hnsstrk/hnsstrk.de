@@ -55,6 +55,7 @@ service-account.json
 config.secret.toml
 config.private.toml
 netlify.toml.secret
+TODO.md
 
 
 # =============================================================================

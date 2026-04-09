@@ -93,6 +93,7 @@
               clusterBorder: '#d8dce2',
               titleColor: '#5c6166',
               edgeLabelBackground: '#fcfcfc',
+              erEdgeLabelBackground: '#fcfcfc',
               actorBkg: '#e2f1f9',
               actorBorder: '#c6e6f7',
               actorTextColor: '#5c6166',
@@ -107,12 +108,15 @@
               labelBoxBkgColor: '#f5f6f8',
               labelBoxBorderColor: '#d8dce2',
               labelTextColor: '#5c6166',
+              /* ER diagram */
+              attributeBackgroundColorOdd: '#f5f6f8',
+              attributeBackgroundColorEven: '#edf0f4',
               /* Gantt chart */
               todayLineColor: '#f29718',
               gridColor: '#e8e8e8',
-              sectionBkgColor: '#f5f6f8',
-              sectionBkgColor2: '#fcfcfc',
-              altSectionBkgColor: '#f5f6f8',
+              sectionBkgColor: '#edf0f4',
+              sectionBkgColor2: '#f8f9fb',
+              altSectionBkgColor: '#edf0f4',
               taskBkgColor: '#e8f3f7',
               activeTaskBkgColor: '#d2eaf2',
               activeTaskBorderColor: '#55b4d4',
@@ -124,8 +128,8 @@
               taskTextColor: '#5c6166',
               taskTextLightColor: '#5c6166',
               taskTextDarkColor: '#5c6166',
-              sectionBkgColor0: '#f5f6f8',
-              sectionBkgColor1: '#fcfcfc',
+              sectionBkgColor0: '#edf0f4',
+              sectionBkgColor1: '#f8f9fb',
               _tints: [
                 '#e8f3f7','#eef3de','#f1ecf6','#fbebeb',
                 '#fceee4','#e7f5f0','#faf1de','#e2f1f9'
@@ -156,6 +160,7 @@
               clusterBorder: '#2c3342',
               titleColor: '#cccac2',
               edgeLabelBackground: '#242936',
+              erEdgeLabelBackground: '#242936',
               actorBkg: '#304254',
               actorBorder: '#3c5b72',
               actorTextColor: '#cccac2',
@@ -170,12 +175,15 @@
               labelBoxBkgColor: '#282e3b',
               labelBoxBorderColor: '#2c3342',
               labelTextColor: '#cccac2',
+              /* ER diagram */
+              attributeBackgroundColorOdd: '#282e3b',
+              attributeBackgroundColorEven: '#2c3342',
               /* Gantt chart */
               todayLineColor: '#ffcc66',
               gridColor: '#2b3040',
-              sectionBkgColor: '#20262f',
-              sectionBkgColor2: '#242936',
-              altSectionBkgColor: '#20262f',
+              sectionBkgColor: '#1a2030',
+              sectionBkgColor2: '#282e3b',
+              altSectionBkgColor: '#1a2030',
               taskBkgColor: '#2c4250',
               activeTaskBkgColor: '#355b6b',
               activeTaskBorderColor: '#5ccfe6',
@@ -187,8 +195,8 @@
               taskTextColor: '#cccac2',
               taskTextLightColor: '#cccac2',
               taskTextDarkColor: '#cccac2',
-              sectionBkgColor0: '#20262f',
-              sectionBkgColor1: '#242936',
+              sectionBkgColor0: '#1a2030',
+              sectionBkgColor1: '#282e3b',
               _tints: [
                 '#2c4250','#3f4941','#404054','#433740',
                 '#453c3b','#35454c','#45423d','#304254'
@@ -219,6 +227,7 @@
               clusterBorder: '#1a2030',
               titleColor: '#bfbdb6',
               edgeLabelBackground: '#0d1017',
+              erEdgeLabelBackground: '#0d1017',
               actorBkg: '#182b3a',
               actorBorder: '#24455d',
               actorTextColor: '#bfbdb6',
@@ -233,12 +242,15 @@
               labelBoxBkgColor: '#141821',
               labelBoxBorderColor: '#1a2030',
               labelTextColor: '#bfbdb6',
+              /* ER diagram */
+              attributeBackgroundColorOdd: '#141821',
+              attributeBackgroundColorEven: '#1a2030',
               /* Gantt chart */
               todayLineColor: '#e6b450',
               gridColor: '#1b1f29',
-              sectionBkgColor: '#0e1218',
-              sectionBkgColor2: '#0d1017',
-              altSectionBkgColor: '#0e1218',
+              sectionBkgColor: '#0a0e16',
+              sectionBkgColor2: '#141820',
+              altSectionBkgColor: '#0a0e16',
               taskBkgColor: '#142a36',
               activeTaskBkgColor: '#1a4355',
               activeTaskBorderColor: '#39bae6',
@@ -250,8 +262,8 @@
               taskTextColor: '#bfbdb6',
               taskTextLightColor: '#bfbdb6',
               taskTextDarkColor: '#bfbdb6',
-              sectionBkgColor0: '#0e1218',
-              sectionBkgColor1: '#0d1017',
+              sectionBkgColor0: '#0a0e16',
+              sectionBkgColor1: '#141820',
               _tints: [
                 '#142a36','#252e1f','#2b273a','#2f1f26',
                 '#31231d','#213032','#312920','#182b3a'
@@ -287,7 +299,8 @@
               securityLevel: 'strict',
               gantt: {
                 useMaxWidth: false,
-                useWidth: 960
+                useWidth: 960,
+                numberSectionStyles: 4
               }
             };
           }
@@ -350,7 +363,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span class="footer-text">&copy; {{ now.Format "2006" }} {{ .Site.Title }} <span class="footer-separator">&middot;</span> {{ i18n "footerPoweredBy" | default "Powered by" }} <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>, <a href="https://github.com/magnum6actual/flipoff" target="_blank" rel="noopener">FlipOff</a>, <a href="https://monaspace.githubnext.com/" target="_blank" rel="noopener">Monaspace</a> &amp; <a href="https://github.com/ayu-theme" target="_blank" rel="noopener">Ayu</a></span>
+                <span class="footer-text">&copy; {{ now.Format "2006" }} {{ .Site.Title }} <span class="footer-separator">&middot;</span> <a href="/licenses/" class="footer-cc">CC BY 4.0</a> <span class="footer-separator">&middot;</span> {{ i18n "footerPoweredBy" | default "Powered by" }} <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>, <a href="https://github.com/magnum6actual/flipoff" target="_blank" rel="noopener">FlipOff</a>, <a href="https://monaspace.githubnext.com/" target="_blank" rel="noopener">Monaspace</a> &amp; <a href="https://github.com/ayu-theme" target="_blank" rel="noopener">Ayu</a></span>
                 <span class="footer-legal">
                     {{ range $i, $item := .Site.Menus.footer }}{{ if $i }} <span class="footer-separator">&middot;</span> {{ end }}<a href="{{ .URL | relURL }}" class="footer-link">{{ .Name }}</a>{{ end }}
                 </span>

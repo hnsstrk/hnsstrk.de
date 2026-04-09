@@ -56,6 +56,9 @@
   --accent-bar-4: #55b4d4;
   --accent-bar-5: #86b300;
 
+  /* Violet Accent (Ayu syntax-constant) */
+  --accent-violet: #a37acc;
+
   /* Fluid Type Scale (Utopia, 320px–1240px, ratio 1.2) */
   --step--2: clamp(0.69rem, 0.65rem + 0.2vw, 0.8rem);
   --step--1: clamp(0.83rem, 0.77rem + 0.32vw, 1rem);
@@ -150,6 +153,9 @@
   --accent-bar-4: #5ccfe6;
   --accent-bar-5: #d5ff80;
 
+  /* Violet Accent (Ayu syntax-constant) */
+  --accent-violet: #dfbfff;
+
   color-scheme: dark;
 }
 
@@ -204,6 +210,9 @@
   --accent-bar-3: #d2a6ff;
   --accent-bar-4: #39bae6;
   --accent-bar-5: #aad94c;
+
+  /* Violet Accent (Ayu syntax-constant) */
+  --accent-violet: #d2a6ff;
 
   color-scheme: dark;
 }
@@ -284,19 +293,17 @@ a:active {
   color: var(--accent-hover);
 }
 
-/* Content-Links — NUR in Fließtext mit dezenter Unterstreichung */
+/* Content-Links — gleiche Farbe und Stil wie Footer-Links */
 .markdown-content a {
-  text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--accent-primary) 40%, transparent);
-  text-underline-offset: 3px;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 .markdown-content a:hover {
-  text-decoration-color: var(--accent-hover);
+  color: var(--accent-hover);
 }
 .markdown-content a:visited {
-  color: var(--text-secondary);
-  text-decoration-color: color-mix(in srgb, var(--text-secondary) 40%, transparent);
+  color: var(--accent-primary);
 }
 
 blockquote, .emphasis {

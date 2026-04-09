@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="animate-fade-in content-container flex-container" style="position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; overflow: hidden; width: 92vw; max-width: 1600px; margin: 0 auto;">
+<div class="container animate-fade-in content-container">
     <section class="board-section" id="board-container" style="width: 100%;"></section>
 </div>
 {{ $opts := dict "targetPath" "js/flipboard.js" "format" "esm" "minify" hugo.IsProduction }}

@@ -23,7 +23,12 @@ theme = "hnsstrk"
   # Theme
   defaultTheme = "light"  # light | mirage | dark
 
-  # Social Links
+  # Footer
+  tagline = "Notizen aus der Bastelstube — über KI-Tools, Self-Hosting, lokale LLMs und andere technische Themen."
+  logoPrompt = ">"
+  copyright = "CC BY 4.0 Hans Jürgen Stark"
+
+  # Social Links (erscheinen im Footer unter "Anderswo")
   [params.social]
     github = "hnsstrk"
     mastodon = "@hnsstrk"
@@ -35,6 +40,9 @@ theme = "hnsstrk"
 
 [markup.goldmark.extensions.typographer]
   disable = true
+
+[markup.goldmark.parser.attribute]
+  block = true
 
 [markup.highlight]
   noClasses = false
@@ -71,3 +79,7 @@ theme = "hnsstrk"
     name = "Datenschutz"
     url = "/privacy/"
     weight = 20
+  [[menus.footer]]
+    name = "Lizenzen"
+    url = "/licenses/"
+    weight = 30

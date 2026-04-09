@@ -1,19 +1,33 @@
 /* Board Container */
+.board-section {
+  container-type: inline-size;
+}
+
 .board {
-  --tile-size: clamp(14px, 4vw, 64px);
-  --tile-gap: clamp(2px, 0.3vw, 5px);
+  /* Tile-Größe relativ zum Container */
+  --grid-cols: 22;
+  --grid-rows: 5;
+  --board-padding-x: 32px;
+  --tile-gap: clamp(2px, 0.3cqi, 5px);
+  /*
+   * Verfügbare Breite = Container - 2×Padding
+   * Grid-Breite = cols × tile-size + (cols-1) × gap
+   * tile-size = (verfügbar - (cols-1) × gap) / cols
+   * Da gap auch fluid ist, nutzen wir eine konservative Schätzung:
+   * gap ≈ 4px → 21 gaps ≈ 84px
+   */
+  --tile-size: clamp(14px, calc((100cqi - 2 * var(--board-padding-x) - 100px) / var(--grid-cols)), 64px);
 
   position: relative;
   background: var(--board-bg);
   border-radius: 16px;
-  padding: 24px 32px 32px;
+  padding: 24px var(--board-padding-x) 32px;
   width: 100%;
   max-width: 100%;
   box-shadow:
     0 2px 16px rgba(0, 0, 0, 0.08),
     0 0 0 1px var(--board-border);
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: visible;
   display: flex;
   justify-content: center;
   transition: background-color 0.3s ease;
@@ -31,7 +45,7 @@
 /* Accent Squares — small stacked blocks in top corners */
 .accent-bar {
   position: absolute;
-  top: 30px;
+  top: 20px;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -39,11 +53,11 @@
 }
 
 .accent-bar-left {
-  left: 18px;
+  left: 24px;
 }
 
 .accent-bar-right {
-  right: 18px;
+  right: 24px;
 }
 
 .accent-segment {

@@ -1,0 +1,23 @@
+{{- $type := .Get "type" | default "info" -}}
+{{- $title := .Get "title" -}}
+{{- $validTypes := slice "info" "warning" "tip" "note" -}}
+{{- if not (in $validTypes $type) }}{{ $type = "info" }}{{ end -}}
+<aside class="callout callout-{{ $type }}" role="note" aria-label="{{ with $title }}{{ . }}{{ else }}{{ $type | title }}{{ end }}">
+  <div class="callout-header">
+    <span class="callout-icon" aria-hidden="true">
+      {{- if eq $type "info" -}}&#x2139;
+      {{- else if eq $type "warning" -}}&#x26A0;
+      {{- else if eq $type "tip" -}}&#x1F4A1;
+      {{- else if eq $type "note" -}}&#x1F5D2;
+      {{- end -}}
+    </span>
+    {{- with $title -}}
+    <span class="callout-title">{{ . }}</span>
+    {{- else -}}
+    <span class="callout-title">{{ $type | title }}</span>
+    {{- end -}}
+  </div>
+  <div class="callout-body">
+    {{ .Inner | markdownify }}
+  </div>
+</aside>

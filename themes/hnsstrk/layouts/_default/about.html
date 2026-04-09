@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="container animate-fade-in content-container mt-4 mb-4">
+    <article class="content-body">
+        <h1>{{ .Title }}</h1>
+        <div class="markdown-content">
+            <figure class="about-avatar">
+                <img src="{{ "images/avatar.png" | relURL }}" alt="Hans Jürgen Stark" width="160" height="160">
+            </figure>
+            {{ .Content }}
+        </div>
+    </article>
+</div>
+{{ end }}

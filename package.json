@@ -1,0 +1,24 @@
+{
+  "name": "hnsstrk.de",
+  "version": "1.0.0",
+  "description": "Persönliche Profilseite mit einer animierten Split-Flap Landing Page (FlipOff), die als digitale Visitenkarte dient.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hnsstrk/hnsstrk.de.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hnsstrk/hnsstrk.de/issues"
+  },
+  "homepage": "https://github.com/hnsstrk/hnsstrk.de#readme",
+  "dependencies": {
+    "ayu": "^9.0.0"
+  }
+}

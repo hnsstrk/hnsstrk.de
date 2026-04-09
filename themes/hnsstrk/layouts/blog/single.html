@@ -11,6 +11,23 @@
                 <span>{{ i18n "readingTime" .ReadingTime }}</span>
             </div>
         </header>
+        {{/* Featured Image */}}
+        {{ with .Params.featured_image }}
+          {{ $img := $.Resources.GetMatch . }}
+          {{ with $img }}
+            {{ $resized := .Resize "1200x webp q85" }}
+            <figure class="featured-image">
+              <img src="{{ $resized.RelPermalink }}"
+                   alt="{{ $.Title }}"
+                   width="{{ $resized.Width }}"
+                   height="{{ $resized.Height }}">
+            </figure>
+          {{ end }}
+        {{ end }}
+        {{/* TOC — anzeigen wenn toc=true oder Artikel > 1500 Wörter */}}
+        {{ if or .Params.toc (gt .WordCount 1500) }}
+          {{ partial "toc.html" . }}
+        {{ end }}
         <div class="markdown-content">
             {{ .Content }}
         </div>
@@ -22,6 +39,22 @@
                 {{ end }}
             </div>
         </footer>
+        {{ end }}
+        {{ $related := .Site.RegularPages.Related . | first 3 }}
+        {{ with $related }}
+        <aside class="related-posts">
+            <h2>Verwandte Artikel</h2>
+            <ul class="related-list">
+                {{ range . }}
+                <li>
+                    <a href="{{ .RelPermalink }}">
+                        <span class="related-title">{{ .Title }}</span>
+                        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </aside>
         {{ end }}
     </article>
 </div>

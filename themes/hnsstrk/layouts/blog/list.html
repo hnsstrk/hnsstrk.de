@@ -12,14 +12,33 @@
             {{ range .Pages.ByDate.Reverse }}
             <li class="card">
                 <a href="{{ .RelPermalink }}" class="card-link">
+                    {{ with .Params.featured_image }}
+                      {{ $img := $.Resources.GetMatch . }}
+                      {{ with $img }}
+                        {{ $thumb := .Fill "600x300 webp q80" }}
+                        <img class="card-image"
+                             src="{{ $thumb.RelPermalink }}"
+                             alt="{{ $.Title }}"
+                             width="{{ $thumb.Width }}"
+                             height="{{ $thumb.Height }}"
+                             loading="lazy">
+                      {{ end }}
+                    {{ end }}
                     <div class="blog-card-meta">
                         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
                         <span class="meta-separator">&middot;</span>
                         <span>{{ i18n "readingTime" .ReadingTime }}</span>
                     </div>
                     <h3>{{ .Title }}</h3>
-                    {{ with .Description }}<p class="text-sm mt-2">{{ . }}</p>{{ end }}
+                    {{ with .Summary }}<p class="card-excerpt">{{ . | plainify }}</p>{{ end }}
                 </a>
+                {{ with .Params.tags }}
+                <div class="card-tags">
+                    {{ range first 4 . }}
+                    <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="card-tag">{{ . }}</a>
+                    {{ end }}
+                </div>
+                {{ end }}
             </li>
             {{ end }}
         </ul>

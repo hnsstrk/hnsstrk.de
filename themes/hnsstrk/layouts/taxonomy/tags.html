@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="container animate-fade-in content-container mt-4 mb-4">
+    <section class="content-body">
+        <h1>Tags</h1>
+        <div class="tag-cloud">
+            {{ range .Data.Terms.Alphabetical }}
+            <a href="{{ .Page.RelPermalink }}" class="tag tag-with-count">
+                {{ .Page.Title }}
+                <span class="tag-count">{{ .Count }}</span>
+            </a>
+            {{ end }}
+        </div>
+    </section>
+</div>
+{{ end }}

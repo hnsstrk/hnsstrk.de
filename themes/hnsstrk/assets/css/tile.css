@@ -36,13 +36,13 @@
 
 .tile-front span,
 .tile-back span {
-  font-size: calc(var(--tile-size) * 0.52);
+  font-size: calc(var(--tile-size) * 0.72);
   font-weight: 700;
   color: var(--tile-text);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1;
-  font-family: 'Monaspace Krypton', ui-monospace, monospace;
+  font-family: var(--font-display);
 }
 
 .tile-back {

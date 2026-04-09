@@ -1,0 +1,13 @@
+{{- if and .TableOfContents (not (eq .TableOfContents "<nav id=\"TableOfContents\"></nav>")) -}}
+<nav class="toc" aria-label="{{ i18n "tableOfContents" | default "Inhaltsverzeichnis" }}">
+  <details class="toc-details">
+    <summary class="toc-summary">
+      <span class="toc-summary-icon" aria-hidden="true">&#x2630;</span>
+      {{ i18n "tableOfContents" | default "Inhaltsverzeichnis" }}
+    </summary>
+    <div class="toc-content">
+      {{ .TableOfContents }}
+    </div>
+  </details>
+</nav>
+{{- end -}}

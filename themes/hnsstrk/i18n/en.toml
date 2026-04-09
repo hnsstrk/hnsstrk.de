@@ -22,8 +22,14 @@ other = "Switch theme"
 [footerPoweredBy]
 other = "Powered by"
 
+[footerPages]
+other = "Pages"
+
+[footerElsewhere]
+other = "Elsewhere"
+
 [footerCopyright]
-other = "All rights reserved."
+other = "Licensed under CC BY 4.0"
 
 # Navigation
 [menuHome]

@@ -23,8 +23,16 @@
 {{ with $description }}
 <meta property="og:description" content="{{ . }}">
 {{ end }}
-{{ with site.Params.ogImage }}
-<meta property="og:image" content="{{ . | absURL }}">
+{{ if .Params.featured_image }}
+  {{ $img := .Resources.GetMatch .Params.featured_image }}
+  {{ with $img }}
+    {{ $og := .Resize "1200x webp q85" }}
+    <meta property="og:image" content="{{ $og.Permalink }}">
+  {{ end }}
+{{ else }}
+  {{ with site.Params.ogImage }}
+  <meta property="og:image" content="{{ . | absURL }}">
+  {{ end }}
 {{ end }}
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:locale" content="de_DE">
@@ -35,8 +43,16 @@
 {{ with $description }}
 <meta name="twitter:description" content="{{ . }}">
 {{ end }}
-{{ with site.Params.ogImage }}
-<meta name="twitter:image" content="{{ . | absURL }}">
+{{ if .Params.featured_image }}
+  {{ $img := .Resources.GetMatch .Params.featured_image }}
+  {{ with $img }}
+    {{ $og := .Resize "1200x webp q85" }}
+    <meta name="twitter:image" content="{{ $og.Permalink }}">
+  {{ end }}
+{{ else }}
+  {{ with site.Params.ogImage }}
+  <meta name="twitter:image" content="{{ . | absURL }}">
+  {{ end }}
 {{ end }}
 
 {{/* Favicon */}}

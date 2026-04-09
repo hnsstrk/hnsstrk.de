@@ -20,10 +20,16 @@ other = "Theme wechseln"
 
 # Footer
 [footerPoweredBy]
-other = "Betrieben mit"
+other = "Powered by"
+
+[footerPages]
+other = "Seiten"
+
+[footerElsewhere]
+other = "Anderswo"
 
 [footerCopyright]
-other = "Alle Rechte vorbehalten."
+other = "Lizenziert unter CC BY 4.0"
 
 # Navigation
 [menuHome]
