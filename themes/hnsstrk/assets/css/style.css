@@ -8,6 +8,7 @@
   --text-primary: #5c6166;
   --text-secondary: #828e9f;
   --text-muted: #adaeb1;
+  --mermaid-node-text: #2a2e38;
 
   --accent-primary: #f29718;
   --accent-hover: #e08614;
@@ -925,6 +926,16 @@ code {
 .mermaid svg {
   height: auto;
   flex-shrink: 0;
+}
+
+.mermaid p,
+.mermaid span,
+.mermaid li {
+  color: inherit;
+}
+
+.mermaid .mindmap-node foreignObject div {
+  color: var(--mermaid-node-text, #6c3b3b);
 }
 
 /* ==========================================================================

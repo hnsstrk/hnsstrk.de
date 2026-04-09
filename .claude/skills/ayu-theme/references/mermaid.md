@@ -1,6 +1,7 @@
 # Ayu Theme Integration — hnsstrk.de
 
 Source: https://github.com/ayu-theme/ayu-colors (MIT License)
+NPM: `import { dark, light, mirage } from 'ayu'`
 
 Config: `themes/hnsstrk/layouts/_default/baseof.html`
 
@@ -59,21 +60,25 @@ Aus `themes/*.yaml` im ayu-colors Repository:
 
 ## cScale-Mapping (Mermaid → Ayu)
 
-Die cScale-Palette verhindert Mermaids wilde Auto-Generierung. 8 Syntax-Farben werden als subtile Tints auf den Theme-Hintergrund gemischt:
+Die cScale-Palette verhindert Mermaids wilde Auto-Generierung. 8 Syntax-Farben werden als **volle Syntax-Farben** als Node-Hintergründe verwendet. Borders sind auf ~80% abgedunkelte Varianten der Syntax-Farben.
 
-- **Tints** (~12% Mix): Syntax-Farbe bei 12% Deckkraft auf Background → Node-Hintergründe
-- **Borders** (~25% Mix): Syntax-Farbe bei 25% Deckkraft auf Background → Node-Ränder
+- **Node-Hintergründe**: Volle (100%) Ayu-Syntax-Farben — kein Tint, kein Mixing
+- **Borders** (~80%): `syntaxColor × 0.8` (abgedunkelt)
+- **Node-Text**: Immer `#2a2e38` (dunkel) für Lesbarkeit auf hellen/bunten Hintergründen
+- **Reihenfolge**: Rainbow-Order (rot → orange → gelb → grün → türkis → blau → lila → pink)
 
-| cScale | Syntax | Light Tint | Light Border | Mirage Tint | Mirage Border | Dark Tint | Dark Border |
-|--------|--------|-----------|--------------|-------------|---------------|-----------|-------------|
-| 0 | tag | `#e8f3f7` | `#d2eaf2` | `#2c4250` | `#355b6b` | `#142a36` | `#1a4355` |
-| 1 | string | `#eef3de` | `#dfeabd` | `#3f4941` | `#59694c` | `#252e1f` | `#3c4c27` |
-| 2 | constant | `#f1ecf6` | `#e6dcf0` | `#404054` | `#5c5672` | `#2b273a` | `#483d5d` |
-| 3 | markup | `#fbebeb` | `#f9d9d9` | `#433740` | `#62454a` | `#2f1f26` | `#512d34` |
-| 4 | keyword | `#fceee4` | `#fcdeca` | `#453c3b` | `#664e40` | `#31231d` | `#563623` |
-| 5 | regexp | `#e7f5f0` | `#d0ede3` | `#35454c` | `#466263` | `#213032` | `#36504d` |
-| 6 | func | `#faf1de` | `#f8e6bd` | `#45423d` | `#665a44` | `#312920` | `#564129` |
-| 7 | entity | `#e2f1f9` | `#c6e6f7` | `#304254` | `#3c5b72` | `#182b3a` | `#24455d` |
+Verifiziert aus dem ayu NPM-Paket (`import { dark, light, mirage } from 'ayu'`).
+
+| cScale | Syntax | Light | Light Border | Mirage | Mirage Border | Dark | Dark Border |
+|--------|--------|-------|--------------|--------|---------------|------|-------------|
+| 0 | markup (red) | `#F07171` | `#c05a5a` | `#F28779` | `#c96c62` | `#F07178` | `#c05a60` |
+| 1 | keyword (orange) | `#FF7E33` | `#cc6529` | `#FFAD66` | `#cc8a52` | `#FF8F40` | `#cc7233` |
+| 2 | func (yellow) | `#F2A300` | `#c28200` | `#FFD173` | `#ccaa5c` | `#FFB454` | `#cc9043` |
+| 3 | string (green) | `#86B300` | `#6b8f00` | `#D5FF80` | `#a8cc66` | `#AAD94C` | `#88ad3d` |
+| 4 | regexp (teal) | `#4CBF99` | `#3d997a` | `#95E6CB` | `#77b8a2` | `#95E6CB` | `#77b8a2` |
+| 5 | tag (blue) | `#55B4D4` | `#4490aa` | `#5CCFE6` | `#49a5b8` | `#39BAE6` | `#2e95b8` |
+| 6 | constant (purple) | `#A37ACC` | `#8262a3` | `#DFBFFF` | `#b299d9` | `#D2A6FF` | `#a885cc` |
+| 7 | operator (pink) | `#ED9366` | `#be7652` | `#F29E74` | `#c27e5d` | `#F29668` | `#c27853` |
 
 ## themeVariables pro Theme
 
@@ -81,51 +86,51 @@ Die cScale-Palette verhindert Mermaids wilde Auto-Generierung. 8 Syntax-Farben w
 
 ```
 background: '#fcfcfc'
-primaryColor: '#e8f3f7'      primaryBorderColor: '#d2eaf2'     primaryTextColor: '#5c6166'
-secondaryColor: '#eef3de'    secondaryBorderColor: '#dfeabd'   secondaryTextColor: '#5c6166'
-tertiaryColor: '#f1ecf6'     tertiaryBorderColor: '#e6dcf0'    tertiaryTextColor: '#5c6166'
-lineColor: '#8a919d'         textColor: '#5c6166'              edgeLabelBackground: '#fcfcfc'
-mainBkg: '#e8f3f7'           nodeBorder: '#d2eaf2'             nodeTextColor: '#5c6166'
-clusterBkg: '#f5f6f8'        clusterBorder: '#d8dce2'
-noteBkgColor: '#faf1de'      noteBorderColor: '#f8e6bd'        noteTextColor: '#5c6166'
-actorBkg: '#e2f1f9'          actorBorder: '#c6e6f7'
+primaryColor: '#F07171'      primaryBorderColor: '#c05a5a'     primaryTextColor: '#2a2e38'
+secondaryColor: '#86B300'    secondaryBorderColor: '#6b8f00'   secondaryTextColor: '#2a2e38'
+tertiaryColor: '#A37ACC'     tertiaryBorderColor: '#8262a3'    tertiaryTextColor: '#2a2e38'
+lineColor: '#828e9f'         textColor: '#5c6166'              edgeLabelBackground: '#fcfcfc'
+mainBkg: '#F07171'           nodeBorder: '#c05a5a'             nodeTextColor: '#2a2e38'
+clusterBkg: '#f8f9fa'        clusterBorder: '#e8e8e8'
+noteBkgColor: '#F2A300'      noteBorderColor: '#c28200'        noteTextColor: '#2a2e38'
+actorBkg: '#55B4D4'          actorBorder: '#4490aa'
 todayLineColor: '#f29718'    gridColor: '#e8e8e8'
-taskBkgColor: '#e8f3f7'      activeTaskBkgColor: '#d2eaf2'     doneTaskBkgColor: '#eef3de'
-critBkgColor: '#fbebeb'      sectionBkgColor: '#edf0f4'
+taskBkgColor: '#55B4D4'      activeTaskBkgColor: '#399EE6'     doneTaskBkgColor: '#86B300'
+critBkgColor: '#F07171'      sectionBkgColor: '#f0f1f3'
 ```
 
 ### Mirage
 
 ```
 background: '#242936'
-primaryColor: '#2c4250'      primaryBorderColor: '#355b6b'     primaryTextColor: '#cccac2'
-secondaryColor: '#3f4941'    secondaryBorderColor: '#59694c'   secondaryTextColor: '#cccac2'
-tertiaryColor: '#404054'     tertiaryBorderColor: '#5c5672'    tertiaryTextColor: '#cccac2'
+primaryColor: '#f28779'      primaryBorderColor: '#c96c62'     primaryTextColor: '#2a2e38'
+secondaryColor: '#d5ff80'    secondaryBorderColor: '#a8cc66'   secondaryTextColor: '#2a2e38'
+tertiaryColor: '#dfbfff'     tertiaryBorderColor: '#b299d9'    tertiaryTextColor: '#2a2e38'
 lineColor: '#707a8c'         textColor: '#cccac2'              edgeLabelBackground: '#242936'
-mainBkg: '#2c4250'           nodeBorder: '#355b6b'             nodeTextColor: '#cccac2'
-clusterBkg: '#20262f'        clusterBorder: '#2c3342'
-noteBkgColor: '#45423d'      noteBorderColor: '#665a44'        noteTextColor: '#cccac2'
-actorBkg: '#304254'          actorBorder: '#3c5b72'
+mainBkg: '#f28779'           nodeBorder: '#c96c62'             nodeTextColor: '#2a2e38'
+clusterBkg: '#1f2430'        clusterBorder: '#707a8c'
+noteBkgColor: '#ffd173'      noteBorderColor: '#ccaa5c'        noteTextColor: '#2a2e38'
+actorBkg: '#5ccfe6'          actorBorder: '#49a5b8'
 todayLineColor: '#ffcc66'    gridColor: '#2b3040'
-taskBkgColor: '#2c4250'      activeTaskBkgColor: '#355b6b'     doneTaskBkgColor: '#3f4941'
-critBkgColor: '#433740'      sectionBkgColor: '#1a2030'
+taskBkgColor: '#5ccfe6'      activeTaskBkgColor: '#73d0ff'     doneTaskBkgColor: '#d5ff80'
+critBkgColor: '#f28779'      sectionBkgColor: '#1f2430'
 ```
 
 ### Dark
 
 ```
-background: '#0d1017'
-primaryColor: '#142a36'      primaryBorderColor: '#1a4355'     primaryTextColor: '#bfbdb6'
-secondaryColor: '#252e1f'    secondaryBorderColor: '#3c4c27'   secondaryTextColor: '#bfbdb6'
-tertiaryColor: '#2b273a'     tertiaryBorderColor: '#483d5d'    tertiaryTextColor: '#bfbdb6'
-lineColor: '#5a6378'         textColor: '#bfbdb6'              edgeLabelBackground: '#0d1017'
-mainBkg: '#142a36'           nodeBorder: '#1a4355'             nodeTextColor: '#bfbdb6'
-clusterBkg: '#0e1218'        clusterBorder: '#1a2030'
-noteBkgColor: '#312920'      noteBorderColor: '#564129'        noteTextColor: '#bfbdb6'
-actorBkg: '#182b3a'          actorBorder: '#24455d'
+background: '#10141c'
+primaryColor: '#f07178'      primaryBorderColor: '#c05a60'     primaryTextColor: '#2a2e38'
+secondaryColor: '#aad94c'    secondaryBorderColor: '#88ad3d'   secondaryTextColor: '#2a2e38'
+tertiaryColor: '#d2a6ff'     tertiaryBorderColor: '#a885cc'    tertiaryTextColor: '#2a2e38'
+lineColor: '#555e73'         textColor: '#bfbdb6'              edgeLabelBackground: '#10141c'
+mainBkg: '#f07178'           nodeBorder: '#c05a60'             nodeTextColor: '#2a2e38'
+clusterBkg: '#0e1218'        clusterBorder: '#555e73'
+noteBkgColor: '#ffb454'      noteBorderColor: '#cc9043'        noteTextColor: '#2a2e38'
+actorBkg: '#39bae6'          actorBorder: '#2e95b8'
 todayLineColor: '#e6b450'    gridColor: '#1b1f29'
-taskBkgColor: '#142a36'      activeTaskBkgColor: '#1a4355'     doneTaskBkgColor: '#252e1f'
-critBkgColor: '#2f1f26'      sectionBkgColor: '#0a0e16'
+taskBkgColor: '#39bae6'      activeTaskBkgColor: '#59c2ff'     doneTaskBkgColor: '#aad94c'
+critBkgColor: '#f07178'      sectionBkgColor: '#0e1218'
 ```
 
 ## Architektur
@@ -139,10 +144,10 @@ critBkgColor: '#2f1f26'      sectionBkgColor: '#0a0e16'
 
 | Status | Hintergrund | Rand | Quelle |
 |--------|-----------|------|--------|
-| Default | tag tint | tag border | `taskBkgColor` |
-| Active | tag border | tag pure | `activeTaskBkgColor` |
-| Done | string tint | string border | `doneTaskBkgColor` |
-| Critical | markup tint | markup border | `critBkgColor` |
+| Default | markup (rot) | markup border | `taskBkgColor` |
+| Active | markup border | markup border | `activeTaskBkgColor` |
+| Done | string (grün) | string border | `doneTaskBkgColor` |
+| Critical | keyword (orange) | keyword border | `critBkgColor` |
 | Today-Line | accent-primary | — | `todayLineColor` |
 
 ## Regeln für neue Diagramme
@@ -150,15 +155,19 @@ critBkgColor: '#2f1f26'      sectionBkgColor: '#0a0e16'
 1. **Keine `style`-Direktiven** — das Theme steuert alle Farben
 2. **Keine `classDef` mit Farbwerten** — nur strukturelle Klassen erlaubt
 3. **Gantt**: Immer `axisFormat`, `tickInterval`, `useWidth: 960` im Frontmatter
-4. **Notes**: Nutzen func/amber-Tints (warmes Gold)
-5. **Actors**: Nutzen entity/blue-Tints
+4. **Notes**: Nutzen func/yellow als Hintergrund (warmes Gelb)
+5. **Actors**: Nutzen tag/blue als Hintergrund
 6. **Prüfung**: Diagramm in allen drei Themes testen (Light → Mirage → Dark)
 
-## Tint-Berechnung (Formel)
+## Farbberechnung (Formel)
 
 ```
-Tint  = bg × (1 - 0.12) + syntaxColor × 0.12
-Border = bg × (1 - 0.25) + syntaxColor × 0.25
+Node-Hintergrund = syntaxColor (100%, keine Mischung)
+Border           = syntaxColor × 0.8  (abgedunkelt auf 80%)
+Node-Text        = #2a2e38  (immer dunkel, alle Themes)
 ```
 
-Wobei `bg` die jeweilige Surface-Farbe `lift` des Themes ist.
+Farben stammen direkt aus dem ayu NPM-Paket:
+```js
+import { dark, light, mirage } from 'ayu'
+```

@@ -222,6 +222,41 @@ config:
 ---
 ```
 
+## Ayu Theme Integration (hnsstrk.de)
+
+Auf hnsstrk.de werden **volle Ayu-Syntax-Farben** (100% Sättigung) als Node-Hintergründe verwendet. Borders sind auf ~80% abgedunkelt. Text auf farbigen Nodes ist immer `#2a2e38` (dunkelgrau).
+
+Quelle: NPM-Paket `ayu` — `import { dark, light, mirage } from 'ayu'`
+
+### cScale-Reihenfolge (Regenbogen)
+
+| cScale | Syntax-Rolle | Light | Mirage | Dark |
+| ------ | ------------ | ----- | ------ | ---- |
+| 0 | markup (rot) | `#F07171` | `#F28779` | `#F07178` |
+| 1 | keyword (orange) | `#FF7E33` | `#FFAD66` | `#FF8F40` |
+| 2 | func (gelb) | `#F2A300` | `#FFD173` | `#FFB454` |
+| 3 | string (gruen) | `#86B300` | `#D5FF80` | `#AAD94C` |
+| 4 | regexp (teal) | `#4CBF99` | `#95E6CB` | `#95E6CB` |
+| 5 | tag (blau) | `#55B4D4` | `#5CCFE6` | `#39BAE6` |
+| 6 | constant (violett) | `#A37ACC` | `#DFBFFF` | `#D2A6FF` |
+| 7 | operator (rosa) | `#ED9366` | `#F29E74` | `#F29668` |
+
+### Pie-Farben
+
+`pie1`–`pie12` werden automatisch aus den cScale-Werten gesetzt (zyklisch). Texte:
+
+- `pieSectionTextColor` = `#2a2e38` (dunkel, auf farbigen Slices)
+- `pieTitleTextColor` = `titleColor` (Theme-Textfarbe, auf Hintergrund)
+- `pieLegendTextColor` = `textColor` (Theme-Textfarbe, auf Hintergrund)
+
+### Regeln fuer neue Diagramme
+
+1. **Keine `style`-Direktiven** — Farben kommen aus themeVariables
+2. **Keine `classDef` mit Farbwerten** — Mermaid-Theme steuert alles
+3. **Gantt immer mit `axisFormat`, `tickInterval`, `useWidth: 960`**
+4. **Alle drei Themes testen** (Light, Mirage, Dark)
+5. **Pie Charts** nutzen automatisch die cScale-Farben via pie1-pie12
+
 ## Gotchas
 
 1. **`theme: base` is mandatory** for `themeVariables` to take effect
@@ -231,3 +266,4 @@ config:
 5. **darkMode affects auto-contrast** — set it first, then override text colors
 6. **cScale prevents auto-colors** — once you set any cScale value, set ALL needed slots
 7. **Some variables are diagram-specific** — e.g., `actorBkg` only affects sequence diagrams
+8. **Pie-Farben separat** — pie1-pie12 müssen explizit gesetzt werden, fallen nicht auf cScale zurück

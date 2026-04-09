@@ -20,19 +20,21 @@ Source: https://github.com/ayu-theme/ayu-colors (`themes/*.yaml`)
 
 ## Syntax-Farben (Palette → Syntax-Rolle)
 
+Werte aus dem NPM-Paket `ayu` (nach Alpha-Blending gegen Theme-Hintergrund — maßgeblich).
+
 | Rolle | Palette-Farbe | Light | Mirage | Dark |
 |-------|--------------|-------|--------|------|
 | tag | indigo | `#55B4D4` | `#5CCFE6` | `#39BAE6` |
-| func | yellow | `#EBA400` | `#FFCD66` | `#FFB454` |
-| entity | blue | `#22A4E6` | `#73D0FF` | `#59C2FF` |
+| func | yellow | `#F2A300` | `#FFD173` | `#FFB454` |
+| entity | blue | `#399EE6` | `#73D0FF` | `#59C2FF` |
 | string | green | `#86B300` | `#D5FF80` | `#AAD94C` |
 | regexp | teal | `#4CBF99` | `#95E6CB` | `#95E6CB` |
 | markup | red | `#F07171` | `#F28779` | `#F07178` |
-| keyword | orange | `#FA8532` | `#FFA659` | `#FF8F40` |
-| special | peach | `#E59645` | `#D9BE98` | `#E6C08A` |
-| comment | gray | `#ADAEB1` | `#6E7C8F` | `#5A6673` |
+| keyword | orange | `#FF7E33` | `#FFAD66` | `#FF8F40` |
+| special | peach | `#D9B077` | `#FFDFB3` | `#E6C08A` |
+| comment | gray | `#ADAFB2` | `#6E7C8E` | `#5B6876` |
 | constant | purple | `#A37ACC` | `#DFBFFF` | `#D2A6FF` |
-| operator | pink | `#F2A191` | `#F29E74` | `#F29668` |
+| operator | pink | `#ED9366` | `#F29E74` | `#F29668` |
 
 ## Surface-Farben
 
@@ -48,7 +50,7 @@ Source: https://github.com/ayu-theme/ayu-colors (`themes/*.yaml`)
 | Element | Light | Mirage | Dark |
 |---------|-------|--------|------|
 | editor.fg | `#5C6166` | `#CCCAC2` | `#BFBDB6` |
-| ui.fg | `#828E9F` | `#707A8C` | `#5A6378` |
+| ui.fg | `#828E9F` | `#707A8C` | `#555E73` |
 | ui.line | `#E8E8E8` | `#171B24` | `#1B1F29` |
 | ui.panel.bg | — | `#282E3B` | `#141821` |
 | ui.popup.bg | — | `#1C212C` | `#0F131A` |
