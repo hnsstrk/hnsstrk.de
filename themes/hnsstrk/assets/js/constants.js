@@ -58,7 +58,7 @@ export const MESSAGES = [
     '',
     '',
     '',
-    'hnsstrk',
+    '@hnsstrk',
     '',
     '',
     ''
