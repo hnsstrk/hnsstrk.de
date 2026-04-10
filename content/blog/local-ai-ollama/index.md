@@ -1,7 +1,7 @@
 ---
 title: "Lokale KI mit Ollama — Praxis, Grenzen und was YouTube verschweigt"
 date: 2026-04-02
-draft: true
+draft: false
 description: "Ein kritischer Praxisartikel über Ollama: Modellwahl, VRAM-Management, Claude Code Integration, Kontextfenster-Realität und die Nachteile, die in typischen YouTube-Tutorials fehlen"
 tags: ["ollama", "ki", "llm", "self-hosting", "hardware", "claude-code", "quantisierung"]
 ---

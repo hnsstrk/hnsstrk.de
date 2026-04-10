@@ -1,7 +1,7 @@
 ---
 title: "Ein RSS-Reader mit lokaler KI-Pipeline"
 date: 2026-03-20
-draft: true
+draft: false
 description: "Architektur eines RSS-Aggregators mit 8-stufiger KI-Analyse-Pipeline — komplett lokal mit Ollama, Rust und Svelte. Konzepte, Entscheidungen und Arbeitsweisen im Detail."
 tags: ["rust", "svelte", "ollama", "ki", "rss", "projekt", "architektur"]
 ---

@@ -1,7 +1,7 @@
 ---
 title: "KI-Assistenten im Terminal — Ein Einsteigerleitfaden"
 date: 2026-04-01
-draft: true
+draft: false
 description: "Claude Code, Gemini CLI und Codex CLI erklärt: Installation, Modelle, Preise, Nutzungsmodi und Praxisbeispiele — ein Leitfaden für den Einstieg in KI-gestützte Arbeit im Terminal"
 tags: ["claude-code", "gemini-cli", "codex-cli", "ki", "cli", "terminal", "einsteiger", "mcp", "taskwarrior", "gtd"]
 ---

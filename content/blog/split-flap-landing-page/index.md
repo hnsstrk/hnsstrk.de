@@ -1,7 +1,7 @@
 ---
 title: "Ein Hugo-Theme von Grund auf — mit Split-Flap-Display als Herzstück"
 date: 2026-04-05
-draft: true
+draft: false
 description: "Wie parallel zu einer persönlichen Website ein vollständiges Hugo-Theme entsteht — mit animierter Anzeigetafel, drei Farbvarianten, Blog-Sektion und Hugo Pipes."
 tags: ["hugo", "webdesign", "css", "javascript", "theme-entwicklung", "open-source"]
 toc: true
