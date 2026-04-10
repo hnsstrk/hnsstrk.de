@@ -4,6 +4,7 @@ date: 2026-03-20
 draft: false
 description: "Architektur eines RSS-Aggregators mit 8-stufiger KI-Analyse-Pipeline — komplett lokal mit Ollama, Rust und Svelte. Konzepte, Entscheidungen und Arbeitsweisen im Detail."
 tags: ["rust", "svelte", "ollama", "ki", "rss", "projekt", "architektur"]
+featured_image: "fuckuprss-immanentize-network.png"
 ---
 
 **fuckupRSS** ist ein RSS-Aggregator mit einer 8-stufigen KI-Analyse-Pipeline, die vollständig lokal läuft — gebaut mit Rust, Svelte und Ollama, ohne Cloud, ohne API-Keys, ohne geteilte Daten. Der Ansatz: das klassische RSS-Problem mit lokaler KI spürbar zu entschärfen.

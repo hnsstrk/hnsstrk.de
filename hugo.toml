@@ -23,6 +23,19 @@ theme = "hnsstrk"
   # Theme
   defaultTheme = "light"  # light | mirage | dark
 
+  # Blog — Vorschaubild-Layout in der Blog-Übersicht (/blog/)
+  # Globaler Standard. Pro Beitrag überschreibbar im Frontmatter:
+  #
+  #   featured_image: "dateiname.png"
+  #   featured_layout: "left"
+  #
+  # Verfügbare Layouts:
+  #   "left"   — Thumbnail links, Text rechts (empfohlen: quadratisch, z.B. 600x600)
+  #   "right"  — Thumbnail rechts, Text links (empfohlen: quadratisch, z.B. 600x600)
+  #   "top"    — Bild oben, volle Breite (empfohlen: breit, z.B. 1200x400)
+  #   "bottom" — Bild unten, volle Breite (empfohlen: breit, z.B. 1200x400)
+  featuredLayout = "left"
+
   # Footer
   tagline = "Notizen aus der Bastelstube — über KI-Tools, Self-Hosting, lokale LLMs und andere technische Themen."
   logoPrompt = ">"

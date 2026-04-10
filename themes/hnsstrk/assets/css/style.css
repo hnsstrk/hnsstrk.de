@@ -1409,13 +1409,59 @@ code {
   height: auto;
 }
 
-/* Card Image — Blog List Thumbnail */
-.card-image {
+/* Card Image — Blog List Thumbnail
+   Layouts: left | right | top | bottom
+   Steuerung via Frontmatter: featured_layout (Standard in hugo.toml) */
+
+/* Shared: left/right — Bild neben Text */
+.card-image-left .card-link,
+.card-image-right .card-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+.card-image-right .card-link {
+  flex-direction: row-reverse;
+}
+.card-image--side {
+  flex-shrink: 0;
+  width: 250px;
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
+}
+.card-image-left .card-text,
+.card-image-right .card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Shared: top/bottom — Bild über/unter Text, volle Breite */
+.card-image--wide {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 6px;
+}
+.card-image-top .card-image--wide {
   margin-bottom: var(--spacing-sm);
-  object-fit: cover;
-  aspect-ratio: 2 / 1;
+}
+.card-image-bottom .card-link {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.card-image-bottom .card-image--wide {
+  margin-top: var(--spacing-sm);
+}
+
+/* Responsive: left/right werden auf kleinen Screens gestapelt */
+@media (max-width: 600px) {
+  .card-image-left .card-link,
+  .card-image-right .card-link {
+    flex-direction: column;
+  }
+  .card-image--side {
+    width: 100%;
+    height: auto;
+  }
 }

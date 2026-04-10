@@ -11,19 +11,7 @@
                 <span>{{ i18n "readingTime" .ReadingTime }}</span>
             </div>
         </header>
-        {{/* Featured Image */}}
-        {{ with .Params.featured_image }}
-          {{ $img := $.Resources.GetMatch . }}
-          {{ with $img }}
-            {{ $resized := .Resize "1200x webp q85" }}
-            <figure class="featured-image">
-              <img src="{{ $resized.RelPermalink }}"
-                   alt="{{ $.Title }}"
-                   width="{{ $resized.Width }}"
-                   height="{{ $resized.Height }}">
-            </figure>
-          {{ end }}
-        {{ end }}
+        {{/* Featured Image — wird nur in der Blog-Übersicht angezeigt */}}
         {{/* TOC — anzeigen wenn toc=true oder Artikel > 1500 Wörter */}}
         {{ if or .Params.toc (gt .WordCount 1500) }}
           {{ partial "toc.html" . }}

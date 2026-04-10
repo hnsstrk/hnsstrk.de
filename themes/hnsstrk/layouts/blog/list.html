@@ -10,27 +10,41 @@
 
         <ul class="list-none">
             {{ range .Pages.ByDate.Reverse }}
-            <li class="card">
+            {{ $page := . }}
+            {{ $layout := .Params.featured_layout | default site.Params.featuredLayout | default "left" }}
+            <li class="card{{ with .Params.featured_image }} card-has-image card-image-{{ $layout }}{{ end }}">
                 <a href="{{ .RelPermalink }}" class="card-link">
                     {{ with .Params.featured_image }}
-                      {{ $img := $.Resources.GetMatch . }}
+                      {{ $img := $page.Resources.GetMatch . }}
                       {{ with $img }}
-                        {{ $thumb := .Fill "600x300 webp q80" }}
-                        <img class="card-image"
-                             src="{{ $thumb.RelPermalink }}"
-                             alt="{{ $.Title }}"
-                             width="{{ $thumb.Width }}"
-                             height="{{ $thumb.Height }}"
-                             loading="lazy">
+                        {{ if or (eq $layout "top") (eq $layout "bottom") }}
+                          {{ $thumb := .Fit "800x400 webp q80" }}
+                          <img class="card-image card-image--wide"
+                               src="{{ $thumb.RelPermalink }}"
+                               alt="{{ $page.Title }}"
+                               width="{{ $thumb.Width }}"
+                               height="{{ $thumb.Height }}"
+                               loading="lazy">
+                        {{ else }}
+                          {{ $thumb := .Fit "450x300 webp q80" }}
+                          <img class="card-image card-image--side"
+                               src="{{ $thumb.RelPermalink }}"
+                               alt="{{ $page.Title }}"
+                               width="{{ $thumb.Width }}"
+                               height="{{ $thumb.Height }}"
+                               loading="lazy">
+                        {{ end }}
                       {{ end }}
                     {{ end }}
-                    <div class="blog-card-meta">
-                        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
-                        <span class="meta-separator">&middot;</span>
-                        <span>{{ i18n "readingTime" .ReadingTime }}</span>
+                    <div class="card-text">
+                        <div class="blog-card-meta">
+                            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+                            <span class="meta-separator">&middot;</span>
+                            <span>{{ i18n "readingTime" .ReadingTime }}</span>
+                        </div>
+                        <h3>{{ .Title }}</h3>
+                        {{ with .Summary }}<p class="card-excerpt">{{ . | plainify }}</p>{{ end }}
                     </div>
-                    <h3>{{ .Title }}</h3>
-                    {{ with .Summary }}<p class="card-excerpt">{{ . | plainify }}</p>{{ end }}
                 </a>
                 {{ with .Params.tags }}
                 <div class="card-tags">
