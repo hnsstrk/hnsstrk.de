@@ -3,7 +3,7 @@ title: "KI-Assistenten im Terminal — Ein Einsteigerleitfaden"
 date: 2026-04-01
 draft: false
 description: "Claude Code, Gemini CLI und Codex CLI erklärt: Installation, Modelle, Preise, Nutzungsmodi und Praxisbeispiele — ein Leitfaden für den Einstieg in KI-gestützte Arbeit im Terminal"
-tags: ["claude-code", "gemini-cli", "codex-cli", "ki", "cli", "terminal", "einsteiger", "mcp", "taskwarrior", "gtd"]
+tags: ["Claude Code", "Gemini CLI", "Codex CLI", "KI", "CLI", "Terminal", "Einsteiger", "MCP", "Taskwarrior", "GTD"]
 ---
 
 Wer Software entwickelt, Systeme administriert oder viel in der Kommandozeile arbeitet, kennt den üblichen Ablauf: Editor öffnen, Code schreiben, in den Browser wechseln, eine KI-Chat-Oberfläche befragen, zurück zum Editor, Antwort einarbeiten. Seit 2025 gibt es dafür eine deutlich direktere Alternative: KI-Assistenten, die direkt im Terminal laufen, Dateien lesen, Code schreiben, Befehle ausführen und den Arbeitsfluss nicht ständig unterbrechen.

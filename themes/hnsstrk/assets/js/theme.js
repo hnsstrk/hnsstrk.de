@@ -53,6 +53,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Mobile: Theme-Switcher ins Nav-Dropdown verschieben
+document.addEventListener('DOMContentLoaded', function() {
+    const switcher = document.getElementById('theme-switcher');
+    const nav = document.querySelector('.nav-links');
+    const headerInner = document.querySelector('.header-inner');
+    const navToggle = document.querySelector('.nav-toggle');
+    if (!switcher || !nav || !headerInner) return;
+
+    const mq = window.matchMedia('(max-width: 768px)');
+    function handleMobile(e) {
+        if (e.matches) {
+            nav.appendChild(switcher);
+        } else {
+            headerInner.insertBefore(switcher, navToggle);
+        }
+    }
+    mq.addEventListener('change', handleMobile);
+    handleMobile(mq);
+});
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const toggle = document.querySelector('.nav-toggle');

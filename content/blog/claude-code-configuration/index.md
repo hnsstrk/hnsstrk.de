@@ -3,7 +3,7 @@ title: "CLAUDE.md richtig schreiben"
 date: 2026-03-26
 draft: false
 description: "Best Practices für die Konfiguration von Claude Code — was in die CLAUDE.md gehört, was in Rules, settings.json, Hooks und Memory ausgelagert wird, und warum weniger oft mehr ist"
-tags: ["claude-code", "ki", "konfiguration", "best-practices"]
+tags: ["Claude Code", "KI", "Konfiguration", "Best Practices"]
 ---
 
 Die `CLAUDE.md` ist weder Bedienungsanleitung noch Dokumentation noch Ablage für projektbezogene Notizen. Sie ist ein präzises Werkzeug — und funktioniert nur, wenn man sie auch so behandelt. Wer Claude Code wirksam konfigurieren will, profitiert von ein paar klaren Grundprinzipien.

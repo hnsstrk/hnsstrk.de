@@ -3,7 +3,7 @@ title: "Obsidian als KI-gestützte Wissensdatenbank — Vom Karpathy-Konzept zur
 date: 2026-04-05
 draft: false
 description: "Wie sich mit Obsidian, Claude Code und spezialisierten Skills eine KI-gepflegte Wissensdatenbank aufbauen lässt — von der YouTube-Analyse-Pipeline über automatisierte Journalführung bis zur Trainingsauswertung"
-tags: ["obsidian", "claude-code", "ki", "wissensmanagement", "llm", "automatisierung", "gtd", "journal"]
+tags: ["Obsidian", "Claude Code", "KI", "Wissensmanagement", "LLM", "Automatisierung", "GTD", "Journal"]
 ---
 
 Anfang April 2026 hat Andrej Karpathy — Ex-Tesla-KI-Chef, OpenAI-Mitgründer und einer der einflussreichsten Köpfe im Machine-Learning-Bereich — eine bemerkenswerte Idee geteilt: Statt aufwendiger RAG-Pipelines einfach eine Markdown-Wiki aufbauen, die ein LLM selbst pflegt. Kein Vektorstore, keine Embedding-Pipeline, keine zusätzliche Infrastruktur. Nur Obsidian, Markdown-Dateien und ein LLM als Bibliothekar.

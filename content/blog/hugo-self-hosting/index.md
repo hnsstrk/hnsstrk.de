@@ -3,7 +3,7 @@ title: "Hugo auf dem eigenen Server"
 date: 2026-03-28
 draft: false
 description: "Warum ein Static Site Generator wie Hugo gegenüber WordPress und Co. überlegen sein kann — und wie ein Self-Hosting-Setup mit Nginx und GitHub Actions aussieht"
-tags: ["hugo", "self-hosting", "nginx", "ci-cd", "static-site-generator"]
+tags: ["Hugo", "Self-Hosting", "Nginx", "CI/CD", "Static Site Generator"]
 ---
 
 Wer heute eine Website aufsetzen möchte, steht schnell vor einer Grundsatzfrage: ein dynamisches CMS wie WordPress oder ein Static Site Generator wie Hugo? Beide Ansätze haben ihre Berechtigung. Dieser Artikel beleuchtet die technischen Unterschiede, erklärt die Vorteile statischer Seiten und beschreibt ein konkretes Self-Hosting-Setup mit Hugo, Nginx und einer CI/CD-Pipeline über GitHub Actions.

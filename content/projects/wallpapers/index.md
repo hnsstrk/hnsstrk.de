@@ -2,7 +2,7 @@
 title: "wallpapers"
 description: "KI-generierte Wallpaper-Sammlung in mehreren Formaten"
 date: 2026-03-28
-tags: ["midjourney", "wallpaper", "ki", "design"]
+tags: ["Midjourney", "Wallpaper", "KI", "Design"]
 technologies: ["Midjourney"]
 github: "https://github.com/hnsstrk/wallpapers"
 category: "Kreativ"

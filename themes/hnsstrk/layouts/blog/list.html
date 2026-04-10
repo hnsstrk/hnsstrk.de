@@ -13,7 +13,7 @@
             {{ $page := . }}
             {{ $layout := .Params.featured_layout | default site.Params.featuredLayout | default "left" }}
             <li class="card{{ with .Params.featured_image }} card-has-image card-image-{{ $layout }}{{ end }}">
-                <a href="{{ .RelPermalink }}" class="card-link">
+                <div class="card-link">
                     {{ with .Params.featured_image }}
                       {{ $img := $page.Resources.GetMatch . }}
                       {{ with $img }}
@@ -38,21 +38,23 @@
                     {{ end }}
                     <div class="card-text">
                         <div class="blog-card-meta">
+                            <span class="nf-icon">&#xf073;</span>
                             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
                             <span class="meta-separator">&middot;</span>
+                            <span class="nf-icon">&#xf017;</span>
                             <span>{{ i18n "readingTime" .ReadingTime }}</span>
                         </div>
-                        <h3>{{ .Title }}</h3>
+                        <h3><a href="{{ .RelPermalink }}" class="card-title-link">{{ .Title }}</a></h3>
+                        {{ with .Params.tags }}
+                        <div class="card-tags">
+                            {{ range first 4 . }}
+                            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="card-tag"><span class="nf-icon">&#xf02b;</span> {{ . }}</a>
+                            {{ end }}
+                        </div>
+                        {{ end }}
                         {{ with .Summary }}<p class="card-excerpt">{{ . | plainify }}</p>{{ end }}
                     </div>
-                </a>
-                {{ with .Params.tags }}
-                <div class="card-tags">
-                    {{ range first 4 . }}
-                    <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="card-tag">{{ . }}</a>
-                    {{ end }}
                 </div>
-                {{ end }}
             </li>
             {{ end }}
         </ul>

@@ -4,5 +4,8 @@ date: {{ .Date }}
 draft: true
 description: ""
 tags: []
-featured_image: ""
+technologies: []
+category: ""
+weight: 0
+# github: ""
 ---

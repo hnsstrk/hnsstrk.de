@@ -129,13 +129,50 @@ h4:hover .heading-anchor {
     position: relative;
   }
 
-  /* Theme Switcher: im Header-Flow statt fixed */
+  .nav-links {
+    margin-right: 0;
+  }
+
+  /* Theme Switcher: im Hamburger-Dropdown (wird per JS verschoben) */
   .theme-switcher {
     position: static;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--border-color);
     background: transparent;
-    border-color: transparent;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+  }
+
+  .theme-switcher .theme-indicator {
+    display: none;
+  }
+
+  .theme-switcher button {
+    width: auto;
+    height: auto;
+    padding: var(--spacing-sm);
+    font-size: var(--step-0);
+  }
+
+  .theme-switcher button .nf-icon {
+    font-size: var(--step-1);
+  }
+
+  .theme-switcher button.active {
+    color: var(--accent-primary);
   }
 }
 

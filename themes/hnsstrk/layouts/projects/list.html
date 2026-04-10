@@ -1,0 +1,56 @@
+{{ define "main" }}
+<div class="container animate-fade-in content-container mt-4 mb-4" style="--card-accent: var(--accent-violet);">
+    <section class="content-body">
+        <h1>{{ .Title }}</h1>
+        {{ if .Content }}
+        <div class="markdown-content mb-4">
+            {{ .Content }}
+        </div>
+        {{ end }}
+
+        <ul class="list-none">
+            {{ range .Pages.ByWeight }}
+            <li class="card">
+                <div class="card-link">
+                    <div class="card-text">
+                        <div class="blog-card-meta" style="gap: 0.5rem;">
+                            {{ with .Params.github }}
+                            {{ $url := . }}
+                            <a href="{{ $url }}" class="card-meta-link" target="_blank" rel="noopener noreferrer">
+                              {{- if strings.Contains $url "gitlab" -}}
+                                <span class="nf-icon">&#xf296;</span> GitLab
+                              {{- else if strings.Contains $url "bitbucket" -}}
+                                <span class="nf-icon">&#xf171;</span> Bitbucket
+                              {{- else if strings.Contains $url "gitea" -}}
+                                <span class="nf-icon">&#xe65a;</span> Gitea
+                              {{- else -}}
+                                <span class="nf-icon">&#xf09b;</span> GitHub
+                              {{- end -}}
+                            </a>
+                            {{ end }}
+                            {{ with .Params.category }}
+                            <span class="nf-icon">&#xf07b;</span>
+                            <span>{{ . }}</span>
+                            {{ end }}
+                            {{ with .Params.technologies }}
+                            <span class="nf-icon">&#xf121;</span>
+                            <span>{{ delimit . ", " }}</span>
+                            {{ end }}
+                        </div>
+                        <h3><a href="{{ .RelPermalink }}" class="card-title-link">{{ .Title }}</a></h3>
+                        {{ with .Params.tags }}
+                        <div class="card-tags">
+                            {{ range first 4 . }}
+                            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="card-tag"><span class="nf-icon">&#xf02b;</span> {{ . }}</a>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                        {{ with .Description }}<p class="card-excerpt">{{ . }}</p>{{ end }}
+                    </div>
+                </div>
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+</div>
+{{ end }}

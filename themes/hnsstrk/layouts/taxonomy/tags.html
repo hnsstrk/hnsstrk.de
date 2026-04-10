@@ -1,11 +1,21 @@
 {{ define "main" }}
+{{- $tagMap := dict -}}
+{{- range site.RegularPages -}}
+  {{- range .Params.tags -}}
+    {{- $key := . | lower -}}
+    {{- if not (index $tagMap $key) -}}
+      {{- $tagMap = merge $tagMap (dict $key .) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 <div class="container animate-fade-in content-container mt-4 mb-4">
     <section class="content-body">
         <h1>Tags</h1>
         <div class="tag-cloud">
             {{ range .Data.Terms.Alphabetical }}
+            {{- $displayName := index $tagMap .Term | default .Page.Title -}}
             <a href="{{ .Page.RelPermalink }}" class="tag tag-with-count">
-                {{ .Page.Title }}
+                {{ $displayName }}
                 <span class="tag-count">{{ .Count }}</span>
             </a>
             {{ end }}

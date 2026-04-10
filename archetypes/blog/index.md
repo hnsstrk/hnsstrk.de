@@ -5,6 +5,7 @@ draft: true
 description: ""
 tags: []
 featured_image: ""
+# toc: true
 # featured_layout: left | right | top | bottom (Standard via hugo.toml params.featuredLayout)
 #   left   — Thumbnail links, Text rechts (empfohlen: quadratisch, z.B. 600x600)
 #   right  — Thumbnail rechts, Text links (empfohlen: quadratisch, z.B. 600x600)

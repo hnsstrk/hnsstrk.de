@@ -3,7 +3,7 @@ title: "Mermaid-Diagramme im Ayu-Theme: Praxisleitfaden für den Blog"
 date: 2026-04-09
 draft: false
 description: "Technischer Leitfaden für Mermaid im Blog: Diagrammtypen, Ayu-Farbpalette, Theme-Wechsel und Gantt-Konfiguration."
-tags: ["mermaid", "diagramme", "hugo", "ayu", "dokumentation"]
+tags: ["Mermaid", "Diagramme", "Hugo", "Ayu", "Dokumentation"]
 mermaid:
   gantt:
     axisFormat: "%d.%m."

@@ -22,6 +22,37 @@ hugo --minify           # Produktions-Build
 ```
 
 
+## Content erstellen
+
+Neue Inhalte immer über die Hugo CLI anlegen — **ohne `/index.md`** am Ende, damit der Directory-Archetype korrekt aufgelöst wird:
+
+```bash
+hugo new content blog/mein-beitrag       # Blog-Post (Page Bundle)
+hugo new content projects/mein-projekt   # Projekt-Seite (Page Bundle)
+```
+
+Die Archetypes liegen in `archetypes/blog/index.md` und `archetypes/projects/index.md`.
+
+| Feld | Blog | Projects | Pflicht |
+|------|:----:|:--------:|:-------:|
+| `title` | ja | ja | ja |
+| `date` | ja | ja | ja |
+| `draft` | ja | ja | ja |
+| `description` | ja | ja | ja |
+| `tags` | ja | ja | ja |
+| `featured_image` | ja | — | nein |
+| `featured_layout` | ja (Kommentar) | — | nein |
+| `toc` | ja (Kommentar) | — | nein |
+| `technologies` | — | ja | ja |
+| `category` | — | ja | ja |
+| `weight` | — | ja | ja |
+| `github` | — | ja (Kommentar) | nein |
+
+**Slug-Konvention:** kebab-case (z.B. `mein-erster-beitrag`)
+
+**Wichtig:** `hugo new content blog/post/index.md` (mit `/index.md`) fällt auf `archetypes/default.md` zurück und erzeugt unvollständiges Frontmatter.
+
+
 ## Technologie
 
 | Komponente | Technologie |
@@ -35,7 +66,8 @@ hugo --minify           # Produktions-Build
 | CI/CD | GitHub Actions → SSH-Trigger → Server-seitiger Hugo-Build |
 | SSL | Let's Encrypt / Certbot |
 | Mermaid | Lokal gebündelt (`mermaid.min.js`), bedingt geladen |
-| Schriften | Monaspace Superfamilie (6 Varianten) |
+| Schriften | Monaspace Superfamilie (6 Varianten) + Nerd Font |
+| Icons | Nerd Font Glyphen via `MonaspaceNeonNF-Regular.woff2` |
 | Farbpaket | NPM `ayu` — `import { dark, light, mirage } from 'ayu'` |
 
 
@@ -59,6 +91,33 @@ Dreischichtiges System in `style.css`:
 3. **Fluid Scales**: Utopia-basiert mit `clamp()` — `--step-{-2..5}` (Typografie), `--space-{3xs..xl}` (Spacing)
 
 Jede Schicht wird pro Theme (`data-theme`) überschrieben.
+
+### Nerd Font Icons
+
+Icons werden als **Nerd Font Glyphen** über die Klasse `.nf-icon` eingebunden — **keine SVG-Icons**. Jede Monaspace-Variante hat eine eigene NF-Version (`*NF-Regular.woff2`), die per `unicode-range` automatisch geladen wird. Die `.nf-icon`-Klasse erbt die `font-family` vom Elternelement, sodass Icons immer zur umgebenden Schrift passen.
+
+Verwendung im HTML: `<span class="nf-icon">&#xf073;</span>`
+
+Aktuell genutzte Glyphen:
+
+| Codepoint | Icon | Verwendung |
+|-----------|------|------------|
+| `e30d` | Sonne | Theme-Switcher: Light |
+| `f042` | Halbkreis | Theme-Switcher: Mirage |
+| `f186` | Mond | Theme-Switcher: Dark |
+| `f007` | Person | Navigation: Über mich |
+| `f121` | Code | Navigation: Projekte |
+| `f02d` | Buch | Navigation: Blog |
+| `f0c1` | Kette | Navigation: Links |
+| `f073` | Kalender | Blog-Karte: Datum |
+| `f02b` | Tag | Blog-Karte: Tags |
+| `f07b` | Ordner | Projekt-Karte: Kategorie |
+| `f09b` | GitHub | Projekt-Karte: Repository |
+| `f296` | GitLab | Projekt-Karte: Repository |
+| `f171` | Bitbucket | Projekt-Karte: Repository |
+| `e65a` | Gitea | Projekt-Karte: Repository |
+
+Vor Verwendung neuer Codepoints prüfen, ob sie in der Font vorhanden sind (s. `fontTools`-Check).
 
 ### Mermaid-Integration
 

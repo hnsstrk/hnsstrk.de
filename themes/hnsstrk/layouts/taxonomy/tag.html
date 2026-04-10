@@ -1,7 +1,17 @@
 {{ define "main" }}
+{{- $tagMap := dict -}}
+{{- range site.RegularPages -}}
+  {{- range .Params.tags -}}
+    {{- $key := . | lower -}}
+    {{- if not (index $tagMap $key) -}}
+      {{- $tagMap = merge $tagMap (dict $key .) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $displayName := index $tagMap (.Title | lower) | default .Title -}}
 <div class="container animate-fade-in content-container mt-4 mb-4" style="--card-accent: var(--syntax-markup);">
     <section class="content-body">
-        <h1>{{ .Title }}</h1>
+        <h1>{{ $displayName }}</h1>
         <ul class="list-none">
             {{ range .Pages.ByDate.Reverse }}
             <li class="card">
@@ -17,7 +27,7 @@
                 {{ with .Params.tags }}
                 <div class="card-tags">
                     {{ range first 4 . }}
-                    <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="card-tag">{{ . }}</a>
+                    <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="card-tag"><span class="nf-icon">&#xf02b;</span> {{ . }}</a>
                     {{ end }}
                 </div>
                 {{ end }}

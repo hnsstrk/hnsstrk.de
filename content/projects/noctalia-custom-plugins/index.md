@@ -2,7 +2,7 @@
 title: "noctalia-custom-plugins"
 description: "Plugin-Repository für Noctalia Shell — einen Wayland-Compositor auf Basis von Quickshell"
 date: 2024-03-01
-tags: ["qml", "kde", "wayland", "linux", "desktop"]
+tags: ["QML", "KDE", "Wayland", "Linux", "Desktop"]
 technologies: ["QML", "JavaScript", "Quickshell"]
 github: "https://github.com/hnsstrk/noctalia-custom-plugins"
 category: "Desktop-Bastelei"
