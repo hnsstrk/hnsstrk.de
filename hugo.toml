@@ -72,6 +72,14 @@ theme = "hnsstrk"
     weight = 30
 
   [[menus.footer]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 5
+  [[menus.footer]]
+    name = "Archiv"
+    url = "/blog/archive/"
+    weight = 6
+  [[menus.footer]]
     name = "Impressum"
     url = "/legal/"
     weight = 10

@@ -13,6 +13,10 @@ categories:
 
   - name: "Social Media"
     links:
+      - title: "Mastodon"
+        url: "https://mastodon.social/@hnsstrk"
+        description: "@hnsstrk@mastodon.social"
+        icon: "mastodon"
       - title: "X / Twitter"
         url: "https://x.com/hnsstrk"
         description: "@hnsstrk"

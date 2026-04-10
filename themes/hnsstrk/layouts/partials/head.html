@@ -88,7 +88,7 @@
 <link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous"{{ end }}>
 
 {{/* Board CSS — nur auf Home + 404 */}}
-{{ if or .IsHome (eq .Layout "404") }}
+{{ if or .IsHome (eq .Kind "404") }}
   {{ $board := resources.Get "css/board.css" }}
   {{ $tile := resources.Get "css/tile.css" }}
   {{ $boardCss := slice $board $tile | resources.Concat "css/board-bundle.css" }}
