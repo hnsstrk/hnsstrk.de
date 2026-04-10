@@ -128,6 +128,15 @@ h4:hover .heading-anchor {
   .header-inner {
     position: relative;
   }
+
+  /* Theme Switcher: im Header-Flow statt fixed */
+  .theme-switcher {
+    position: static;
+    background: transparent;
+    border-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 /* Mobile */
