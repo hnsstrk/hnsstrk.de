@@ -149,3 +149,6 @@ temp/
 .claude/settings.json
 .claude/settings.local.json
 # Note: .claude/projects/ should NOT be ignored — tracked intentionally if present
+
+# Playwright MCP — browser session capture artifacts
+.playwright-mcp/

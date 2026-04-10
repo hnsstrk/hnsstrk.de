@@ -11,6 +11,8 @@ weight: 2
 
 Ein RSS-Aggregator mit einer 8-stufigen KI-Analyse-Pipeline, die vollständig lokal läuft — gebaut mit Svelte 5, Tauri 2 und Ollama. Ohne Cloud, ohne API-Keys, ohne geteilte Daten. Der Name ist eine Referenz auf den F.U.C.K.U.P.-Computer aus der *Illuminatus!*-Trilogie.
 
+![fuckupRSS — Artikel-Detailansicht mit Discordian Analysis, Bias-Erkennung und Kategorien](fuckuprss-artikel-detail.png)
+
 ## Die Pipeline
 
 Jeder neue Artikel durchläuft acht Verarbeitungsstufen:
@@ -41,6 +43,8 @@ Jeder neue Artikel durchläuft acht Verarbeitungsstufen:
 - **Ollama** — lokale LLM-Inferenz (Ministral 3B, Snowflake Arctic Embed)
 - **SQLite + sqlite-vec** — Artikeldaten und Vektorsuche
 - **260 Tests** — 160 Backend, 89 Frontend, 11 E2E
+
+![fuckupRSS Tages-Briefing — KI-generierter Überblick mit TL;DR und thematischer Gliederung](fuckuprss-briefing.png)
 
 ## Status
 

@@ -740,6 +740,27 @@ code {
   background: var(--bg-secondary);
 }
 
+/* Images */
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: var(--spacing-lg) auto;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+/* Figures */
+.markdown-content figure {
+  margin: var(--spacing-lg) 0;
+}
+
+.markdown-content figcaption {
+  font-size: var(--step--1);
+  text-align: center;
+  color: var(--text-muted);
+}
+
 /* Cards & Grid */
 .list-none {
   list-style: none;

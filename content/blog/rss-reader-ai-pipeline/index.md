@@ -34,6 +34,8 @@ Die Illuminatus!-Terminologie zieht sich konsequent durch die gesamte Anwendung:
 
 Was auf den ersten Blick wie ein Gag wirkt, erweist sich als überraschend praktisch: Eindeutige Bezeichnungen, die sich nicht mit generischen Begriffen überschneiden. Kein Verwechslungsrisiko zwischen einem "Artikel" im Datenmodell und einem "Artikel" im Fließtext.
 
+![fuckupRSS — Artikel-Detailansicht mit Discordian Analysis, Bias-Erkennung, Kategorien und Schlagworten](fuckuprss-artikel-detail.png)
+
 ## Die Pipeline im Überblick
 
 Das Herzstück ist eine achtgliedrige Verarbeitungspipeline. Jeder neue Artikel durchläuft diese Stufen automatisch nach dem Feed-Sync:
@@ -148,6 +150,8 @@ Als Standardmodell kommt **Ministral 3** (Mistral AI) zum Einsatz — ein europ�
 
 Für anspruchsvollere Aufgaben wie Briefings steht optional ein **Reasoning-Modell** (DeepSeek-R1) zur Verfügung, das analytisches Denken mit Thinking-Chain bietet — dazu später mehr.
 
+![Sephiroth-Übersicht: Politische Tendenz und Sachlichkeitsscore der Artikel einer Kategorie](fuckuprss-bias-sachlichkeit.png)
+
 ## Stufe 4 — Embeddings: Artikel als Vektoren
 
 Jeder Artikel wird in einen **1024-dimensionalen Vektor** umgewandelt. Dieser Vektor repräsentiert den semantischen Gehalt — nicht die Wörter, sondern die Bedeutung. Zwei Artikel über dasselbe Ereignis haben ähnliche Vektoren, auch wenn sie völlig unterschiedliche Formulierungen verwenden.
@@ -193,6 +197,8 @@ Keywords allein sind dumm. "KI" und "Künstliche Intelligenz" sind für eine ein
 - **Trending-Erkennung:** Keywords mit steigender Häufigkeit über Zeitreihen (`immanentize_daily`) identifizieren
 - **Thematische Navigation:** Von einem Keyword zu verwandten Begriffen und deren Artikeln navigieren
 
+![Immanentize Network: Trending-Verlauf und Keyword-Netzwerk mit verwandten Begriffen](fuckuprss-immanentize-network.png)
+
 ## Stufe 6 — Story Clustering: Union-Find für transitive Verknüpfung
 
 Wenn dasselbe Ereignis in zwölf verschiedenen Quellen erscheint, sollen alle zwölf Artikel als zusammengehörig erkannt werden. Das ist das Problem des Story Clustering.
@@ -232,6 +238,8 @@ Der Wert wurde empirisch ermittelt:
 
 Das eigentliche Ziel ist nicht die Gruppierung selbst, sondern der **Perspektivenvergleich**. Wenn zehn Quellen über dasselbe Ereignis berichten, stellt sich die Frage: Wo unterscheiden sich die Darstellungen? Welche Aspekte betont die eine Quelle, die eine andere weglässt? Optional kann ein LLM einen Vergleich der verschiedenen Perspektiven generieren.
 
+![Story Clustering: Artikel zum selben Ereignis aus verschiedenen Quellen mit Perspektivenvergleich](fuckuprss-story-clustering.png)
+
 ## Stufe 7 — Briefing Generation: Die Synthese
 
 Das tägliche Briefing ist das zentrale Ergebnis der gesamten Pipeline. Statt hunderte Artikel einzeln zu prüfen, liefert das System eine kurierte Zusammenfassung der relevantesten Themen.
@@ -268,6 +276,10 @@ Die Anwendung unterstützt dafür eine **Zwei-Modell-Strategie** mit Task-Routin
 |----------|--------|-------------|
 | **Schnelle Analyse** (Stufe 3) | Ministral 3 | Geschwindigkeit, `/no_think` |
 | **Tiefenanalyse** (Stufe 7) | DeepSeek-R1 | Reasoning, Thinking-Chain |
+
+![Tages-Briefing: TL;DR und thematische Gliederung der relevantesten Meldungen des Tages](fuckuprss-briefing.png)
+
+![Empfehlungen: Personalisierte Artikel-Karten mit Quellen, Kategorien und Relevanz-Score](fuckuprss-empfehlungen.png)
 
 ## Stufe 8 — Named Entity Recognition
 
@@ -466,6 +478,8 @@ Auf dem Mac mit **Apple Silicon und 48 GB Unified Memory** ergibt sich ein weite
 ## Qualitätssicherung
 
 Das Projekt umfasst über **625 automatisierte Tests**. Pre-Commit-Hooks prüfen mit ESLint, Prettier, `cargo fmt` und `clippy`. Pre-Push-Hooks führen Vitest und `cargo test` aus. Eine CI-Pipeline auf Gitea Actions führt Security-Scans mit Semgrep, `npm audit` und `cargo audit` durch und erzeugt CycloneDX-SBOMs (Software Bill of Materials) bei jedem Push.
+
+![Feed-Statistiken: Artikel-Counts je Quelle, Zeitraum und Kategorie](fuckuprss-feed-statistiken.png)
 
 ## Zusammenfassung der Architekturentscheidungen
 
