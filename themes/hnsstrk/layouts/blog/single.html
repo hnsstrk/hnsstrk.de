@@ -4,10 +4,12 @@
         <header class="blog-header">
             <h1>{{ .Title }}</h1>
             <div class="blog-meta">
+                <span class="nf-icon">&#xf073;</span>
                 <time datetime="{{ .Date.Format "2006-01-02" }}">
                     {{ .Date | time.Format ":date_long" }}
                 </time>
                 <span class="meta-separator">&middot;</span>
+                <span class="nf-icon">&#xf017;</span>
                 <span>{{ i18n "readingTime" .ReadingTime }}</span>
             </div>
         </header>
