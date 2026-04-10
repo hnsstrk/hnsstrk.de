@@ -6,10 +6,6 @@ categories:
         description: "Alle meine Projekte und Repositories"
         icon: "github"
         featured: true
-      - title: "Codeberg"
-        url: "https://codeberg.org/hnsstrk"
-        description: "Mirror ausgewählter Repositories"
-        icon: "code"
 
   - name: "Social Media"
     links:
