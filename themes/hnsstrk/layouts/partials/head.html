@@ -75,6 +75,10 @@
 </script>
 {{ end }}
 
+{{/* Font Preloading — kritische Fonts für FCP-Verbesserung */}}
+<link rel="preload" href="{{ "fonts/Monaspace%20Neon%20Var.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/Monaspace%20Argon%20Var.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+
 {{/* CSS Bundle: reset + fonts + style + responsive */}}
 {{ $reset := resources.Get "css/reset.css" }}
 {{ $fonts := resources.Get "css/fonts.css" }}
