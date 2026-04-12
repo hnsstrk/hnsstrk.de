@@ -85,11 +85,11 @@
 .chroma .p  { color: var(--text-primary); }       /* Punctuation */
 
 /* Comments */
-.chroma .c  { color: var(--syntax-comment); font-style: italic; }
-.chroma .ch { color: var(--syntax-comment); font-style: italic; }  /* Hashbang */
-.chroma .cm { color: var(--syntax-comment); font-style: italic; }  /* Multiline */
-.chroma .c1 { color: var(--syntax-comment); font-style: italic; }  /* Single */
-.chroma .cs { color: var(--syntax-comment); font-style: italic; font-weight: 700; }  /* Special (TODO, FIXME) */
+.chroma .c  { color: var(--syntax-comment); font-style: italic; font-family: var(--font-handwriting); }
+.chroma .ch { color: var(--syntax-comment); font-style: italic; font-family: var(--font-handwriting); }  /* Hashbang */
+.chroma .cm { color: var(--syntax-comment); font-style: italic; font-family: var(--font-handwriting); }  /* Multiline */
+.chroma .c1 { color: var(--syntax-comment); font-style: italic; font-family: var(--font-handwriting); }  /* Single */
+.chroma .cs { color: var(--syntax-comment); font-style: italic; font-weight: 700; font-family: var(--font-handwriting); }  /* Special (TODO, FIXME) */
 .chroma .cp { color: var(--syntax-special); }     /* Preprocessor (#include, #define) */
 .chroma .cpf { color: var(--syntax-special); }    /* PreprocFile */
 
