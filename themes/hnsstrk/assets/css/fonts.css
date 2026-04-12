@@ -64,49 +64,13 @@
     font-display: swap;
 }
 
-/* --- Monaspace Nerd Font Varianten (Icon-Support) ---
-   Jede Variante bekommt eine NF-Ergänzung per unicode-range.
-   Icons werden automatisch aus der passenden NF-Variante geladen,
-   sodass sie zur umgebenden Schrift passen. */
+/* --- Nerd Font Icons ---
+   Ein einziger Icon-Font für alle Nerd Font Glyphen.
+   Wird über .nf-icon explizit zugewiesen — kein unicode-range nötig. */
 @font-face {
-    font-family: 'Monaspace Neon';
+    font-family: 'NF Icons';
     src: url('../fonts/MonaspaceNeonNF-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
     font-display: swap;
-    unicode-range: U+E000-F8FF, U+F0000-FFFFF;
-}
-@font-face {
-    font-family: 'Monaspace Argon';
-    src: url('../fonts/MonaspaceArgonNF-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+E000-F8FF, U+F0000-FFFFF;
-}
-@font-face {
-    font-family: 'Monaspace Krypton';
-    src: url('../fonts/MonaspaceKryptonNF-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+E000-F8FF, U+F0000-FFFFF;
-}
-@font-face {
-    font-family: 'Monaspace Radon';
-    src: url('../fonts/MonaspaceRadonNF-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+E000-F8FF, U+F0000-FFFFF;
-}
-@font-face {
-    font-family: 'Monaspace Xenon';
-    src: url('../fonts/MonaspaceXenonNF-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+E000-F8FF, U+F0000-FFFFF;
 }
 
 /* ==========================================================================
@@ -119,8 +83,9 @@
 .font-radon   { font-family: 'Monaspace Radon', monospace; }
 .font-krypton { font-family: 'Monaspace Krypton', monospace; }
 
-/* Nerd Font Icon Utility — erbt font-family vom Elternelement */
+/* Nerd Font Icon Utility — eigene font-family für stabile Icon-Darstellung */
 .nf-icon {
+    font-family: 'NF Icons', monospace;
     font-style: normal;
     font-weight: 400;
     font-size: 1.1em;
