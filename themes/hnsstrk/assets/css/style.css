@@ -60,6 +60,13 @@
   /* Violet Accent (Ayu syntax-constant) */
   --accent-violet: #a37acc;
 
+  /* Accessible link color — Light Theme (6:1 auf #fcfcfc) */
+  --link-color: #8a5600;
+  --link-color-hover: #6a3f00;
+
+  /* Line-height Token (erhöht in dunklen Themes) */
+  --line-height-body: 1.6;
+
   /* Fluid Type Scale (Utopia, 320px–1240px, ratio 1.2) */
   --step--2: clamp(0.69rem, 0.65rem + 0.2vw, 0.8rem);
   --step--1: clamp(0.83rem, 0.77rem + 0.32vw, 1rem);
@@ -157,6 +164,10 @@
   /* Violet Accent (Ayu syntax-constant) */
   --accent-violet: #dfbfff;
 
+  --link-color: var(--accent-primary);
+  --link-color-hover: var(--accent-hover);
+  --line-height-body: 1.7;
+
   color-scheme: dark;
 }
 
@@ -215,6 +226,10 @@
   /* Violet Accent (Ayu syntax-constant) */
   --accent-violet: #d2a6ff;
 
+  --link-color: var(--accent-primary);
+  --link-color-hover: var(--accent-hover);
+  --line-height-body: 1.7;
+
   color-scheme: dark;
 }
 
@@ -223,7 +238,7 @@ html {
   font-family: var(--font-body);
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  line-height: 1.6;
+  line-height: var(--line-height-body);
   font-size: 16px;
   /* OpenType Features — Texture Healing + Ligaturen */
   font-variant-ligatures: contextual;
@@ -268,7 +283,7 @@ h5 + h6 { margin-top: var(--spacing-sm); }
 }
 
 p {
-  color: var(--text-secondary);
+  color: var(--text-primary);
   font-size: var(--step-0);
   line-height: 1.8;
   margin-bottom: var(--spacing-md);
@@ -277,31 +292,34 @@ p {
 ul, ol {
   font-size: var(--step-0);
   line-height: 1.8;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 a {
-  color: var(--accent-primary);
+  color: var(--link-color, var(--accent-primary));
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--accent-hover);
+  color: var(--link-color-hover, var(--accent-hover));
 }
 
 a:active {
-  color: var(--accent-hover);
+  color: var(--link-color-hover, var(--accent-hover));
 }
 
 /* Content-Links — gleiche Farbe und Stil wie Footer-Links */
 .markdown-content a {
-  color: var(--accent-primary);
-  text-decoration: none;
-  transition: color 0.2s ease;
+  color: var(--link-color, var(--accent-primary));
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--link-color, var(--accent-primary)) 40%, transparent);
+  text-underline-offset: 0.2em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 .markdown-content a:hover {
-  color: var(--accent-hover);
+  color: var(--link-color-hover, var(--accent-hover));
+  text-decoration-color: var(--link-color-hover, var(--accent-hover));
 }
 .markdown-content a:visited {
   color: var(--accent-primary);
@@ -310,11 +328,12 @@ a:active {
 blockquote, .emphasis {
   font-family: var(--font-handwriting);
   font-style: oblique 8deg;
-  font-size: var(--step-1);
+  font-size: var(--step-2);
   color: var(--text-secondary);
-  border-left: 3px solid var(--accent-primary);
-  padding-left: var(--spacing-md);
-  margin: var(--spacing-md) 0;
+  padding: var(--space-s) var(--space-l);
+  margin: var(--space-l) var(--space-m);
+  background-color: color-mix(in srgb, var(--accent-primary) 5%, var(--bg-secondary));
+  border-radius: 4px;
 }
 
 /* Code Blocks — Xenon (Slab Serif, Schreibmaschinen-Charakter) */
@@ -734,7 +753,7 @@ code {
   font-size: var(--step--1);
 }
 .markdown-content thead {
-  border-bottom: 2px solid var(--border-primary);
+  border-bottom: 2px solid var(--border-color);
 }
 .markdown-content th {
   text-align: left;
@@ -746,7 +765,7 @@ code {
 .markdown-content td {
   padding: var(--spacing-sm) var(--spacing-md);
   color: var(--text-secondary);
-  border-bottom: 1px solid var(--border-secondary);
+  border-bottom: 1px solid var(--border-color);
   vertical-align: top;
 }
 .markdown-content tbody tr:last-child td {
@@ -920,14 +939,18 @@ code {
   padding-top: var(--spacing-lg);
   border-top: 1px solid var(--border-color);
 }
+
+
 .blog-tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
 }
 .tag {
-  display: inline-block;
-  padding: 0.2rem 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  min-height: 2rem;
   background-color: color-mix(in srgb, var(--syntax-markup) 10%, var(--bg-primary));
   border: 1px solid color-mix(in srgb, var(--syntax-markup) 30%, transparent);
   border-radius: 4px;
@@ -983,7 +1006,10 @@ code {
   font-family: var(--font-ui);
   font-size: var(--step--2);
   color: var(--text-muted);
-  padding: 0.1rem 0.4rem;
+  padding: 0.25rem 0.5rem;
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
   border: 1px solid var(--border-color);
   border-radius: 3px;
   text-decoration: none;
@@ -1105,7 +1131,6 @@ code {
 .callout-info {
   background-color: color-mix(in srgb, var(--syntax-entity) 6%, var(--bg-primary));
   border-color: color-mix(in srgb, var(--syntax-entity) 30%, transparent);
-  border-left: 4px solid var(--syntax-entity);
 }
 
 .callout-info .callout-header {
@@ -1121,7 +1146,6 @@ code {
 .callout-warning {
   background-color: color-mix(in srgb, var(--syntax-keyword) 6%, var(--bg-primary));
   border-color: color-mix(in srgb, var(--syntax-keyword) 30%, transparent);
-  border-left: 4px solid var(--syntax-keyword);
 }
 
 .callout-warning .callout-header {
@@ -1137,7 +1161,6 @@ code {
 .callout-tip {
   background-color: color-mix(in srgb, var(--syntax-string) 6%, var(--bg-primary));
   border-color: color-mix(in srgb, var(--syntax-string) 30%, transparent);
-  border-left: 4px solid var(--syntax-string);
 }
 
 .callout-tip .callout-header {
@@ -1153,7 +1176,6 @@ code {
 .callout-note {
   background-color: color-mix(in srgb, var(--syntax-comment) 6%, var(--bg-primary));
   border-color: color-mix(in srgb, var(--syntax-comment) 30%, transparent);
-  border-left: 4px solid var(--syntax-comment);
 }
 
 .callout-note .callout-header {
@@ -1176,7 +1198,6 @@ code {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  border-left: 4px solid var(--accent-primary);
 }
 
 .tldr-label {
@@ -1532,7 +1553,7 @@ code {
 }
 .card-image--side {
   flex-shrink: 0;
-  width: 250px;
+  width: clamp(120px, 25%, 250px);
   height: auto;
   border-radius: 6px;
   object-fit: contain;

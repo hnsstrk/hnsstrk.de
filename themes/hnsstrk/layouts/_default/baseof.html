@@ -13,10 +13,10 @@
             <nav class="nav-links">
                 {{ range .Site.Menus.main }}
                 <a href="{{ .URL | relURL }}">
-                    {{ if eq .Name "Über mich" }}<span class="nf-icon">&#xf007;</span>{{ end }}
-                    {{ if eq .Name "Projekte" }}<span class="nf-icon">&#xf121;</span>{{ end }}
-                    {{ if eq .Name "Blog" }}<span class="nf-icon">&#xf02d;</span>{{ end }}
-                    {{ if eq .Name "Links" }}<span class="nf-icon">&#xf0c1;</span>{{ end }}
+                    {{ if eq .Name "Über mich" }}<span class="nf-icon" aria-hidden="true">&#xf007;</span>{{ end }}
+                    {{ if eq .Name "Projekte" }}<span class="nf-icon" aria-hidden="true">&#xf121;</span>{{ end }}
+                    {{ if eq .Name "Blog" }}<span class="nf-icon" aria-hidden="true">&#xf02d;</span>{{ end }}
+                    {{ if eq .Name "Links" }}<span class="nf-icon" aria-hidden="true">&#xf0c1;</span>{{ end }}
                     {{ .Name }}
                 </a>
                 {{ end }}
@@ -25,13 +25,13 @@
             <div class="theme-switcher" id="theme-switcher">
                 <span class="theme-indicator"></span>
                 <button data-theme-value="light" aria-label="{{ i18n "themeLight" }}">
-                    <span class="nf-icon">&#xe30d;</span>
+                    <span class="nf-icon" aria-hidden="true">&#xe30d;</span>
                 </button>
                 <button data-theme-value="mirage" aria-label="{{ i18n "themeMirage" }}">
-                    <span class="nf-icon">&#xf042;</span>
+                    <span class="nf-icon" aria-hidden="true">&#xf042;</span>
                 </button>
                 <button data-theme-value="dark" aria-label="{{ i18n "themeDark" }}">
-                    <span class="nf-icon">&#xf186;</span>
+                    <span class="nf-icon" aria-hidden="true">&#xf186;</span>
                 </button>
             </div>
             <button class="nav-toggle" aria-label="Navigation öffnen" aria-expanded="false">

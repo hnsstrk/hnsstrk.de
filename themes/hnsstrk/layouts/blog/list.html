@@ -38,17 +38,17 @@
                     {{ end }}
                     <div class="card-text">
                         <div class="blog-card-meta">
-                            <span class="nf-icon">&#xf073;</span>
+                            <span class="nf-icon" aria-hidden="true">&#xf073;</span>
                             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
                             <span class="meta-separator">&middot;</span>
-                            <span class="nf-icon">&#xf017;</span>
+                            <span class="nf-icon" aria-hidden="true">&#xf017;</span>
                             <span>{{ i18n "readingTime" .ReadingTime }}</span>
                         </div>
                         <h3><a href="{{ .RelPermalink }}" class="card-title-link">{{ .Title }}</a></h3>
                         {{ with .Params.tags }}
                         <div class="card-tags">
                             {{ range first 4 . }}
-                            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="card-tag"><span class="nf-icon">&#xf02b;</span> {{ . }}</a>
+                            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="card-tag"><span class="nf-icon" aria-hidden="true">&#xf02b;</span> {{ . }}</a>
                             {{ end }}
                         </div>
                         {{ end }}
