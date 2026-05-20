@@ -256,9 +256,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--text-primary);
-  font-weight: 550;
-  font-stretch: 110%;
-  font-variation-settings: "wght" var(--heading-weight, 550), "wdth" var(--heading-width, 110);
+  font-weight: var(--heading-weight, 480);
+  font-stretch: var(--heading-stretch, 108%);
+  font-variation-settings: "wght" var(--heading-weight, 480), "wdth" var(--heading-width, 108);
   line-height: 1.15;
   margin-bottom: var(--spacing-sm);
   letter-spacing: -0.01em;
@@ -268,52 +268,58 @@ h1 {
   font-size: var(--step-4); 
   margin-top: 0; 
   margin-bottom: var(--spacing-lg);
-  --heading-weight: 550;
-  --heading-width: 112;
+  --heading-weight: 500;
+  --heading-width: 110;
+  --heading-stretch: 110%;
   letter-spacing: -0.02em;
 }
 h2 { 
   font-size: var(--step-3); 
   margin-top: var(--spacing-xl);
-  --heading-weight: 550;
-  --heading-width: 110;
+  --heading-weight: 480;
+  --heading-width: 108;
+  --heading-stretch: 108%;
   letter-spacing: -0.015em;
 }
 h3 { 
   font-size: var(--step-2); 
   line-height: 1.2; 
   margin-top: var(--spacing-lg);
-  --heading-weight: 550;
-  --heading-width: 110;
+  --heading-weight: 460;
+  --heading-width: 106;
+  --heading-stretch: 106%;
 }
 h4 { 
   font-size: var(--step-1); 
   line-height: 1.25; 
   margin-top: var(--spacing-lg); 
-  --heading-weight: 500;
-  --heading-width: 108;
-  font-weight: 500;
-  font-stretch: 108%;
+  --heading-weight: 420;
+  --heading-width: 104;
+  --heading-stretch: 104%;
+  font-weight: 420;
+  font-stretch: 104%;
   letter-spacing: 0;
 }
 h5 { 
   font-size: var(--step-0); 
   line-height: 1.3; 
   margin-top: var(--spacing-md); 
-  --heading-weight: 500;
-  --heading-width: 105;
-  font-weight: 500;
-  font-stretch: 105%;
+  --heading-weight: 420;
+  --heading-width: 102;
+  --heading-stretch: 102%;
+  font-weight: 420;
+  font-stretch: 102%;
   letter-spacing: 0.01em;
 }
 h6 { 
   font-size: var(--step--1); 
   line-height: 1.4; 
   margin-top: var(--spacing-md); 
-  --heading-weight: 500;
-  --heading-width: 105;
-  font-weight: 500;
-  font-stretch: 105%;
+  --heading-weight: 420;
+  --heading-width: 102;
+  --heading-stretch: 102%;
+  font-weight: 420;
+  font-stretch: 102%;
   letter-spacing: 0.02em;
 }
 
