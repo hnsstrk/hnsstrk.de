@@ -258,7 +258,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   font-weight: var(--heading-weight, 440);
   font-stretch: var(--heading-stretch, 108%);
-  font-variation-settings: "wght" var(--heading-weight, 440), "wdth" var(--heading-width, 108);
   line-height: 1.15;
   margin-bottom: var(--spacing-sm);
   letter-spacing: -0.01em;
