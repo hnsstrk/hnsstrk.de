@@ -152,3 +152,6 @@ temp/
 
 # Playwright MCP — browser session capture artifacts
 .playwright-mcp/
+
+# Firecrawl CLI — local scrape/search cache
+.firecrawl/
