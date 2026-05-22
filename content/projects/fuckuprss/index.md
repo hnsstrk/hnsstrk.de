@@ -2,7 +2,7 @@
 title: "fuckupRSS"
 description: "RSS-Aggregator mit lokaler KI-Analyse-Pipeline — täglich, lokal, ohne Cloud"
 date: 2026-03-01
-draft: true
+draft: false
 tags: ["Svelte", "Tauri", "Ollama", "KI", "RSS", "Rust"]
 technologies: ["Svelte 5", "Tauri 2", "Rust", "Ollama", "SQLite"]
 category: "KI-Werkzeug"

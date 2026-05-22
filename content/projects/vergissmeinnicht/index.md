@@ -2,7 +2,7 @@
 title: "Vergissmeinnicht"
 description: "Native macOS-App für Taskwarrior 3.x — SwiftUI auf Rust-Core, TaskChampion direkt eingebettet"
 date: 2026-05-22
-draft: true
+draft: false
 tags: ["SwiftUI", "Rust", "UniFFI", "Taskwarrior", "TaskChampion", "macOS"]
 technologies: ["Swift 6", "SwiftUI", "Rust", "UniFFI 0.29", "TaskChampion 3.0.1", "SQLite"]
 category: "Produktivität"
