@@ -1,47 +1,53 @@
 categories:
   - name: "Code & Open Source"
+    subtitle: "Was ich an Code öffentlich liegen lasse."
     links:
       - title: "GitHub"
         url: "https://github.com/hnsstrk"
         description: "Alle meine Projekte und Repositories"
         icon: "github"
         featured: true
+        rss: true
 
   - name: "Social Media"
+    subtitle: "Mehr lesen als posten — Feeds, die ich beobachte."
     links:
       - title: "Mastodon"
         url: "https://mastodon.social/@hnsstrk"
-        description: "@hnsstrk@mastodon.social"
+        handle: "@hnsstrk@mastodon.social"
         icon: "mastodon"
+        rss: true
       - title: "X / Twitter"
         url: "https://x.com/hnsstrk"
-        description: "@hnsstrk"
+        handle: "@hnsstrk"
         icon: "twitter"
       - title: "Instagram"
         url: "https://instagram.com/hnsstrk"
-        description: "@hnsstrk"
+        handle: "@hnsstrk"
         icon: "instagram"
       - title: "Reddit"
         url: "https://reddit.com/u/hnsstrk"
-        description: "u/hnsstrk"
+        handle: "u/hnsstrk"
         icon: "reddit"
 
   - name: "Gaming"
+    subtitle: "Was ich spiele und wo."
     links:
       - title: "Twitch"
         url: "https://twitch.tv/hnsstrk"
-        description: "Gelegentliche Streams"
+        handle: "hnsstrk"
         icon: "twitch"
       - title: "Steam"
         url: "https://steamcommunity.com/id/hnsstrk"
-        description: "Steam-Profil"
+        handle: "hnsstrk"
         icon: "steam"
       - title: "Discord"
         url: "#"
-        description: "hnsstrk"
+        handle: "hnsstrk"
         icon: "discord"
 
   - name: "RPG"
+    subtitle: "Pen & Paper, Spielleitung, Rollenspiel-Notizen."
     links:
       - title: "online-resources.de"
         url: "https://online-resources.de"
@@ -50,6 +56,7 @@ categories:
         featured: true
 
   - name: "Kontakt"
+    subtitle: "Direkter Draht."
     links:
       - title: "E-Mail"
         url: "mailto:hans.juergen.stark@gmail.com"

@@ -1,31 +1,98 @@
 {{ define "main" }}
-<div class="container animate-fade-in content-container mt-4 mb-4" style="--card-accent: var(--syntax-string);">
-    <section class="content-body">
-        <h1>{{ .Title }}</h1>
-        {{ if .Content }}
-        <div class="markdown-content mb-4">
-            {{ .Content }}
-        </div>
-        {{ end }}
+{{/* ==========================================================================
+     _default/links.html — Adressbuch
+     Nutzt data/links.yaml — optional erweiterbar pro Eintrag:
+       handle   → wenn gesetzt, statt title als Display verwendet
+       rss      → true ⇒ "RSS"-Badge in der Schiene
+       live     → true ⇒ "live"-Pulse-Badge (überschreibt featured)
+     ========================================================================== */}}
+{{ $iconMap := dict
+    "github"    "&#xf09b;"
+    "gitlab"    "&#xf296;"
+    "mastodon"  "&#xf0ad1;"
+    "twitter"   "&#xf099;"
+    "instagram" "&#xf16d;"
+    "reddit"    "&#xf281;"
+    "twitch"    "&#xf1e8;"
+    "steam"     "&#xf1b6;"
+    "discord"   "&#xf392;"
+    "youtube"   "&#xf167;"
+    "linkedin"  "&#xf0e1;"
+    "mail"      "&#xf0e0;"
+    "code"      "&#xf121;"
+    "rpg"       "&#xf1b2;"
+    "link"      "&#xf0c1;" }}
 
-        {{ range hugo.Data.links.categories }}
-        <div class="mt-4 mb-4">
-            <h2 class="category-heading">{{ .name }}</h2>
-            <div class="grid-2-col gap-4">
-                {{ range .links }}
-                <a href="{{ .url }}" class="card link-card {{ if .featured }}featured{{ end }}" target="_blank" rel="noopener noreferrer">
-                    <h3>
-                        {{ if .icon }}
-                            <span class="nf-icon">{{ if eq .icon "github" }}&#xf09b;{{ else if eq .icon "mastodon" }}&#xf0ad1;{{ else if eq .icon "steam" }}&#xf1b6;{{ else if eq .icon "code" }}&#xf121;{{ else if eq .icon "mail" }}&#xf0e0;{{ else if eq .icon "rpg" }}&#xf1b2;{{ else if eq .icon "link" }}&#xf0c1;{{ else if eq .icon "youtube" }}&#xf167;{{ else if eq .icon "twitter" }}&#xf099;{{ else if eq .icon "linkedin" }}&#xf0e1;{{ else if eq .icon "reddit" }}&#xf281;{{ else }}&#xf0c1;{{ end }}</span>
-                        {{ end }}
-                        {{ .title }}
-                    </h3>
-                    <p class="text-sm mt-2">{{ .description }}</p>
-                </a>
+<div class="container type-page animate-fade-in" style="--type-accent: var(--syntax-string);">
+  <span class="type-eyebrow"><span class="te-dot"></span>links · adressbuch</span>
+  <h1 class="type-megatitle">{{ .Title | lower }}<span class="punct">.</span></h1>
+
+  {{ with .Description }}
+    <p class="type-lede">{{ . | safeHTML }}</p>
+  {{ else }}
+    {{ if .Content }}<div class="type-lede">{{ .Content }}</div>{{ end }}
+  {{ end }}
+
+  {{ $cats := hugo.Data.links.categories }}
+  {{ $total := 0 }}
+  {{ range $cats }}{{ $total = add $total (len .links) }}{{ end }}
+
+  <div class="type-toolrow">
+    <span>{{ $total }} Einträge · {{ len $cats }} Kategorien</span>
+    <span class="tr-right">
+      <a class="tr-link" href="{{ "/index.xml" | relURL }}">RSS ↗</a>
+    </span>
+  </div>
+
+  {{ range $gi, $cat := $cats }}
+    <section class="address-block">
+      <h2 class="as-title">
+        <span class="as-num">{{ printf "%02d" (add $gi 1) }} · Kategorie</span>
+        {{ $cat.name | lower }}
+        {{ with $cat.subtitle }}<span class="as-sub">{{ . }}</span>{{ end }}
+      </h2>
+
+      <div class="as-list">
+        {{ range $cat.links }}
+          {{ $url       := .url }}
+          {{ $handle    := .handle | default .title }}
+          {{ $isMail    := strings.HasPrefix $url "mailto:" }}
+          {{ $host      := "" }}
+          {{ if not $isMail }}
+            {{ $stripped := replace (replace $url "https://" "") "http://" "" }}
+            {{ $host = index (split $stripped "/") 0 }}
+          {{ else }}
+            {{ $host = "mailto" }}
+          {{ end }}
+          {{ $iconKey := .icon | default "link" }}
+          {{ $iconCp  := index $iconMap $iconKey | default "&#xf0c1;" }}
+          {{ $isLive  := or .live (and .featured (not .rss)) }}
+
+          <div class="as-row">
+            <div>
+              <a class="as-handle" href="{{ $url }}" {{ if not $isMail }}target="_blank" rel="noopener noreferrer"{{ end }}>
+                {{ if hasPrefix $handle "@" }}
+                  <span class="as-at">@</span>{{ trim $handle "@" }}
+                {{ else }}
+                  {{ $handle }}
                 {{ end }}
+              </a>
+              {{ with .description }}<span class="as-desc">{{ . }}</span>{{ end }}
+              <span class="as-url">
+                <span class="nf-icon">{{ $iconCp | safeHTML }}</span>
+                <span>{{ $host }}</span>
+                <span class="as-url-dots"></span>
+                <span>{{ .title }}</span>
+              </span>
             </div>
-        </div>
+            <div class="as-rail">
+              {{ if $isLive }}<span class="as-pulse">live</span>{{ end }}
+              {{ if .rss   }}<span class="as-rss">RSS</span>{{ end }}
+            </div>
+          </div>
         {{ end }}
+      </div>
     </section>
+  {{ end }}
 </div>
 {{ end }}

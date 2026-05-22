@@ -1,10 +1,62 @@
 {{ define "main" }}
-<div class="container animate-fade-in content-container mt-4 mb-4">
-    <article class="content-body">
-        <h1>{{ .Title }}</h1>
-        <div class="markdown-content">
-            {{ .Content }}
-        </div>
-    </article>
+{{ $isProject := eq .Section "projects" }}
+{{ $status      := .Params.status   | default "aktiv" }}
+{{ $statusColor := dict "aktiv" "var(--syntax-string)" "wip" "var(--syntax-func)" "schlummert" "var(--text-muted)" "archiv" "var(--syntax-comment)" }}
+{{ $statusLabel := dict "aktiv" "Aktiv" "wip" "In Arbeit" "schlummert" "Schlummert" "archiv" "Archiviert" }}
+
+{{/* Repo-Platform-Erkennung — identisch zu projects/list.html */}}
+{{ $repoUrl := .Params.github }}
+{{ $platform := "github" }}
+{{ $platIcon := "&#xf09b;" }}
+{{ if $repoUrl }}
+  {{ if      strings.Contains $repoUrl "gitlab"    }}{{ $platform = "gitlab"    }}{{ $platIcon = "&#xf296;" }}
+  {{ else if strings.Contains $repoUrl "bitbucket" }}{{ $platform = "bitbucket" }}{{ $platIcon = "&#xf171;" }}
+  {{ else if strings.Contains $repoUrl "gitea"     }}{{ $platform = "gitea"     }}{{ $platIcon = "&#xe65a;" }}
+  {{ end }}
+{{ end }}
+
+{{ $accent := cond $isProject "var(--accent-violet)" "var(--accent-primary)" }}
+
+<div class="container type-page animate-fade-in" style="--type-accent: {{ $accent | safeCSS }};">
+  <span class="type-eyebrow"><span class="te-dot"></span>
+    {{ if $isProject }}projekt{{ with .Params.category }} · {{ . | lower }}{{ end }}{{ else }}{{ .Section | lower }}{{ end }}
+  </span>
+
+  <h1 class="type-megatitle">{{ .Title }}</h1>
+
+  {{ with .Description }}<p class="type-lede">{{ . }}</p>{{ end }}
+
+  {{ if $isProject }}
+    <div class="type-toolrow single-meta" style="--er-status-color: {{ index $statusColor $status | safeCSS }};">
+      <span class="tr-meta">
+        <span class="er-status">{{ index $statusLabel $status }}</span>
+        {{ with $repoUrl }}
+          <a class="tr-link er-repo" href="{{ . }}" target="_blank" rel="noopener noreferrer">
+            <span class="nf-icon">{{ $platIcon | safeHTML }}</span>
+            {{ $platform }}/{{ $.File.ContentBaseName }}
+          </a>
+        {{ end }}
+      </span>
+      {{ with .Params.technologies }}
+        <span class="tr-right er-stack">
+          {{ range . }}<span class="er-stack-item">{{ . }}</span>{{ end }}
+        </span>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  {{ if or .Params.toc (gt .WordCount 1500) }}{{ partial "toc.html" . }}{{ end }}
+
+  <article class="content-body">
+    <div class="markdown-content">{{ .Content }}</div>
+  </article>
+
+  {{ if and $isProject .Params.tags }}
+    <footer class="single-tags">
+      {{ range .Params.tags }}
+        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tr-link"><span class="lb-tag-hash">#</span>{{ . }}</a>
+      {{ end }}
+    </footer>
+  {{ end }}
 </div>
 {{ end }}

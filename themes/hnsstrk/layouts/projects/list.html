@@ -1,56 +1,106 @@
 {{ define "main" }}
-<div class="container animate-fade-in content-container mt-4 mb-4" style="--card-accent: var(--accent-violet);">
-    <section class="content-body">
-        <h1>{{ .Title }}</h1>
-        {{ if .Content }}
-        <div class="markdown-content mb-4">
-            {{ .Content }}
-        </div>
-        {{ end }}
+{{/* ==========================================================================
+     projects/list.html — Editorial Index
+     Mapping aus Front-Matter:
+       title         → er-title
+       description   → er-desc
+       category      → er-meta erste Spalte
+       technologies  → er-meta er-stack
+       date          → er-when (relativ) + sort key
+       lastCommit    → optional, übersteuert date für er-when wenn gesetzt
+       status        → optional ["aktiv","wip","schlummert","archiv"], default "aktiv"
+       github        → er-repo URL (erkennt github/gitlab/gitea/bitbucket)
+     ========================================================================== */}}
+{{ $statusColor := dict
+    "aktiv"      "var(--syntax-string)"
+    "wip"        "var(--syntax-func)"
+    "schlummert" "var(--text-muted)"
+    "archiv"     "var(--syntax-comment)" }}
+{{ $statusLabel := dict
+    "aktiv" "Aktiv" "wip" "In Arbeit" "schlummert" "Schlummert" "archiv" "Archiviert" }}
+{{ $stackColor := dict
+    "Rust" "#dea584" "Svelte 5" "#ff3e00" "Tauri 2" "#ffc131"
+    "Ollama" "#6e7c8f" "SQLite" "#0fa9c9" "TypeScript" "#3178c6"
+    "Python" "#3776ab" "Go" "#00add8" "Hugo" "#ff4088" "Qt6" "#41cd52"
+    "QML" "#41cd52" "C++" "#00599c" "Wayland" "#fb892c" }}
 
-        <ul class="list-none">
-            {{ range .Pages.ByWeight }}
-            <li class="card">
-                <div class="card-link">
-                    <div class="card-text">
-                        <div class="blog-card-meta" style="gap: 0.5rem;">
-                            {{ with .Params.github }}
-                            {{ $url := . }}
-                            <a href="{{ $url }}" class="card-meta-link" target="_blank" rel="noopener noreferrer">
-                              {{- if strings.Contains $url "gitlab" -}}
-                                <span class="nf-icon">&#xf296;</span> GitLab
-                              {{- else if strings.Contains $url "bitbucket" -}}
-                                <span class="nf-icon">&#xf171;</span> Bitbucket
-                              {{- else if strings.Contains $url "gitea" -}}
-                                <span class="nf-icon">&#xe65a;</span> Gitea
-                              {{- else -}}
-                                <span class="nf-icon">&#xf09b;</span> GitHub
-                              {{- end -}}
-                            </a>
-                            {{ end }}
-                            {{ with .Params.category }}
-                            <span class="nf-icon">&#xf07b;</span>
-                            <span>{{ . }}</span>
-                            {{ end }}
-                            {{ with .Params.technologies }}
-                            <span class="nf-icon">&#xf121;</span>
-                            <span>{{ delimit . ", " }}</span>
-                            {{ end }}
-                        </div>
-                        <h3><a href="{{ .RelPermalink }}" class="card-title-link">{{ .Title }}</a></h3>
-                        {{ with .Params.tags }}
-                        <div class="card-tags">
-                            {{ range first 4 . }}
-                            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="card-tag"><span class="nf-icon">&#xf02b;</span> {{ . }}</a>
-                            {{ end }}
-                        </div>
-                        {{ end }}
-                        {{ with .Description }}<p class="card-excerpt">{{ . }}</p>{{ end }}
-                    </div>
-                </div>
-            </li>
+<div class="container type-page animate-fade-in" style="--type-accent: var(--accent-violet);">
+  <span class="type-eyebrow"><span class="te-dot"></span>projects · index</span>
+  <h1 class="type-megatitle">{{ .Title | lower }}<span class="punct">.</span></h1>
+
+  {{ with .Description }}
+    <p class="type-lede">{{ . | safeHTML }}</p>
+  {{ else }}
+    {{ if .Content }}<div class="type-lede">{{ .Content }}</div>{{ end }}
+  {{ end }}
+
+  <div class="type-toolrow">
+    <span>{{ printf "%02d" (len .Pages) }} Repositories</span>
+    <span class="tr-right">
+      <a class="tr-link active" href="?sort=activity">Aktivität ↓</a>
+      <a class="tr-link"        href="?sort=status">Status</a>
+      <a class="tr-link"        href="?sort=name">A–Z</a>
+    </span>
+  </div>
+
+  <div class="editorial-list">
+    {{ range $i, $p := .Pages.ByDate.Reverse }}
+      {{ $status   := $p.Params.status   | default "aktiv" }}
+      {{ $when     := $p.Params.lastCommit | default $p.Date }}
+      {{ $whenT    := cond (reflect.IsMap $when) $when (time.AsTime $when) }}
+      {{ $days     := div (sub now.Unix $whenT.Unix) 86400 }}
+      {{ $rel      := "heute" }}
+      {{ if      ge $days 365 }}{{ $rel = printf "%d J"  (div $days 365) }}
+      {{ else if ge $days 60  }}{{ $rel = printf "%d Mo" (div $days 30)  }}
+      {{ else if ge $days 14  }}{{ $rel = printf "%d Wo" (div $days 7)   }}
+      {{ else if ge $days 2   }}{{ $rel = printf "%d T"  $days           }}
+      {{ else if eq $days 1   }}{{ $rel = "gestern" }}{{ end }}
+
+      {{ $repoUrl := $p.Params.github }}
+      {{ $platform := "github" }}
+      {{ $platIcon := "&#xf09b;" }}
+      {{ if $repoUrl }}
+        {{ if      strings.Contains $repoUrl "gitlab"    }}{{ $platform = "gitlab"    }}{{ $platIcon = "&#xf296;" }}
+        {{ else if strings.Contains $repoUrl "bitbucket" }}{{ $platform = "bitbucket" }}{{ $platIcon = "&#xf171;" }}
+        {{ else if strings.Contains $repoUrl "gitea"     }}{{ $platform = "gitea"     }}{{ $platIcon = "&#xe65a;" }}
+        {{ end }}
+      {{ end }}
+
+      <article class="editorial-row"
+               style="--er-status-color: {{ index $statusColor $status | safeCSS }};">
+        <span class="er-idx">{{ printf "%02d" (add $i 1) }}</span>
+
+        <div>
+          <a class="er-title" href="{{ $p.RelPermalink }}">
+            {{ $p.Title }}<span class="ext">↗</span>
+          </a>
+          {{ with $p.Description }}<p class="er-desc">{{ . }}</p>{{ end }}
+          <div class="er-meta">
+            {{ with $p.Params.category }}<span>{{ . }}</span>{{ end }}
+            {{ if and $p.Params.category $p.Params.technologies }}<span>·</span>{{ end }}
+            {{ with $p.Params.technologies }}
+              <span class="er-stack">
+                {{ range . }}
+                  <span class="er-stack-item"
+                        style="--sl-color: {{ index $stackColor . | default "var(--text-secondary)" | safeCSS }};">{{ . }}</span>
+                {{ end }}
+              </span>
             {{ end }}
-        </ul>
-    </section>
+          </div>
+        </div>
+
+        <div class="er-rail">
+          <span class="er-status">{{ index $statusLabel $status }}</span>
+          <span class="er-when">{{ $rel }}<small>letzte änderung</small></span>
+          {{ with $repoUrl }}
+            <a class="er-repo" href="{{ . }}" target="_blank" rel="noopener noreferrer">
+              <span class="nf-icon">{{ $platIcon | safeHTML }}</span>
+              {{ $platform }}/{{ $p.File.ContentBaseName }}
+            </a>
+          {{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </div>
 </div>
 {{ end }}

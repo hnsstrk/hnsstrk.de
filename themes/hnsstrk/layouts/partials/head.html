@@ -80,13 +80,14 @@
 <link rel="preload" href="{{ "fonts/Monaspace%20Xenon%20Var.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ "fonts/Monaspace%20Argon%20Var.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 
-{{/* CSS Bundle: reset + fonts + style + responsive */}}
+{{/* CSS Bundle: reset + fonts + style + editorial + syntax + responsive */}}
 {{ $reset := resources.Get "css/reset.css" }}
 {{ $fonts := resources.Get "css/fonts.css" }}
 {{ $style := resources.Get "css/style.css" }}
+{{ $editorial := resources.Get "css/editorial.css" }}
 {{ $responsive := resources.Get "css/responsive.css" }}
 {{ $syntax := resources.Get "css/syntax.css" }}
-{{ $css := slice $reset $fonts $style $syntax $responsive | resources.Concat "css/bundle.css" }}
+{{ $css := slice $reset $fonts $style $editorial $syntax $responsive | resources.Concat "css/bundle.css" }}
 {{ if hugo.IsProduction }}
   {{ $css = $css | resources.Minify | resources.Fingerprint }}
 {{ end }}

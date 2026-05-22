@@ -1,63 +1,74 @@
 {{ define "main" }}
-<div class="container animate-fade-in content-container mt-4 mb-4" style="--card-accent: var(--syntax-markup);">
-    <section class="content-body">
-        <h1>{{ .Title }}</h1>
-        {{ if .Content }}
-        <div class="markdown-content mb-4">
-            {{ .Content }}
-        </div>
-        {{ end }}
+{{/* ==========================================================================
+     blog/list.html — Logbuch
+     Nutzt vorhandene Felder: Date, ReadingTime, Tags, Summary
+     Gruppiert nach Jahr (riesige Outline-Ziffern als Trenner).
+     ========================================================================== */}}
+{{ $monthsShort := slice "Jan" "Feb" "Mrz" "Apr" "Mai" "Jun" "Jul" "Aug" "Sep" "Okt" "Nov" "Dez" }}
+{{ $allPosts := .Pages.ByDate.Reverse }}
+{{ $years    := slice }}
+{{ range $allPosts }}{{ $years = $years | append (.Date.Year) }}{{ end }}
+{{ $yearsUniq := $years | uniq }}
 
-        <ul class="list-none">
-            {{ range .Pages.ByDate.Reverse }}
-            {{ $page := . }}
-            {{ $layout := .Params.featured_layout | default site.Params.featuredLayout | default "left" }}
-            <li class="card{{ with .Params.featured_image }} card-has-image card-image-{{ $layout }}{{ end }}">
-                <div class="card-link">
-                    {{ with .Params.featured_image }}
-                      {{ $img := $page.Resources.GetMatch . }}
-                      {{ with $img }}
-                        {{ if or (eq $layout "top") (eq $layout "bottom") }}
-                          {{ $thumb := .Fit "800x400 webp q80" }}
-                          <img class="card-image card-image--wide"
-                               src="{{ $thumb.RelPermalink }}"
-                               alt="{{ $page.Title }}"
-                               width="{{ $thumb.Width }}"
-                               height="{{ $thumb.Height }}"
-                               loading="lazy">
-                        {{ else }}
-                          {{ $thumb := .Fit "450x300 webp q80" }}
-                          <img class="card-image card-image--side"
-                               src="{{ $thumb.RelPermalink }}"
-                               alt="{{ $page.Title }}"
-                               width="{{ $thumb.Width }}"
-                               height="{{ $thumb.Height }}"
-                               loading="lazy">
-                        {{ end }}
-                      {{ end }}
-                    {{ end }}
-                    <div class="card-text">
-                        <div class="blog-card-meta">
-                            <span class="nf-icon" aria-hidden="true">&#xf073;</span>
-                            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
-                            <span class="meta-separator">&middot;</span>
-                            <span class="nf-icon" aria-hidden="true">&#xf017;</span>
-                            <span>{{ i18n "readingTime" .ReadingTime }}</span>
-                        </div>
-                        <h3><a href="{{ .RelPermalink }}" class="card-title-link">{{ .Title }}</a></h3>
-                        {{ with .Params.tags }}
-                        <div class="card-tags">
-                            {{ range first 4 . }}
-                            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="card-tag"><span class="nf-icon" aria-hidden="true">&#xf02b;</span> {{ . }}</a>
-                            {{ end }}
-                        </div>
-                        {{ end }}
-                        {{ with .Summary }}<p class="card-excerpt">{{ . | plainify }}</p>{{ end }}
-                    </div>
-                </div>
-            </li>
-            {{ end }}
-        </ul>
-    </section>
+<div class="container type-page animate-fade-in" style="--type-accent: var(--syntax-markup);">
+  <span class="type-eyebrow"><span class="te-dot"></span>blog · logbuch</span>
+  <h1 class="type-megatitle">{{ .Title | lower }}<span class="punct">.</span></h1>
+
+  {{ with .Description }}
+    <p class="type-lede">{{ . | safeHTML }}</p>
+  {{ else }}
+    {{ if .Content }}<div class="type-lede">{{ .Content }}</div>{{ end }}
+  {{ end }}
+
+  <div class="type-toolrow">
+    <span>{{ len $allPosts }} Einträge · {{ len $yearsUniq }} Jahre</span>
+    <span class="tr-right">
+      <a class="tr-link active" href="?sort=neu">Neuste zuerst</a>
+      <a class="tr-link"        href="/tags/">Nach Thema</a>
+      <a class="tr-link tr-rss" href="{{ "/blog/index.xml" | relURL }}">RSS ↗</a>
+    </span>
+  </div>
+
+  <div class="logbook">
+    {{ $currentYear := 0 }}
+    {{ range $allPosts }}
+      {{ $y := .Date.Year }}
+      {{ if ne $y $currentYear }}
+        {{ $currentYear = $y }}
+        {{ $countInYear := 0 }}
+        {{ range $allPosts }}{{ if eq .Date.Year $y }}{{ $countInYear = add $countInYear 1 }}{{ end }}{{ end }}
+        <div class="year-divider">
+          <span class="yd-num">{{ $y }}</span>
+          <span class="yd-meta">
+            {{ $countInYear }} {{ cond (eq $countInYear 1) "Eintrag" "Einträge" }}
+          </span>
+        </div>
+      {{ end }}
+
+      <article class="logbook-row">
+        <div class="lb-date">
+          <span class="lb-day">{{ .Date.Day }}</span>
+          <span class="lb-month">{{ index $monthsShort (sub (int .Date.Month) 1) }} · {{ .Date.Year }}</span>
+        </div>
+        <div class="lb-body">
+          <a class="lb-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{ with .Summary }}<p class="lb-excerpt">{{ . | plainify | truncate 220 }}</p>{{ end }}
+          {{ with .Params.tags }}
+            <div class="lb-tags">
+              {{ range first 5 . }}
+                <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" style="color:inherit; border-bottom:none;">
+                  <span class="lb-tag-hash">#</span>{{ . }}
+                </a>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+        <div class="lb-rail">
+          <span class="lb-minutes">{{ .ReadingTime }}</span>
+          <span class="lb-minutes-unit">Min lesen</span>
+        </div>
+      </article>
+    {{ end }}
+  </div>
 </div>
 {{ end }}

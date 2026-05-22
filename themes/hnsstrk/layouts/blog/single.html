@@ -1,51 +1,47 @@
 {{ define "main" }}
-<div class="container animate-fade-in content-container mt-4 mb-4">
-    <article class="content-body blog-post">
-        <header class="blog-header">
-            <h1>{{ .Title }}</h1>
-            <div class="blog-meta">
-                <span class="nf-icon" aria-hidden="true">&#xf073;</span>
-                <time datetime="{{ .Date.Format "2006-01-02" }}">
-                    {{ .Date | time.Format ":date_long" }}
-                </time>
-                <span class="meta-separator">&middot;</span>
-                <span class="nf-icon" aria-hidden="true">&#xf017;</span>
-                <span>{{ i18n "readingTime" .ReadingTime }}</span>
-            </div>
-        </header>
-        {{/* Featured Image — wird nur in der Blog-Übersicht angezeigt */}}
-        {{/* TOC — anzeigen wenn toc=true oder Artikel > 1500 Wörter */}}
-        {{ if or .Params.toc (gt .WordCount 1500) }}
-          {{ partial "toc.html" . }}
-        {{ end }}
-        <div class="markdown-content">
-            {{ .Content }}
-        </div>
-        {{ with .Params.tags }}
-        <footer class="blog-footer">
-            <div class="blog-tags">
-                {{ range . }}
-                <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>
-                {{ end }}
-            </div>
-        </footer>
-        {{ end }}
-        {{ $related := .Site.RegularPages.Related . | first 3 }}
-        {{ with $related }}
-        <aside class="related-posts">
-            <h2>Verwandte Artikel</h2>
-            <ul class="related-list">
-                {{ range . }}
-                <li>
-                    <a href="{{ .RelPermalink }}">
-                        <span class="related-title">{{ .Title }}</span>
-                        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
-                    </a>
-                </li>
-                {{ end }}
-            </ul>
-        </aside>
-        {{ end }}
-    </article>
+<div class="container type-page animate-fade-in" style="--type-accent: var(--syntax-markup);">
+  <span class="type-eyebrow"><span class="te-dot"></span>blog · artikel</span>
+  <h1 class="type-megatitle">{{ .Title }}</h1>
+  {{ with .Description }}<p class="type-lede">{{ . }}</p>{{ end }}
+  <div class="type-toolrow single-meta">
+    <span class="tr-meta">
+      <span class="nf-icon">&#xf073;</span>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+      <span class="meta-separator">·</span>
+      <span class="nf-icon">&#xf017;</span>
+      <span>{{ i18n "readingTime" .ReadingTime }}</span>
+    </span>
+    {{ with .Params.tags }}
+    <span class="tr-right">
+      {{ range first 5 . }}
+        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tr-link"><span class="lb-tag-hash">#</span>{{ . }}</a>
+      {{ end }}
+    </span>
+    {{ end }}
+  </div>
+  {{/* TOC — anzeigen wenn toc=true oder Artikel > 1500 Wörter */}}
+  {{ if or .Params.toc (gt .WordCount 1500) }}{{ partial "toc.html" . }}{{ end }}
+  <article class="content-body blog-post">
+    <div class="markdown-content">{{ .Content }}</div>
+  </article>
+  {{ $related := .Site.RegularPages.Related . | first 3 }}
+  {{ with $related }}
+  <aside class="related-posts editorial-related">
+    <h2 class="related-heading"><span class="as-num">verwandt</span>Auch lesenswert</h2>
+    <div class="logbook">
+      {{ range . }}
+        <article class="logbook-row logbook-row--compact">
+          <div class="lb-date">
+            <span class="lb-day">{{ .Date.Day }}</span>
+            <span class="lb-month">{{ index (slice "Jan" "Feb" "Mrz" "Apr" "Mai" "Jun" "Jul" "Aug" "Sep" "Okt" "Nov" "Dez") (sub (int .Date.Month) 1) }} · {{ .Date.Year }}</span>
+          </div>
+          <div class="lb-body">
+            <a class="lb-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </aside>
+  {{ end }}
 </div>
 {{ end }}
