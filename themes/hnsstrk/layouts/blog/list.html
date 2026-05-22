@@ -23,8 +23,7 @@
   <div class="type-toolrow">
     <span>{{ len $allPosts }} Einträge · {{ len $yearsUniq }} Jahre</span>
     <span class="tr-right">
-      <a class="tr-link active" href="?sort=neu">Neuste zuerst</a>
-      <a class="tr-link"        href="/tags/">Nach Thema</a>
+      <a class="tr-link"        href="{{ "/tags/" | relURL }}">Tags</a>
       <a class="tr-link tr-rss" href="{{ "/blog/index.xml" | relURL }}">RSS ↗</a>
     </span>
   </div>

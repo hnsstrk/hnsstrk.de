@@ -39,7 +39,7 @@
   font-size: calc(var(--tile-size) * 0.72);
   font-weight: 700;
   color: var(--tile-text);
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: 0.5px;
   line-height: 1;
   font-family: var(--font-heading);
