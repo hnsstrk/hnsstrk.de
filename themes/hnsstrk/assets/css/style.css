@@ -265,39 +265,40 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em;
 }
 
-h1 { 
-  font-size: var(--step-4); 
-  margin-top: 0; 
+h1 {
+  font-size: var(--step-4);
+  margin-top: 0;
   margin-bottom: var(--spacing-lg);
-  --heading-weight: 460;
-  --heading-width: 110;
-  --heading-stretch: 110%;
-  letter-spacing: -0.02em;
+  --heading-weight: 250;
+  --heading-width: 100;
+  --heading-stretch: 100%;
+  letter-spacing: -0.04em;
 }
-h2 { 
-  font-size: var(--step-3); 
+h2 {
+  font-size: var(--step-3);
   margin-top: var(--spacing-xl);
-  --heading-weight: 440;
-  --heading-width: 108;
-  --heading-stretch: 108%;
-  letter-spacing: -0.015em;
+  --heading-weight: 280;
+  --heading-width: 100;
+  --heading-stretch: 100%;
+  letter-spacing: -0.03em;
 }
-h3 { 
-  font-size: var(--step-2); 
-  line-height: 1.2; 
+h3 {
+  font-size: var(--step-2);
+  line-height: 1.2;
   margin-top: var(--spacing-lg);
-  --heading-weight: 420;
-  --heading-width: 106;
-  --heading-stretch: 106%;
+  --heading-weight: 320;
+  --heading-width: 102;
+  --heading-stretch: 102%;
+  letter-spacing: -0.02em;
 }
 h4 {
   font-size: var(--step-1);
   line-height: 1.25;
   margin-top: var(--spacing-lg);
-  --heading-weight: 400;
-  --heading-width: 104;
-  --heading-stretch: 104%;
-  letter-spacing: 0;
+  --heading-weight: 360;
+  --heading-width: 102;
+  --heading-stretch: 102%;
+  letter-spacing: -0.01em;
 }
 h5 {
   font-size: var(--step-0);
@@ -306,7 +307,7 @@ h5 {
   --heading-weight: 400;
   --heading-width: 102;
   --heading-stretch: 102%;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
 }
 h6 {
   font-size: var(--step--1);
@@ -315,7 +316,7 @@ h6 {
   --heading-weight: 400;
   --heading-width: 102;
   --heading-stretch: 102%;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 /* Heading nach Heading: reduzierter Abstand */
