@@ -104,15 +104,15 @@ Die App implementiert stattdessen eine schlanke Variante: Wird eine wiederkehren
 Der Datenfluss zwischen den Schichten ist eine gerade Linie:
 
 ```mermaid
-graph TD
-    UI["SwiftUI Views<br/><small>Sidebar · TaskList · Detail · Settings · QuickCapture</small>"]
-    UI --> AC["AppContainer<br/><small>@MainActor, State-Holder</small>"]
-    AC --> KIT["VergissmeinnichtKit (SwiftPM)<br/><small>Binary-Target: VergissmeinnichtCoreFFI</small>"]
-    KIT --> WRAP["UniFFI-generierter Swift-Wrapper<br/><small>vergissmeinnicht_core.swift</small>"]
-    WRAP --> RUST["Rust-Core (vergissmeinnicht-core)<br/><small>TaskStore, Tokio-Runtime, Mutex&lt;Replica&gt;</small>"]
-    RUST --> TC["TaskChampion 3.0.1<br/><small>Replica&lt;SqliteStorage&gt;</small>"]
-    TC --> DB[("SQLite<br/><small>Replica im App-Container</small>")]
-    RUST -.->|"Sync via HTTPS"| SRV["taskchampion-sync-server<br/><small>self-hosted</small>"]
+flowchart TD
+    UI[SwiftUI Views]
+    UI --> AC[AppContainer]
+    AC --> KIT[VergissmeinnichtKit SwiftPM]
+    KIT --> WRAP[UniFFI Swift-Wrapper]
+    WRAP --> RUST[Rust-Core mit Tokio-Runtime]
+    RUST --> TC[TaskChampion 3.0.1]
+    TC --> DB[(SQLite im App-Container)]
+    RUST -.->|Sync via HTTPS| SRV[taskchampion-sync-server]
 ```
 
 ### Warum UniFFI und nicht handgeschriebenes C-FFI
