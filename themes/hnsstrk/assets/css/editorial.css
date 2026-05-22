@@ -226,39 +226,23 @@
   display: flex; flex-direction: column; gap: 10px;
   align-items: flex-end;
 }
-.editorial-row .er-rail .er-status {
+.editorial-row .er-rail .er-stack {
+  display: flex; flex-wrap: wrap; gap: 4px 10px;
+  justify-content: flex-end;
   font-family: var(--font-ui);
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+.editorial-row .er-rail .er-stack .er-stack-item {
+  color: var(--sl-color, var(--text-secondary));
   font-weight: 600;
-  color: var(--er-status-color, var(--text-secondary));
-  display: inline-flex; align-items: center; gap: 8px;
 }
-.editorial-row .er-rail .er-status::before {
-  content: '';
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--er-status-color, var(--text-secondary));
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--er-status-color, var(--text-secondary)) 18%, transparent);
-}
-.editorial-row .er-rail .er-when {
-  font-family: var(--font-heading); font-stretch: 125%;
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--text-primary);
-  letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-.editorial-row .er-rail .er-when small {
-  font-family: var(--font-ui);
-  font-size: 10px;
-  font-weight: 500;
+.editorial-row .er-rail .er-stack .er-stack-item + .er-stack-item::before {
+  content: '·';
   color: var(--text-muted);
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  margin-top: 6px;
+  margin-right: 10px;
+  font-weight: 400;
 }
 .editorial-row .er-rail .er-repo {
   color: var(--text-secondary);
@@ -270,6 +254,14 @@
   letter-spacing: 0;
 }
 .editorial-row .er-rail .er-repo:hover { color: var(--accent-violet); }
+.editorial-row .er-rail .er-private {
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-style: italic;
+  display: inline-flex; align-items: center; gap: 6px;
+  text-transform: lowercase;
+}
 
 /* ==========================================================================
    B · Logbuch (Blog)
@@ -558,7 +550,6 @@
   font-family: var(--font-ui); font-size: 12px; letter-spacing: 0.06em;
   color: var(--text-muted); text-transform: uppercase;
 }
-.single-meta .tr-meta .er-status { letter-spacing: 0.16em; }
 .single-meta .tr-meta .nf-icon { color: var(--text-muted); }
 .single-meta .tr-meta time { color: var(--text-secondary); }
 .single-meta .tr-meta .meta-separator { color: var(--text-muted); }

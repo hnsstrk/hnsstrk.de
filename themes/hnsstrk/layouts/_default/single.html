@@ -1,8 +1,5 @@
 {{ define "main" }}
 {{ $isProject := eq .Section "projects" }}
-{{ $status      := .Params.status   | default "aktiv" }}
-{{ $statusColor := dict "aktiv" "var(--syntax-string)" "wip" "var(--syntax-func)" "schlummert" "var(--text-muted)" "archiv" "var(--syntax-comment)" }}
-{{ $statusLabel := dict "aktiv" "Aktiv" "wip" "In Arbeit" "schlummert" "Schlummert" "archiv" "Archiviert" }}
 
 {{/* Repo-Platform-Erkennung — identisch zu projects/list.html */}}
 {{ $repoUrl := .Params.github }}
@@ -27,14 +24,17 @@
   {{ with .Description }}<p class="type-lede">{{ . }}</p>{{ end }}
 
   {{ if $isProject }}
-    <div class="type-toolrow single-meta" style="--er-status-color: {{ index $statusColor $status | safeCSS }};">
+    <div class="type-toolrow single-meta">
       <span class="tr-meta">
-        <span class="er-status">{{ index $statusLabel $status }}</span>
-        {{ with $repoUrl }}
-          <a class="tr-link er-repo" href="{{ . }}" target="_blank" rel="noopener noreferrer">
+        {{ if $repoUrl }}
+          <a class="tr-link er-repo" href="{{ $repoUrl }}" target="_blank" rel="noopener noreferrer">
             <span class="nf-icon">{{ $platIcon | safeHTML }}</span>
             {{ $platform }}/{{ $.File.ContentBaseName }}
           </a>
+        {{ else }}
+          <span class="tr-link er-private">
+            <span class="nf-icon">&#xf023;</span>privat
+          </span>
         {{ end }}
       </span>
       {{ with .Params.technologies }}
