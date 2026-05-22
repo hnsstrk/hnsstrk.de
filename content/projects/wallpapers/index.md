@@ -7,10 +7,10 @@ technologies: ["Midjourney"]
 github: "https://github.com/hnsstrk/wallpapers"
 category: "Kreativ"
 weight: 4
-featured_image: "beispiel-16x9-tokyo-night.jpg"
+featured_image: "beispiel-16x9-light-sleek.png"
 ---
 
-**Midjourney · CC BY 4.0 · laufend ergänzt**
+**[Midjourney](https://www.midjourney.com/@hnsstrk) · CC BY 4.0 · laufend ergänzt**
 
 ![Tokyo Night — Inkwash-Painting im 1980er-Manga-Stil, dunkles Lila mit Neonschriften](beispiel-16x9-tokyo-night.jpg "Beispiel 16:9 — stilisierte Stadtszene")
 
@@ -46,4 +46,4 @@ CC BY 4.0 — Namensnennung erwünscht, aber nicht erzwungen.
 
 ## Download
 
-[GitHub Repository](https://github.com/hnsstrk/wallpapers)
+[GitHub Repository](https://github.com/hnsstrk/wallpapers) · [Midjourney-Profil](https://www.midjourney.com/@hnsstrk)

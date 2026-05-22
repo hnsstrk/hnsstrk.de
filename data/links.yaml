@@ -55,6 +55,15 @@ categories:
         icon: "rpg"
         featured: true
 
+  - name: "Kreativ"
+    subtitle: "KI-Bildgenerierung — Wallpapers, Konzepte, Experimente."
+    links:
+      - title: "Midjourney"
+        url: "https://www.midjourney.com/@hnsstrk"
+        handle: "@hnsstrk"
+        description: "KI-generierte Wallpapers und Konzeptbilder"
+        icon: "link"
+
   - name: "Kontakt"
     subtitle: "Direkter Draht."
     links:
