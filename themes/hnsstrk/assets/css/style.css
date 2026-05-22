@@ -8,7 +8,6 @@
   --text-primary: #5c6166;
   --text-secondary: #828e9f;
   --text-muted: #adaeb1;
-  --mermaid-node-text: #2a2e38;
 
   --accent-primary: #f29718;
   --accent-hover: #e08614;
@@ -96,17 +95,20 @@
   /* Header-Höhe */
   --header-height: clamp(56px, 7vw, 80px);
 
+  /* Reservierter Slot für absolut positionierten Theme-Switcher rechts */
+  --theme-switcher-reserve: 160px;
+
   /* color-scheme */
   color-scheme: light;
 
   /* Schriftkonzept — Monaspace Superfamilie */
-  --font-logo: 'Monaspace Krypton', monospace;        /* Mechanisch — Terminal-Prompt Ästhetik */
-  --font-heading: 'Monaspace Xenon', monospace;        /* Slab Serif — autoritär, markant */
-  --font-body: 'Monaspace Neon', monospace;            /* Neo-Grotesk — neutral, sauber für Fließtext */
-  --font-ui: 'Monaspace Argon', monospace;              /* Humanist — freundlicher, offener Charakter für UI */
-  --font-code: 'Monaspace Neon', monospace;            /* Neo-Grotesk — clean, Monaspace-Empfehlung */
-  --font-handwriting: 'Monaspace Radon', monospace;    /* Handschrift — persönlich, kreativ */
-  --font-display: 'Monaspace Krypton', monospace;      /* Mechanisch — FlipBoard, Displays */
+  --font-logo: 'Monaspace Krypton Var', monospace;        /* Mechanisch — Terminal-Prompt Ästhetik */
+  --font-heading: 'Monaspace Xenon Var', monospace;        /* Slab Serif — autoritär, markant */
+  --font-body: 'Monaspace Neon Var', monospace;            /* Neo-Grotesk — neutral, sauber für Fließtext */
+  --font-ui: 'Monaspace Argon Var', monospace;              /* Humanist — freundlicher, offener Charakter für UI */
+  --font-code: 'Monaspace Neon Var', monospace;            /* Neo-Grotesk — clean, Monaspace-Empfehlung */
+  --font-handwriting: 'Monaspace Radon Var', monospace;    /* Handschrift — persönlich, kreativ */
+  --font-display: 'Monaspace Krypton Var', monospace;      /* Mechanisch — FlipBoard, Displays */
 }
 
 :root[data-theme='mirage'] {
@@ -288,37 +290,31 @@ h3 {
   --heading-width: 106;
   --heading-stretch: 106%;
 }
-h4 { 
-  font-size: var(--step-1); 
-  line-height: 1.25; 
-  margin-top: var(--spacing-lg); 
+h4 {
+  font-size: var(--step-1);
+  line-height: 1.25;
+  margin-top: var(--spacing-lg);
   --heading-weight: 400;
   --heading-width: 104;
   --heading-stretch: 104%;
-  font-weight: 400;
-  font-stretch: 104%;
   letter-spacing: 0;
 }
-h5 { 
-  font-size: var(--step-0); 
-  line-height: 1.3; 
-  margin-top: var(--spacing-md); 
+h5 {
+  font-size: var(--step-0);
+  line-height: 1.3;
+  margin-top: var(--spacing-md);
   --heading-weight: 400;
   --heading-width: 102;
   --heading-stretch: 102%;
-  font-weight: 400;
-  font-stretch: 102%;
   letter-spacing: 0.01em;
 }
-h6 { 
-  font-size: var(--step--1); 
-  line-height: 1.4; 
-  margin-top: var(--spacing-md); 
+h6 {
+  font-size: var(--step--1);
+  line-height: 1.4;
+  margin-top: var(--spacing-md);
   --heading-weight: 400;
   --heading-width: 102;
   --heading-stretch: 102%;
-  font-weight: 400;
-  font-stretch: 102%;
   letter-spacing: 0.02em;
 }
 
@@ -479,7 +475,7 @@ code {
   display: flex;
   gap: var(--spacing-lg);
   align-items: center;
-  margin-right: 160px; /* Platz für Theme-Switcher (absolute rechts) */
+  margin-right: var(--theme-switcher-reserve);
 }
 
 .nav-links a {
@@ -492,15 +488,6 @@ code {
 .nav-links a:hover {
   color: var(--text-primary);
   text-decoration: none;
-}
-
-/* Nerd Font Icon — Baseline-Korrektur
-   Nerd Font Glyphen sitzen tiefer im Em-Box als regulärer Text.
-   transform wirkt sowohl in Inline- als auch in Flex-Kontexten. */
-.nf-icon {
-  display: inline-block;
-  line-height: 1;
-  transform: translateY(-0.1em);
 }
 
 /* Nav Icons Colored via Ayu Syntax Palette */
@@ -773,8 +760,8 @@ code {
 
 /* Utilities */
 .text-center { text-align: center; }
-.mt-4 { margin-top: 1rem; }
-.mb-4 { margin-bottom: 1rem; }
+.mt-4 { margin-top: var(--space-s); }
+.mb-4 { margin-bottom: var(--space-s); }
 
 /* Content Specifics */
 .content-container {
@@ -897,7 +884,7 @@ code {
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: var(--spacing-lg);
 }
-.gap-4 { gap: 1rem; }
+.gap-4 { gap: var(--space-s); }
 
 .card {
   display: block;
@@ -1125,10 +1112,6 @@ code {
 .mermaid span,
 .mermaid li {
   color: inherit;
-}
-
-.mermaid .mindmap-node foreignObject div {
-  color: var(--mermaid-node-text, #6c3b3b);
 }
 
 /* ==========================================================================
@@ -1635,14 +1618,3 @@ code {
   margin-top: var(--spacing-sm);
 }
 
-/* Responsive: left/right werden auf kleinen Screens gestapelt */
-@media (max-width: 600px) {
-  .card-image-left .card-link,
-  .card-image-right .card-link {
-    flex-direction: column;
-  }
-  .card-image--side {
-    width: 100%;
-    height: auto;
-  }
-}

@@ -25,21 +25,21 @@ Aus `themes/*.yaml` im ayu-colors Repository:
 | blue | `#22A4E6` | `#73D0FF` | `#59C2FF` |
 | purple | `#A37ACC` | `#DFBFFF` | `#D2A6FF` |
 
-### Syntax-Farben (aus Palette abgeleitet)
+### Syntax-Farben (NPM `ayu`-Paket, alpha-blended)
 
 | Syntax Role | CSS Variable | Light | Mirage | Dark |
 |-------------|-------------|-------|--------|------|
 | tag | `--syntax-tag` | `#55B4D4` | `#5CCFE6` | `#39BAE6` |
-| func | `--syntax-func` | `#EBA400` | `#FFCD66` | `#FFB454` |
+| func | `--syntax-func` | `#F2A300` | `#FFD173` | `#FFB454` |
 | entity | `--syntax-entity` | `#22A4E6` | `#73D0FF` | `#59C2FF` |
 | string | `--syntax-string` | `#86B300` | `#D5FF80` | `#AAD94C` |
 | regexp | `--syntax-regexp` | `#4CBF99` | `#95E6CB` | `#95E6CB` |
 | markup | `--syntax-markup` | `#F07171` | `#F28779` | `#F07178` |
-| keyword | `--syntax-keyword` | `#FA8532` | `#FFA659` | `#FF8F40` |
+| keyword | `--syntax-keyword` | `#FF7E33` | `#FFAD66` | `#FF8F40` |
 | special | `--syntax-special` | `#E59645` | `#D9BE98` | `#E6C08A` |
 | comment | `--syntax-comment` | `#ADAEB1` | `#6E7C8F` | `#5A6673` |
 | constant | `--syntax-constant` | `#A37ACC` | `#DFBFFF` | `#D2A6FF` |
-| operator | `--syntax-operator` | `#F2A191` | `#F29E74` | `#F29668` |
+| operator | `--syntax-operator` | `#ED9366` | `#F29E74` | `#F29668` |
 
 ### Surface-Farben
 
