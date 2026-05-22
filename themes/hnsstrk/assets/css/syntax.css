@@ -1,17 +1,6 @@
-/* Syntax Highlighting — Ayu Theme (nutzt CSS-Variablen, theme-aware) */
-
-/* Code Block Wrapper */
-.highlight pre {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: var(--spacing-md);
-  overflow-x: auto;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  font-family: var(--font-code);
-  font-feature-settings: "calt" 1, "liga" 1, "ss01" 1, "ss02" 1, "ss03" 1, "ss04" 1, "ss06" 1, "ss07" 1, "ss08" 1, "ss09" 1;
-}
+/* Syntax Highlighting — Ayu Theme (nutzt CSS-Variablen, theme-aware)
+   Die `pre`-Box-Stile (Hintergrund, Border, Padding, Font) kommen aus
+   style.css; hier nur die token-spezifischen Chroma-Farben. */
 
 .chroma { color: var(--text-primary); background-color: var(--bg-secondary); }
 
