@@ -7,6 +7,7 @@ tags: ["Svelte", "Tauri", "Ollama", "KI", "RSS", "Rust"]
 technologies: ["Svelte 5", "Tauri 2", "Rust", "Ollama", "SQLite"]
 category: "KI-Werkzeug"
 weight: 2
+github: "https://github.com/hnsstrk/fuckupRSS"
 ---
 
 Desktop-App, die RSS-Feeds über eine mehrstufige lokale KI-Pipeline verarbeitet und täglich ein strukturiertes Briefing der relevantesten Themen erzeugt.
