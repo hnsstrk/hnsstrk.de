@@ -42,7 +42,7 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1;
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
 }
 
 .tile-back {

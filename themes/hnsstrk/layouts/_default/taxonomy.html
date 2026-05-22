@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{- $tagMap := dict -}}
+{{- range site.RegularPages -}}
+  {{- range .Params.tags -}}
+    {{- $key := . | lower -}}
+    {{- if not (index $tagMap $key) -}}
+      {{- $tagMap = merge $tagMap (dict $key .) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{ $terms := .Data.Terms.Alphabetical }}
+
+<div class="container type-page animate-fade-in" style="--type-accent: var(--syntax-markup);">
+  <span class="type-eyebrow"><span class="te-dot"></span>blog · themen</span>
+  <h1 class="type-megatitle">{{ .Title }}<span class="punct">.</span></h1>
+
+  {{ with .Description }}<p class="type-lede">{{ . | safeHTML }}</p>{{ end }}
+
+  <div class="type-toolrow">
+    <span>{{ len $terms }} Themen · alphabetisch</span>
+    <span class="tr-right">
+      <a class="tr-link" href="{{ "/blog/" | relURL }}">Logbuch ↗</a>
+    </span>
+  </div>
+
+  <div class="tag-index">
+    {{ range $terms }}
+      {{- $displayName := index $tagMap .Term | default .Page.Title -}}
+      <a href="{{ .Page.RelPermalink }}" class="tag-index-item">
+        <span class="lb-tag-hash">#</span>{{ $displayName }}<span class="tag-index-count">{{ .Count }}</span>
+      </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

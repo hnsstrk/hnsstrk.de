@@ -15,14 +15,14 @@
   {{ end }}
 {{ end }}
 
-{{ $accent := cond $isProject "var(--accent-violet)" "var(--accent-primary)" }}
+{{ $accent := cond $isProject "var(--syntax-constant)" "var(--accent-primary)" }}
 
 <div class="container type-page animate-fade-in" style="--type-accent: {{ $accent | safeCSS }};">
   <span class="type-eyebrow"><span class="te-dot"></span>
     {{ if $isProject }}projekt{{ with .Params.category }} · {{ . | lower }}{{ end }}{{ else }}{{ .Section | lower }}{{ end }}
   </span>
 
-  <h1 class="type-megatitle">{{ .Title }}</h1>
+  <h1 class="type-megatitle single-megatitle">{{ .Title }}</h1>
 
   {{ with .Description }}<p class="type-lede">{{ . }}</p>{{ end }}
 

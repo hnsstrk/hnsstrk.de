@@ -9,31 +9,36 @@
   {{- end -}}
 {{- end -}}
 {{- $displayName := index $tagMap (.Title | lower) | default .Title -}}
-<div class="container animate-fade-in content-container mt-4 mb-4" style="--card-accent: var(--syntax-markup);">
-    <section class="content-body">
-        <h1>{{ $displayName }}</h1>
-        <ul class="list-none">
-            {{ range .Pages.ByDate.Reverse }}
-            <li class="card">
-                <a href="{{ .RelPermalink }}" class="card-link">
-                    <div class="blog-card-meta">
-                        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
-                        <span class="meta-separator">&middot;</span>
-                        <span>{{ i18n "readingTime" .ReadingTime }}</span>
-                    </div>
-                    <h3>{{ .Title }}</h3>
-                    {{ with .Summary }}<p class="card-excerpt">{{ . | plainify | truncate 200 }}</p>{{ end }}
-                </a>
-                {{ with .Params.tags }}
-                <div class="card-tags">
-                    {{ range first 4 . }}
-                    <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="card-tag"><span class="nf-icon">&#xf02b;</span> {{ . }}</a>
-                    {{ end }}
-                </div>
-                {{ end }}
-            </li>
-            {{ end }}
-        </ul>
-    </section>
+{{ $monthsShort := slice "Jan" "Feb" "Mrz" "Apr" "Mai" "Jun" "Jul" "Aug" "Sep" "Okt" "Nov" "Dez" }}
+{{ $allPosts := .Pages.ByDate.Reverse }}
+
+<div class="container type-page animate-fade-in" style="--type-accent: var(--syntax-markup);">
+  <span class="type-eyebrow"><span class="te-dot"></span>blog · thema</span>
+  <h1 class="type-megatitle"><span class="lb-tag-hash">#</span>{{ $displayName }}<span class="punct">.</span></h1>
+
+  {{ with .Description }}<p class="type-lede">{{ . | safeHTML }}</p>{{ end }}
+
+  <div class="type-toolrow">
+    <span>{{ len $allPosts }} {{ cond (eq (len $allPosts) 1) "Eintrag" "Einträge" }} mit diesem Thema</span>
+    <span class="tr-right">
+      <a class="tr-link" href="{{ "/tags/" | relURL }}">Alle Themen ↗</a>
+      <a class="tr-link" href="{{ "/blog/" | relURL }}">Logbuch ↗</a>
+    </span>
+  </div>
+
+  <div class="logbook">
+    {{ range $allPosts }}
+      <article class="logbook-row logbook-row--compact">
+        <div class="lb-date">
+          <span class="lb-day">{{ .Date.Day }}</span>
+          <span class="lb-month">{{ index $monthsShort (sub (int .Date.Month) 1) }} · {{ .Date.Year }}</span>
+        </div>
+        <div class="lb-body">
+          <a class="lb-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{ with .Summary }}<p class="lb-excerpt">{{ . | plainify | truncate 180 }}</p>{{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </div>
 </div>
 {{ end }}

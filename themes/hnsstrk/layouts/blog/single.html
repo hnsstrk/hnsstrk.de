@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="container type-page animate-fade-in" style="--type-accent: var(--syntax-markup);">
   <span class="type-eyebrow"><span class="te-dot"></span>blog · artikel</span>
-  <h1 class="type-megatitle">{{ .Title }}</h1>
+  <h1 class="type-megatitle single-megatitle">{{ .Title }}</h1>
   {{ with .Description }}<p class="type-lede">{{ . }}</p>{{ end }}
   <div class="type-toolrow single-meta">
     <span class="tr-meta">

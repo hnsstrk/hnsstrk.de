@@ -1,20 +1,51 @@
 {{ define "main" }}
-<div class="container animate-fade-in content-container mt-4 mb-4">
-    <section class="content-body">
-        <h1>{{ .Title }}</h1>
-        {{ $pages := where .Site.RegularPages "Section" "blog" }}
-        {{ $grouped := $pages.GroupByDate "2006" }}
-        {{ range $grouped }}
-        <h2 class="archive-year">{{ .Key }}</h2>
-        <ul class="archive-list">
-            {{ range .Pages.ByDate.Reverse }}
-            <li>
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02. Jan" }}</time>
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </li>
-            {{ end }}
-        </ul>
-        {{ end }}
-    </section>
+{{ $monthsShort := slice "Jan" "Feb" "Mrz" "Apr" "Mai" "Jun" "Jul" "Aug" "Sep" "Okt" "Nov" "Dez" }}
+{{ $allPosts := where .Site.RegularPages "Section" "blog" }}
+{{ $allPosts = $allPosts.ByDate.Reverse }}
+{{ $years := slice }}
+{{ range $allPosts }}{{ $years = $years | append (.Date.Year) }}{{ end }}
+{{ $yearsUniq := $years | uniq }}
+
+<div class="container type-page animate-fade-in" style="--type-accent: var(--syntax-markup);">
+  <span class="type-eyebrow"><span class="te-dot"></span>blog · archiv</span>
+  <h1 class="type-megatitle">{{ .Title }}<span class="punct">.</span></h1>
+
+  {{ with .Description }}<p class="type-lede">{{ . }}</p>{{ end }}
+
+  <div class="type-toolrow">
+    <span>{{ len $allPosts }} Einträge · {{ len $yearsUniq }} Jahre</span>
+    <span class="tr-right">
+      <a class="tr-link"        href="{{ "/blog/" | relURL }}">Logbuch ↗</a>
+      <a class="tr-link tr-rss" href="{{ "/blog/index.xml" | relURL }}">RSS ↗</a>
+    </span>
+  </div>
+
+  <div class="logbook">
+    {{ $currentYear := 0 }}
+    {{ range $allPosts }}
+      {{ $y := .Date.Year }}
+      {{ if ne $y $currentYear }}
+        {{ $currentYear = $y }}
+        {{ $countInYear := 0 }}
+        {{ range $allPosts }}{{ if eq .Date.Year $y }}{{ $countInYear = add $countInYear 1 }}{{ end }}{{ end }}
+        <div class="year-divider">
+          <span class="yd-num">{{ $y }}</span>
+          <span class="yd-meta">
+            {{ $countInYear }} {{ cond (eq $countInYear 1) "Eintrag" "Einträge" }}
+          </span>
+        </div>
+      {{ end }}
+
+      <article class="logbook-row logbook-row--compact">
+        <div class="lb-date">
+          <span class="lb-day">{{ .Date.Day }}</span>
+          <span class="lb-month">{{ index $monthsShort (sub (int .Date.Month) 1) }} · {{ .Date.Year }}</span>
+        </div>
+        <div class="lb-body">
+          <a class="lb-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </div>
+      </article>
+    {{ end }}
+  </div>
 </div>
 {{ end }}
