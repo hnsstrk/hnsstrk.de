@@ -12,7 +12,7 @@ featured_image: "beispiel-16x9-light-sleek.png"
 
 **[Midjourney](https://www.midjourney.com/@hnsstrk) · CC BY 4.0 · laufend ergänzt**
 
-![Tokyo Night — Inkwash-Painting im 1980er-Manga-Stil, dunkles Lila mit Neonschriften](beispiel-16x9-tokyo-night.jpg "Beispiel 16:9 — stilisierte Stadtszene")
+![Minimalistisches Light-Mode-Wallpaper, helle Tonalität, ruhige Komposition im 16:9-Format](beispiel-16x9-light-sleek.png "Beispiel 16:9 — Light-Mode, sleek")
 
 Eine Sammlung von Hintergrundbildern, generiert mit Midjourney. Die Bilder entstehen ohne konkreten Verwendungszweck — als gestalterisches Experiment mit KI-Bildgeneratoren. Die Themen reichen von minimalistischen Slate-Texturen über Naturmakros bis zu cinematischen Tokyo-Night- und Everforest-Serien. Frei verfügbar für private und kommerzielle Nutzung.
 
