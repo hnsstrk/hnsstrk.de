@@ -149,9 +149,14 @@ temp/
 .claude/settings.json
 .claude/settings.local.json
 # Note: .claude/projects/ should NOT be ignored — tracked intentionally if present
+# Local Claude Code worktrees — never commit (each is a nested git repo)
+.claude/worktrees/
 
 # Playwright MCP — browser session capture artifacts
 .playwright-mcp/
 
 # Firecrawl CLI — local scrape/search cache
 .firecrawl/
+
+# Antigravity / Gemini CLI — local project symlinks
+.antigravitycli/
