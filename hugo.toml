@@ -66,23 +66,31 @@ theme = "hnsstrk"
   tag = "tags"
 
 # Menus
+#
+# Icons: pro Eintrag optional als Nerd-Font-Codepoint (Hex ohne `0x`/`&#x`/`;`)
+# unter `params.icon`. Wird im Template als `&#x<icon>;` gerendert. Fehlt der
+# Parameter, erscheint der Menüeintrag ohne Icon.
 [menus]
   [[menus.main]]
     name = "Über mich"
     url = "/about/"
     weight = 10
+    params = { icon = "f007" }
   [[menus.main]]
     name = "Projekte"
     url = "/projects/"
     weight = 20
+    params = { icon = "f121" }
   [[menus.main]]
     name = "Blog"
     url = "/blog/"
     weight = 25
+    params = { icon = "f02d" }
   [[menus.main]]
     name = "Links"
     url = "/links/"
     weight = 30
+    params = { icon = "f0c1" }
 
   [[menus.footer]]
     name = "Tags"

@@ -13,10 +13,7 @@
             <nav class="nav-links">
                 {{ range .Site.Menus.main }}
                 <a href="{{ .URL | relURL }}">
-                    {{ if eq .Name "Über mich" }}<span class="nf-icon" aria-hidden="true">&#xf007;</span>{{ end }}
-                    {{ if eq .Name "Projekte" }}<span class="nf-icon" aria-hidden="true">&#xf121;</span>{{ end }}
-                    {{ if eq .Name "Blog" }}<span class="nf-icon" aria-hidden="true">&#xf02d;</span>{{ end }}
-                    {{ if eq .Name "Links" }}<span class="nf-icon" aria-hidden="true">&#xf0c1;</span>{{ end }}
+                    {{ with .Params.icon }}<span class="nf-icon" aria-hidden="true">&#x{{ . }};</span>{{ end }}
                     {{ .Name }}
                 </a>
                 {{ end }}
