@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,7 +21,7 @@ jobs:
       - name: Build auf Server triggern
         run: |
           ssh -i ~/.ssh/id_ed25519 \
-            -o StrictHostKeyChecking=no \
+            -o StrictHostKeyChecking=yes \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} \
             build-hnsstrk
 

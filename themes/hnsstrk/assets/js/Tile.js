@@ -7,6 +7,7 @@ export class Tile {
     this.currentChar = ' ';
     this.isAnimating = false;
     this._scrambleTimer = null;
+    this._pendingTimeout = null;
 
     // Build DOM
     this.el = document.createElement('div');
@@ -40,14 +41,19 @@ export class Tile {
   scrambleTo(targetChar, delay) {
     if (targetChar === this.currentChar) return;
 
-    // Cancel any in-progress animation
+    // Laufende und noch ausstehende Animation abbrechen (verzögerter setTimeout)
     if (this._scrambleTimer) {
       clearInterval(this._scrambleTimer);
       this._scrambleTimer = null;
     }
+    if (this._pendingTimeout) {
+      clearTimeout(this._pendingTimeout);
+      this._pendingTimeout = null;
+    }
     this.isAnimating = true;
 
-    setTimeout(() => {
+    this._pendingTimeout = setTimeout(() => {
+      this._pendingTimeout = null;
       this.el.classList.add('scrambling');
       let scrambleCount = 0;
       const maxScrambles = 10 + Math.floor(Math.random() * 4);

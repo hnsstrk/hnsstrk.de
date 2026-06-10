@@ -1,5 +1,5 @@
 baseURL = "https://hnsstrk.de/"
-languageCode = "de"
+locale = "de"
 defaultContentLanguage = "de"
 title = "Hans Jürgen Stark"
 enableRobotsTXT = true

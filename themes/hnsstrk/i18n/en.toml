@@ -35,6 +35,9 @@ other = "Licensed under CC BY 4.0"
 [menuHome]
 other = "Home"
 
+[navToggle]
+other = "Toggle navigation"
+
 # 404
 [notFoundTitle]
 other = "Page not found"

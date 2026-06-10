@@ -1,5 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
 {{/* Canonical URL */}}
@@ -38,7 +39,7 @@
 <meta property="og:locale" content="de_DE">
 
 {{/* Twitter Card */}}
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="{{ if .Params.featured_image }}summary_large_image{{ else }}summary{{ end }}">
 <meta name="twitter:title" content="{{ .Title }}">
 {{ with $description }}
 <meta name="twitter:description" content="{{ . }}">
@@ -62,6 +63,11 @@
 
 {{/* JSON-LD Structured Data */}}
 {{ if .IsHome }}
+{{ $sameAs := slice }}
+{{ with site.Params.social.github }}{{ $sameAs = $sameAs | append (printf "https://github.com/%s" .) }}{{ end }}
+{{ with site.Params.social.mastodon }}{{ $sameAs = $sameAs | append (printf "https://mastodon.social/%s" .) }}{{ end }}
+{{ with site.Params.social.bluesky }}{{ $sameAs = $sameAs | append (printf "https://bsky.app/profile/%s" .) }}{{ end }}
+{{ with site.Params.social.linkedin }}{{ $sameAs = $sameAs | append (printf "https://linkedin.com/in/%s" .) }}{{ end }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -69,8 +75,8 @@
   "name": "{{ site.Params.author }}",
   "url": "{{ site.BaseURL }}",
   "description": "{{ site.Params.description }}"{{ with site.Params.email }},
-  "email": "{{ . }}"{{ end }}{{ with site.Params.social.github }},
-  "sameAs": ["https://github.com/{{ . }}"]{{ end }}
+  "email": "{{ . }}"{{ end }}{{ with $sameAs }},
+  "sameAs": {{ . | jsonify | safeJS }}{{ end }}
 }
 </script>
 {{ end }}

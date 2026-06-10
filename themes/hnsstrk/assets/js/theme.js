@@ -5,9 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const indicator = switcher ? switcher.querySelector('.theme-indicator') : null;
     const THEMES = ['light', 'mirage', 'dark'];
 
+    // localStorage wirft bei blockierten Cookies / Private Mode — Theme gilt dann nur für die Sitzung
+    function getStoredTheme() {
+        try { return localStorage.getItem('theme'); } catch (e) { return null; }
+    }
+
+    function setStoredTheme(theme) {
+        try { localStorage.setItem('theme', theme); } catch (e) { /* nicht persistierbar */ }
+    }
+
     function setTheme(theme, save = true) {
         root.setAttribute('data-theme', theme);
-        if (save) localStorage.setItem('theme', theme);
+        if (save) setStoredTheme(theme);
 
         // Update active states
         buttons.forEach(btn => {
@@ -26,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Init: saved > system preference > light
-    const saved = localStorage.getItem('theme');
+    const saved = getStoredTheme();
     const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
 
     if (saved && THEMES.includes(saved)) {
@@ -37,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Listen for system preference changes (only if user hasn't manually chosen)
     systemDark.addEventListener('change', () => {
-        if (!localStorage.getItem('theme')) {
+        if (!getStoredTheme()) {
             setTheme(systemDark.matches ? 'mirage' : 'light', false);
         }
     });

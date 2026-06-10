@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode | default site.LanguageCode | default "de" }}">
+<html lang="{{ site.Language.Locale | default "de" }}">
 <head>
     {{ partial "head.html" . }}
 </head>
@@ -31,7 +31,7 @@
                     <span class="nf-icon" aria-hidden="true">&#xf186;</span>
                 </button>
             </div>
-            <button class="nav-toggle" aria-label="Navigation öffnen" aria-expanded="false">
+            <button class="nav-toggle" aria-label="{{ i18n "navToggle" | default "Navigation öffnen" }}" aria-expanded="false">
                 <span class="nav-toggle-icon"></span>
             </button>
         </div>
@@ -335,7 +335,7 @@
           function restoreSources() {
             mermaidSources.forEach(function(src, el) {
               el.removeAttribute('data-processed');
-              el.innerHTML = src;
+              el.textContent = src;
             });
           }
 
@@ -359,8 +359,10 @@
             });
           }
 
-          /* Initial render */
-          var theme = localStorage.getItem('theme') ||
+          /* Initiales Rendern — localStorage kann bei blockierten Cookies werfen */
+          var storedTheme = null;
+          try { storedTheme = localStorage.getItem('theme'); } catch (e) {}
+          var theme = storedTheme ||
             (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'mirage' : 'light');
           storeSources();
           mermaid.initialize(getMermaidConfig(theme, true));
@@ -394,16 +396,16 @@
                 <div class="footer-col">
                     <span class="footer-col-title">{{ i18n "footerElsewhere" | default "Anderswo" }}</span>
                     <nav class="footer-nav">
-                        {{ with site.Params.social.github }}<a href="https://github.com/{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
-                        {{ with site.Params.social.mastodon }}<a href="https://mastodon.social/{{ . }}" target="_blank" rel="noopener">Mastodon</a>{{ end }}
-                        {{ with site.Params.social.bluesky }}<a href="https://bsky.app/profile/{{ . }}" target="_blank" rel="noopener">Bluesky</a>{{ end }}
-                        {{ with site.Params.social.linkedin }}<a href="https://linkedin.com/in/{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+                        {{ with site.Params.social.github }}<a href="https://github.com/{{ . }}" target="_blank" rel="noopener noreferrer">GitHub</a>{{ end }}
+                        {{ with site.Params.social.mastodon }}<a href="https://mastodon.social/{{ . }}" target="_blank" rel="noopener noreferrer">Mastodon</a>{{ end }}
+                        {{ with site.Params.social.bluesky }}<a href="https://bsky.app/profile/{{ . }}" target="_blank" rel="noopener noreferrer">Bluesky</a>{{ end }}
+                        {{ with site.Params.social.linkedin }}<a href="https://linkedin.com/in/{{ . }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>{{ end }}
                         <a href="{{ "index.xml" | absURL }}">RSS</a>
                     </nav>
                 </div>
             </div>
             <div class="footer-bottom">
-                <span class="footer-text">&copy; {{ now.Format "2006" }} {{ .Site.Title }} <span class="footer-separator">&middot;</span> <a href="/licenses/" class="footer-cc">CC BY 4.0</a> <span class="footer-separator">&middot;</span> {{ i18n "footerPoweredBy" | default "Powered by" }} <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>, <a href="https://github.com/magnum6actual/flipoff" target="_blank" rel="noopener">FlipOff</a>, <a href="https://monaspace.githubnext.com/" target="_blank" rel="noopener">Monaspace</a> &amp; <a href="https://github.com/ayu-theme" target="_blank" rel="noopener">Ayu</a></span>
+                <span class="footer-text">&copy; {{ now.Format "2006" }} {{ .Site.Title }} <span class="footer-separator">&middot;</span> <a href="/licenses/" class="footer-cc">CC BY 4.0</a> <span class="footer-separator">&middot;</span> {{ i18n "footerPoweredBy" | default "Powered by" }} <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>, <a href="https://github.com/magnum6actual/flipoff" target="_blank" rel="noopener noreferrer">FlipOff</a>, <a href="https://monaspace.githubnext.com/" target="_blank" rel="noopener noreferrer">Monaspace</a> &amp; <a href="https://github.com/ayu-theme" target="_blank" rel="noopener noreferrer">Ayu</a></span>
                 <span class="footer-legal">
                     {{ range $i, $item := .Site.Menus.footer }}{{ if $i }} <span class="footer-separator">&middot;</span> {{ end }}<a href="{{ .URL | relURL }}" class="footer-link">{{ .Name }}</a>{{ end }}
                 </span>
