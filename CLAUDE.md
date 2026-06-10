@@ -59,7 +59,7 @@ Die Archetypes liegen in `archetypes/blog/index.md` und `archetypes/projects/ind
 |---|---|
 | Static Site Generator | Hugo (extended) |
 | Konfiguration | `hugo.toml` |
-| Theme | Custom `themes/hnsstrk/` |
+| Theme | [Splitflap](https://github.com/hnsstrk/splitflap) als Git-Submodule unter `themes/splitflap/` |
 | Landing Page | FlipOff Split-Flap Display |
 | CSS | Vanilla CSS mit Ayu-Farbsystem |
 | Hosting | Contabo Ubuntu Server + Nginx |
@@ -133,7 +133,7 @@ cScale-Reihenfolge: markup(rot) → keyword(orange) → func(gelb) → string(gr
 
 ### FlipOff Split-Flap
 
-Modulare JS-Architektur in `themes/hnsstrk/assets/js/`:
+Modulare JS-Architektur in `themes/splitflap/assets/js/` (Submodule — Änderungen gehören ins Splitflap-Repo):
 - `Board.js` + `Tile.js` — Kern-Animation
 - `KeyboardController.js` — Tastatursteuerung
 - `MessageRotator.js` — Nachrichtenrotation

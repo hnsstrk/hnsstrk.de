@@ -8,6 +8,7 @@ gebaut mit [Hugo](https://gohugo.io/) und dem [Ayu-Farbsystem](https://github.co
 | Komponente | Technologie |
 |---|---|
 | Static Site Generator | Hugo (extended) |
+| Theme | [Splitflap](https://github.com/hnsstrk/splitflap) als Git-Submodule (`themes/splitflap/`) |
 | Landing Page | FlipOff Split-Flap Display |
 | CSS | Vanilla CSS, Ayu-Farbsystem (Light, Mirage, Dark) |
 | Schriften | [Monaspace](https://monaspace.githubnext.com/) Superfamilie |
@@ -19,6 +20,9 @@ gebaut mit [Hugo](https://gohugo.io/) und dem [Ayu-Farbsystem](https://github.co
 ## Entwicklung
 
 ```bash
+git clone --recursive git@github.com:hnsstrk/hnsstrk.de.git   # Theme ist ein Submodule
+git submodule update --init   # falls ohne --recursive geklont
+
 hugo server -D          # Entwicklungsserver mit Entwuerfen
 hugo --minify            # Produktions-Build
 ```

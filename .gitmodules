@@ -1,0 +1,3 @@
+[submodule "themes/splitflap"]
+	path = themes/splitflap
+	url = https://github.com/hnsstrk/splitflap.git
