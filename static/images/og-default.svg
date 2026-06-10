@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Background: Ayu Light -->
+  <rect width="1200" height="630" fill="#fcfcfc"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.06">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#5c6166" stroke-width="1" transform="translate(60,0)" />
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#5c6166" stroke-width="1" transform="translate(120,0)" />
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#5c6166" stroke-width="1" transform="translate(180,0)" />
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#5c6166" stroke-width="1" transform="translate(240,0)" />
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#5c6166" stroke-width="1" transform="translate(300,0)" />
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#5c6166" stroke-width="1" transform="translate(0,60)" />
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#5c6166" stroke-width="1" transform="translate(0,120)" />
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#5c6166" stroke-width="1" transform="translate(0,180)" />
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#5c6166" stroke-width="1" transform="translate(0,240)" />
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#5c6166" stroke-width="1" transform="translate(0,300)" />
+  </g>
+
+  <!-- Accent bar left -->
+  <rect x="60" y="180" width="6" height="24" rx="2" fill="#f29718"/>
+  <rect x="60" y="210" width="6" height="24" rx="2" fill="#f29718"/>
+
+  <!-- Terminal prompt -->
+  <text x="90" y="210" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="28" font-weight="700" fill="#f07171">&gt;</text>
+
+  <!-- Name -->
+  <text x="120" y="210" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="28" font-weight="700" fill="#5c6166">Hans Juergen Stark</text>
+
+  <!-- Tagline -->
+  <text x="90" y="270" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="18" fill="#828e9f">AI Enthusiast // Maker // Gamer</text>
+
+  <!-- Split-flap tiles simulation -->
+  <g transform="translate(90, 320)">
+    <rect x="0" y="0" width="42" height="48" rx="3" fill="#e0e0e0" stroke="#d8d8d8" stroke-width="1"/>
+    <text x="21" y="33" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#5c6166" text-anchor="middle">H</text>
+    <line x1="0" y1="24" x2="42" y2="24" stroke="#fcfcfc" stroke-width="1" opacity="0.5"/>
+
+    <rect x="50" y="0" width="42" height="48" rx="3" fill="#e0e0e0" stroke="#d8d8d8" stroke-width="1"/>
+    <text x="71" y="33" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#5c6166" text-anchor="middle">N</text>
+    <line x1="50" y1="24" x2="92" y2="24" stroke="#fcfcfc" stroke-width="1" opacity="0.5"/>
+
+    <rect x="100" y="0" width="42" height="48" rx="3" fill="#e0e0e0" stroke="#d8d8d8" stroke-width="1"/>
+    <text x="121" y="33" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#5c6166" text-anchor="middle">S</text>
+    <line x1="100" y1="24" x2="142" y2="24" stroke="#fcfcfc" stroke-width="1" opacity="0.5"/>
+
+    <rect x="150" y="0" width="42" height="48" rx="3" fill="#e0e0e0" stroke="#d8d8d8" stroke-width="1"/>
+    <text x="171" y="33" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#5c6166" text-anchor="middle">S</text>
+    <line x1="150" y1="24" x2="192" y2="24" stroke="#fcfcfc" stroke-width="1" opacity="0.5"/>
+
+    <rect x="200" y="0" width="42" height="48" rx="3" fill="#e0e0e0" stroke="#d8d8d8" stroke-width="1"/>
+    <text x="221" y="33" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#5c6166" text-anchor="middle">T</text>
+    <line x1="200" y1="24" x2="242" y2="24" stroke="#fcfcfc" stroke-width="1" opacity="0.5"/>
+
+    <rect x="250" y="0" width="42" height="48" rx="3" fill="#e0e0e0" stroke="#d8d8d8" stroke-width="1"/>
+    <text x="271" y="33" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#5c6166" text-anchor="middle">R</text>
+    <line x1="250" y1="24" x2="292" y2="24" stroke="#fcfcfc" stroke-width="1" opacity="0.5"/>
+
+    <rect x="300" y="0" width="42" height="48" rx="3" fill="#e0e0e0" stroke="#d8d8d8" stroke-width="1"/>
+    <text x="321" y="33" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#5c6166" text-anchor="middle">K</text>
+    <line x1="300" y1="24" x2="342" y2="24" stroke="#fcfcfc" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <!-- URL -->
+  <text x="90" y="440" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="16" fill="#f29718">hnsstrk.de</text>
+
+  <!-- Ayu color dots -->
+  <circle cx="90" cy="530" r="8" fill="#f29718"/>
+  <circle cx="116" cy="530" r="8" fill="#ffcc66"/>
+  <circle cx="142" cy="530" r="8" fill="#e6b450"/>
+
+  <!-- "Ayu Theme" label -->
+  <text x="164" y="535" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="12" fill="#828e9f">Ayu Theme</text>
+
+  <!-- Bottom accent line: Ayu Light orange -->
+  <rect x="0" y="620" width="1200" height="10" fill="#f29718"/>
+</svg>

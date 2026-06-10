@@ -19,6 +19,7 @@ theme = "hnsstrk"
 
   # SEO
   ogImage = "images/og-default.png"
+  ogLocale = "de_DE"
 
   # Theme
   defaultTheme = "light"  # light | mirage | dark
@@ -40,12 +41,26 @@ theme = "hnsstrk"
   tagline = "Notizen aus der Bastelstube — über KI-Tools, Self-Hosting, lokale LLMs und andere technische Themen."
   logoPrompt = ">"
   copyright = "CC BY 4.0 Hans Jürgen Stark"
+  contentLicense = "CC BY 4.0"
+  contentLicenseUrl = "/licenses/"
+
+  # Über-mich-Seite
+  avatar = "images/avatar.png"
 
   # Social Links (erscheinen im Footer unter "Anderswo")
   [params.social]
     github = "hnsstrk"
     mastodon = "@hnsstrk"
     email = "hans.juergen.stark@gmail.com"
+
+  # FlipBoard-Nachrichten der Startseite (Splitflap-Theme)
+  # Jede Nachricht: bis zu 7 Zeilen à max. 20 Zeichen, nur A-Z 0-9 .,-!?'/: und Leerzeichen
+  [params.board]
+    messages = [
+      ['', '', 'AI ENTHUSIAST', '', 'MAKER // GAMER', '', ''],
+      ['', '', 'BLATANTLY COPYING', 'STACK OVERFLOW', 'SINCE 2013', '', ''],
+      ['', '', '', '@hnsstrk', '', '', '']
+    ]
 
 # Markup
 [markup.goldmark.renderer]
