@@ -41,10 +41,6 @@ categories:
         url: "https://steamcommunity.com/id/hnsstrk"
         handle: "hnsstrk"
         icon: "steam"
-      - title: "Discord"
-        url: "#"
-        handle: "hnsstrk"
-        icon: "discord"
 
   - name: "RPG"
     subtitle: "Pen & Paper, Spielleitung, Rollenspiel-Notizen."
