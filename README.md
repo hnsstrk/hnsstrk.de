@@ -44,7 +44,6 @@ Archetypes in `archetypes/blog/` und `archetypes/projects/` liefern section-spez
 | `description` | ja | Kurzbeschreibung |
 | `tags` | ja | Tags in korrekter Schreibweise (z.B. `"KI"`, `"Hugo"`, `"CLI"`) |
 | `featured_image` | nein | Dateiname des Vorschaubilds im Page Bundle |
-| `featured_layout` | nein | Bild-Layout: `left`, `right`, `top`, `bottom` |
 | `toc` | nein | Inhaltsverzeichnis anzeigen (`true`/`false`) |
 
 ### Projekt-Frontmatter

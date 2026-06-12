@@ -41,7 +41,6 @@ Die Archetypes liegen in `archetypes/blog/index.md` und `archetypes/projects/ind
 | `description` | ja | ja | ja |
 | `tags` | ja | ja | ja |
 | `featured_image` | ja | — | nein |
-| `featured_layout` | ja (Kommentar) | — | nein |
 | `toc` | ja (Kommentar) | — | nein |
 | `technologies` | — | ja | ja |
 | `category` | — | ja | ja |
