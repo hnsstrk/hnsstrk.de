@@ -42,9 +42,14 @@ categories:
         handle: "hnsstrk"
         icon: "steam"
 
-  - name: "RPG"
-    subtitle: "Pen & Paper, Spielleitung, Rollenspiel-Notizen."
+  - name: "WEB"
+    subtitle: "Eigene Web-Projekte — vom RPG-Hub bis zur KI-Zeitung."
     links:
+      - title: "news.hnsstrk.de"
+        url: "https://news.hnsstrk.de"
+        description: "Lage am Morgen — vollautomatische KI-Zeitung zur Sicherheitspolitik"
+        icon: "link"
+        featured: true
       - title: "online-resources.de"
         url: "https://online-resources.de"
         description: "Mein RPG-Hub — DSA, Fallout und mehr"

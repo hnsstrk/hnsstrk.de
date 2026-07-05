@@ -89,16 +89,6 @@ Anschließend serviert nginx das Ergebnis. Es gibt keine Datenbank, keinen Appli
 Die stärkste Entscheidung im ganzen Aufbau ist die einfachste: hinter der Live-Seite läuft keine Anwendung. Das eliminiert eine ganze Klasse von Ausfällen, Sicherheitslücken und Wartungsaufwand — der Preis ist ein Build-Schritt beim Veröffentlichen.
 {{< /callout >}}
 
-## Was das Bauen gelehrt hat
-
-Ein paar Beobachtungen aus dem Umbau, die sich verallgemeinern lassen:
-
-**Zeitungsspalten sind kein Web-Layout.** Ein früher Entwurf setzte lange Artikel in zwei echte Spalten — wie eine gedruckte Zeitung. Am Bildschirm bedeutet das: erst die linke Spalte bis zum Seitenende scrollen, dann wieder ganz nach oben für die rechte. Bei einem gedruckten Blatt mit fester Seitenhöhe funktioniert das, bei einer scrollenden Seite nicht. Die Lösung war ein einspaltiger Long-Read mit angenehmer Lesebreite.
-
-**Kleine Renderer-Details kosten Zeit.** Der Generator gab einen einzeiligen Zusammenfassungs-String zunächst ohne umschließendes `<p>` aus, direkt in ein `<div>`. Dadurch griff weder der Blocksatz noch die Initiale — die entsprechende CSS-Regel zielte auf `p`, das gar nicht existierte. Ein explizites `<p>` löste beides.
-
-**Kontinuität gehört in eine Datenbank, nicht in den Prompt.** Der Versuch, Vorwissen über den Kontext mitzugeben, skaliert nicht und wird teuer. Eine kleine relationale Ablage, aus der der Agent gezielt zieht, ist robuster und günstiger.
-
 ## Grenzen
 
 Die Ehrlichkeit gebietet, die Schwächen ebenso klar zu benennen wie die Mechanik. Kein Mensch prüft die Seiten, ehe sie erscheinen. Jede Ausgabe wird von der KI recherchiert, geschrieben und zusammengesetzt und automatisch veröffentlicht; einzelne Angaben können unvollständig oder fehlerhaft sein. Das Quellen-Budget begrenzt die Tiefe bewusst — eine dünne Nachrichtenlage bleibt eine dünne Ausgabe. Und die gesamte Persona des Blattes hängt an einem Prompt: Ändert sich das Modell dahinter, ändert sich potenziell der Ton.
