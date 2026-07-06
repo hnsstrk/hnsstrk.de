@@ -2,7 +2,6 @@
 title: "Eine Zeitung, die sich selbst schreibt"
 date: 2026-07-05
 draft: false
-ai_notice: true
 description: "Wie ein LLM-Agent, eine SQLite-Wissensbasis und ein statischer Generator jeden Morgen automatisch eine sicherheitspolitische Zeitung erzeugen und ausliefern."
 tags: ["ki", "llm-agent", "hugo", "self-hosting", "automation", "static-site-generator"]
 toc: true

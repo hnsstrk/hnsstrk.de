@@ -2,7 +2,6 @@
 title: "Vergissmeinnicht — eine native macOS-Oberfläche für Taskwarrior"
 date: 2026-05-22
 draft: false
-ai_notice: true
 description: "Wie sich Taskwarrior 3.x ohne CLI-Subprocess in eine sandbox-konforme SwiftUI-App einbetten lässt: TaskChampion als Embeddable, UniFFI als Brücke, der App-Container als Datenhaltung."
 tags: ["macos", "swiftui", "rust", "uniffi", "taskwarrior", "taskchampion", "projekt"]
 toc: true

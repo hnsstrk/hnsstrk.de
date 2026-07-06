@@ -2,7 +2,6 @@
 title: "Obsidian als KI-gestützte Wissensdatenbank — Vom Karpathy-Konzept zur vollständigen Automatisierung"
 date: 2026-04-05
 draft: false
-ai_notice: true
 description: "Wie sich mit Obsidian, Claude Code und spezialisierten Skills eine KI-gepflegte Wissensdatenbank aufbauen lässt — von der YouTube-Analyse-Pipeline über automatisierte Journalführung bis zur Trainingsauswertung"
 tags: ["Obsidian", "Claude Code", "KI", "Wissensmanagement", "LLM", "Automatisierung", "GTD", "Journal"]
 ---

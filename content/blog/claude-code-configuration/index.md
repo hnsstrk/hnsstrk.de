@@ -2,7 +2,6 @@
 title: "CLAUDE.md richtig schreiben"
 date: 2026-03-26
 draft: false
-ai_notice: true
 description: "Best Practices für die Konfiguration von Claude Code — was in die CLAUDE.md gehört, was in Rules, settings.json, Hooks und Memory ausgelagert wird, und warum weniger oft mehr ist"
 tags: ["Claude Code", "KI", "Konfiguration", "Best Practices"]
 ---

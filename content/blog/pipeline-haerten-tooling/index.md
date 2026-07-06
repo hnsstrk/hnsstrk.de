@@ -2,7 +2,6 @@
 title: "Die Pipeline weiter härten — Context sparen, Loops stoppen, Geräte synchron halten"
 date: 2026-07-06
 draft: false
-ai_notice: true
 description: "Drei Änderungen an einer LLM-Agenten-Pipeline, die jede eine stille Fehlerquelle schließen: ein Recherche-Werkzeug, das den Hauptkontext nicht flutet (Faktor 58 Ersparnis über einen Subagenten), Loop-Konventionen nach dem Leitsatz 'A loop that cannot stop is a bug', und ein Sync, der zum Reflex statt zur vergessenen Aufgabe wird."
 tags: ["claude-code", "agent", "subagent", "skill", "obsidian", "research-workflow", "loop-engineering", "karpathy-principles", "hardening"]
 toc: true
