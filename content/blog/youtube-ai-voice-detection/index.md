@@ -2,6 +2,7 @@
 title: "KI-Stimme oder Mensch? Ein Forensik-Check für die YouTube-Pipeline"
 date: 2026-06-14
 draft: false
+ai_notice: true
 description: "Wie eine YouTube-Analyse-Pipeline um einen Stimm-Authentizitäts-Check erweitert wird: Web-Recherche, vier akustisch-sprachliche Marker und ein nachvollziehbares Urteil pro Kanal."
 tags: ["claude-code", "youtube", "forensik", "tts", "audio", "skill", "agent"]
 toc: true

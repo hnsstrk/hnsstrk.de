@@ -2,6 +2,7 @@
 title: "Semantische Suche im Obsidian Vault — drei Ansätze im Vergleich"
 date: 2026-06-14
 draft: false
+ai_notice: true
 description: "Smart Connections, Karpathy KB oder lokales RAG: Welcher Ansatz zur semantischen Suche im Obsidian Vault passt — Vergleich mit Zahlen und offenen Fragen."
 tags: ["obsidian", "semantic-search", "embeddings", "ollama", "pkm", "rag", "wissensmanagement"]
 toc: true

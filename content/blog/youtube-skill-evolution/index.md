@@ -2,6 +2,7 @@
 title: "Vom Prototyp zur Pipeline — Evolution eines YouTube-Analyse-Skills"
 date: 2026-04-30
 draft: false
+ai_notice: true
 description: "Ein YouTube-Analyse-Skill, der aus 19.701 Wörtern 7.092 macht: Architektur, Best Practices aus claude-video, transcript-auditor-Agent und ein Fokus-Modus für lange Videos."
 tags: ["claude-code", "youtube", "obsidian", "skill", "agent", "vtt", "yt-dlp"]
 toc: true

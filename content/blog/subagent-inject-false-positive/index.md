@@ -2,6 +2,7 @@
 title: "Prompt Injection abwehren — Subagent-Härtung in drei Schritten"
 date: 2026-05-08
 draft: false
+ai_notice: true
 description: "Prompt Injection ist die OWASP-Top-1-Schwachstelle für LLM-Anwendungen — und besonders gefährlich, sobald Subagents autonom Tools aufrufen. Eine drei­stufige Prüfregel direkt in der Agent-Definition härtet das System gegen Indirect-Injects, ohne in den naheliegenden Filter-Reflex zu fallen. Mit fertigem Prompt-Block zum Übernehmen."
 tags: ["claude-code", "agent", "subagent", "prompt-injection", "security", "hardening"]
 toc: true

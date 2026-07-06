@@ -2,6 +2,7 @@
 title: "Research-Pipeline härten — drei Patterns aus einem Hype-Skill"
 date: 2026-05-23
 draft: false
+ai_notice: true
 description: "Hype-Frameworks haben oft drei brauchbare Ideen unter zwanzig überflüssigen. Aus einem Trending-Repo zu Academic-Research-Skills landen genau drei Patterns in der eigenen Research-Pipeline: Concession-Threshold gegen LLM-Sycophancy, Quote-Anchor-Pflicht gegen Halluzinationen, Failure-Mode-Block in jedem Skill. Mit konkretem Code zum Übernehmen."
 tags: ["claude-code", "agent", "subagent", "skill", "obsidian", "research-workflow", "karpathy-principles", "hardening"]
 toc: true
