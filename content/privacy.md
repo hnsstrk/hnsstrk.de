@@ -10,11 +10,11 @@ layout: "single"
 Diese Webseite ist eine statische Seite ohne Benutzerkonten, ohne Cookies und ohne Tracking. Es werden keine Analyse-Tools wie Google Analytics oder Matomo eingesetzt.
 
 **Verantwortlicher:**  
-Hans Jürgen Stark
-Zum Steinberg 23
+Hans Jürgen Stark  
+Zum Steinberg 23  
 53902 Bad Münstereifel
 
-E-Mail: hans.juergen.stark@gmail.com
+E-Mail: [hans.juergen.stark@gmail.com](mailto:hans.juergen.stark+datenschutz@gmail.com)
 
 ## 2. Hosting
 
