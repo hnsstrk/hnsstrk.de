@@ -33,7 +33,7 @@ Contabo stellt den Server bereit. Die im folgenden Abschnitt beschriebenen Proto
 
 Der Webserver (Nginx) speichert bei jedem Abruf automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser übermittelt:
 
-- IP-Adresse des anfragenden Rechners (ungekürzt)
+- IP-Adresse des anfragenden Rechners, **gekürzt** — das letzte Oktett wird durch Null ersetzt (aus `203.0.113.42` wird `203.0.113.0`); bei IPv6-Adressen werden nur die ersten drei Blöcke gespeichert
 - Datum und Uhrzeit des Zugriffs
 - Angeforderte URL samt HTTP-Methode und Protokollversion
 - Übertragene Datenmenge
@@ -41,9 +41,9 @@ Der Webserver (Nginx) speichert bei jedem Abruf automatisch Informationen in sog
 - Erkennungsdaten des verwendeten Browsers und Betriebssystems (User-Agent)
 - Webseite, von der aus der Zugriff erfolgt (Referrer-URL)
 
-Weitere Angaben werden nicht protokolliert. Die Daten werden nicht ausgewertet, nicht zu Nutzungsprofilen zusammengeführt und nicht mit anderen Datenquellen verknüpft; es ist keine Statistik- oder Auswertungssoftware installiert.
+Weitere Angaben werden nicht protokolliert. Die Daten werden nicht ausgewertet, nicht zu Nutzungsprofilen zusammengeführt und nicht mit anderen Datenquellen verknüpft; es ist keine Statistik- oder Auswertungssoftware installiert. Die Kürzung der IP-Adresse erfolgt bereits beim Schreiben des Protokolls; die vollständige Adresse wird zu keinem Zeitpunkt gespeichert.
 
-Die Protokolldateien werden täglich gewechselt; aufbewahrt werden vierzehn abgeschlossene Tage zuzüglich des laufenden Tages. Ein einzelner Eintrag wird damit **längstens 15 Tage** gespeichert und anschließend automatisch gelöscht. Die Erhebung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Webseitenbetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und Optimierung seiner Webseite.
+Die Protokolldateien werden täglich gewechselt; aufbewahrt werden vierzehn abgeschlossene Tage zuzüglich des laufenden Tages. Ein einzelner Eintrag wird damit **längstens 15 Tage** gespeichert und anschließend automatisch gelöscht. Die Erhebung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Webseitenbetreiber hat ein berechtigtes Interesse am technisch fehlerfreien Betrieb seiner Webseite.
 
 ## 4. SSL/TLS-Verschlüsselung
 
@@ -51,7 +51,7 @@ Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung (L
 
 ## 5. Kontaktaufnahme per E-Mail
 
-Wenn Sie per E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert. Eine Weitergabe an Dritte erfolgt nicht. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
+Wenn Sie per E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert. Eine Weitergabe an Dritte erfolgt nicht. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).
 
 ## 6. Cookies, Tracking und lokale Speicherung
 
@@ -69,10 +69,12 @@ Sie haben gemäß DSGVO folgende Rechte:
 - **Recht auf Berichtigung** (Art. 16 DSGVO)
 - **Recht auf Löschung** (Art. 17 DSGVO)
 - **Recht auf Einschränkung der Verarbeitung** (Art. 18 DSGVO)
-- **Recht auf Datenübertragbarkeit** (Art. 20 DSGVO)
 - **Widerspruchsrecht** (Art. 21 DSGVO)
+- **Beschwerderecht bei einer Aufsichtsbehörde** (Art. 77 DSGVO)
 
 Zur Ausübung Ihrer Rechte wenden Sie sich an die oben genannte E-Mail-Adresse.
+
+**Was eine Auskunft praktisch bedeutet:** Gespeichert sind ausschließlich die oben genannten Protokolldaten, und die IP-Adresse darin ist gekürzt. Eine Zuordnung dieser Einträge zu Ihrer Person ist mir dadurch nicht möglich, auch nicht mit Zusatzwissen. Nach Art. 11 Abs. 2 DSGVO bin ich nicht verpflichtet, allein zu Ihrer Identifizierung zusätzliche Daten zu erheben — ich könnte es in diesem Fall auch gar nicht. Eine auf Sie bezogene Auskunft zu einzelnen Zugriffen kann ich Ihnen deshalb nicht erteilen; unabhängig davon wird jeder Eintrag nach längstens 15 Tagen gelöscht.
 
 ## 8. Aufsichtsbehörde
 
