@@ -27,19 +27,23 @@ Deutschland
 
 Ein Vertrag zur Auftragsverarbeitung (AVV) gemäß Art. 28 DSGVO wurde mit Contabo GmbH abgeschlossen (28.03.2026).
 
+Contabo stellt den Server bereit. Die im folgenden Abschnitt beschriebenen Protokolldateien werden nicht von Contabo, sondern von der auf diesem Server betriebenen Webserver-Software (Nginx) geschrieben; verantwortlich dafür ist der oben genannte Verantwortliche.
+
 ## 3. Server-Logfiles
 
-Der Hosting-Provider erhebt und speichert automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser automatisch übermittelt:
+Der Webserver (Nginx) speichert bei jedem Abruf automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser übermittelt:
 
-- IP-Adresse des anfragenden Rechners
+- IP-Adresse des anfragenden Rechners (ungekürzt)
 - Datum und Uhrzeit des Zugriffs
-- Name und URL der abgerufenen Datei
+- Angeforderte URL samt HTTP-Methode und Protokollversion
 - Übertragene Datenmenge
 - Meldung, ob der Abruf erfolgreich war (HTTP-Statuscode)
-- Erkennungsdaten des verwendeten Browsers und Betriebssystems
+- Erkennungsdaten des verwendeten Browsers und Betriebssystems (User-Agent)
 - Webseite, von der aus der Zugriff erfolgt (Referrer-URL)
 
-Diese Daten werden für maximal **14 Tage** gespeichert und anschließend automatisch gelöscht. Die Erhebung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Webseitenbetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und Optimierung seiner Webseite.
+Weitere Angaben werden nicht protokolliert. Die Daten werden nicht ausgewertet, nicht zu Nutzungsprofilen zusammengeführt und nicht mit anderen Datenquellen verknüpft; es ist keine Statistik- oder Auswertungssoftware installiert.
+
+Die Protokolldateien werden täglich gewechselt; aufbewahrt werden vierzehn abgeschlossene Tage zuzüglich des laufenden Tages. Ein einzelner Eintrag wird damit **längstens 15 Tage** gespeichert und anschließend automatisch gelöscht. Die Erhebung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Webseitenbetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und Optimierung seiner Webseite.
 
 ## 4. SSL/TLS-Verschlüsselung
 
@@ -49,9 +53,13 @@ Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung (L
 
 Wenn Sie per E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert. Eine Weitergabe an Dritte erfolgt nicht. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
 
-## 6. Cookies und Tracking
+## 6. Cookies, Tracking und lokale Speicherung
 
 Diese Webseite verwendet **keine Cookies** und **kein Tracking**. Es werden keine Analyse- oder Marketing-Tools eingesetzt. Ein Cookie-Banner ist daher nicht erforderlich.
+
+Es werden auch keine Inhalte von Dritten nachgeladen: Schriften, Skripte und Diagramme liegen auf demselben Server wie die Webseite. Beim Aufruf entsteht daher keine Verbindung zu externen Anbietern.
+
+Wenn Sie oben rechts das Farbschema umschalten (Hell, Mirage, Dunkel), wird Ihre Wahl im `localStorage` Ihres Browsers unter dem Schlüssel `theme` abgelegt — gespeichert wird ausschließlich einer der drei Werte `light`, `mirage` oder `dark`. Der Eintrag entsteht erst durch das Umschalten, verlässt Ihren Browser nicht und wird nicht an den Server übermittelt. Sie können ihn jederzeit über die Browsereinstellungen löschen. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Benutzerfreundlichkeit).
 
 ## 7. Ihre Rechte als betroffene Person
 
