@@ -35,7 +35,7 @@ Für die Schrift kommt die Monaspace-Superfamilie zum Einsatz, lokal als Variabl
 
 ## Redaktionelle Layouts
 
-Über das Display hinaus liefert das Theme alles für einen klassischen Auftritt: einen Blog mit Archiv und Pagination, Projekt- und Links-Seiten sowie eine Über-mich-Seite. Shortcodes für Inhaltsverzeichnis, Callouts und TL;DR-Boxen ergänzen den Markdown-Workflow. Mermaid-Diagramme werden selbst gehostet und nur auf Seiten geladen, die tatsächlich ein Diagramm enthalten; beim Theme-Wechsel rendern sie live im neuen Farbschema neu.
+Über das Display hinaus liefert das Theme alles für einen klassischen Auftritt: einen Blog mit Archiv und Pagination, Projekt- und Links-Seiten sowie eine Über-mich-Seite. Shortcodes für Inhaltsverzeichnis, Callouts und TL;DR-Boxen ergänzen den Markdown-Workflow. Mermaid-Diagramme werden selbst gehostet und nur auf Seiten geladen, die tatsächlich ein Diagramm enthalten; beim Theme-Wechsel rendern sie live im neuen Farbschema neu. Seit der v0.4.x-Serie teilen sich alle Artikelelemente — Titel, Fließtext, Codeblöcke, Bilder, Tabellen — eine einheitliche Lesemaß-Achse, sodass sie an derselben Kante fluchten. Ein KI-Redaktions-Hinweis am Artikelende lässt sich pro Artikel per Frontmatter-Flag (`ai_notice`) optional zuschalten.
 
 ## Technik
 

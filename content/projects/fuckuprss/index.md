@@ -53,9 +53,19 @@ Die Terminologie aus der *Illuminatus!*-Trilogie zieht sich konsequent durch Dat
 
 Das Backend ist in Rust geschrieben, das Frontend in Svelte 5 mit dem Runes-System. Als Desktop-Framework dient Tauri 2; Frontend und Backend kommunizieren über typsichere IPC-Commands. Die gesamte Datenhaltung liegt in einer einzigen SQLite-Datei mit `sqlite-vec`-Erweiterung für Vektorsuche — kein separater Datenbankserver. Lokale Inferenz läuft über Ollama (Ministral 3 für Textanalyse, Snowflake Arctic Embed für Embeddings); optional sind OpenAI-kompatible APIs und andere Backends anschließbar. Das Projekt umfasst über 625 automatisierte Tests und eine CI-Pipeline mit Security-Scans.
 
+## Härtung (Juli 2026)
+
+Ein Härtungspaket vom 04.07.2026 hat mehrere Schwachstellen und Altlasten beseitigt:
+
+- **Feed-Health-Monitoring** erkennt umgezogene oder eingestellte Feeds automatisch und markiert sie als „stale" oder „broken".
+- **Kategorie-Pipeline überarbeitet**: der LLM-Kanal ist jetzt primär, die Scores sind normalisiert, eine Drift-Bremse verhindert, dass sich Fehlklassifikationen selbst verstärken.
+- **DB-Reset mit Backup** (VACUUM INTO) und Integration der NER-Pipeline in den Batch-Lauf.
+- **GitHub-Actions auf Commit-SHAs gepinnt** gegen das Supply-Chain-Risiko veränderlicher Tags.
+- **Task-Management** von Taskwarrior auf GitHub Issues umgestellt.
+
 ## Bezug
 
-Das Repository liegt noch auf einer privaten Gitea-Instanz. Ein Release ist geplant.
+Das Repository ist öffentlich auf [GitHub](https://github.com/hnsstrk/fuckupRSS) verfügbar; v0.0.1 ist als Release veröffentlicht.
 
 ## Hintergrund
 

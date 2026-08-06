@@ -2,19 +2,19 @@
 title: "wallpapers"
 description: "KI-generierte Wallpaper-Sammlung in mehreren Formaten für Einzel- und Dual-Monitor-Setups"
 date: 2026-03-28
-tags: ["Midjourney", "Wallpaper", "KI", "Design"]
-technologies: ["Midjourney"]
+tags: ["Midjourney", "ElevenLabs", "Wallpaper", "KI", "Design"]
+technologies: ["Midjourney", "ElevenLabs"]
 github: "https://github.com/hnsstrk/wallpapers"
 category: "Kreativ"
 weight: 4
 featured_image: "beispiel-16x9-light-sleek.png"
 ---
 
-**[Midjourney](https://www.midjourney.com/@hnsstrk) · CC BY 4.0 · laufend ergänzt**
+**[Midjourney](https://www.midjourney.com/@hnsstrk) · ElevenLabs · CC BY 4.0 · laufend ergänzt**
 
 ![Minimalistisches Light-Mode-Wallpaper, helle Tonalität, ruhige Komposition im 16:9-Format](beispiel-16x9-light-sleek.png "Beispiel 16:9 — Light-Mode, sleek")
 
-Eine Sammlung von Hintergrundbildern, generiert mit Midjourney. Die Bilder entstehen ohne konkreten Verwendungszweck — als gestalterisches Experiment mit KI-Bildgeneratoren. Die Themen reichen von minimalistischen Slate-Texturen über Naturmakros bis zu cinematischen Tokyo-Night- und Everforest-Serien. Frei verfügbar für private und kommerzielle Nutzung.
+Eine Sammlung von Hintergrundbildern, generiert mit Midjourney und ElevenLabs. Die Bilder entstehen ohne konkreten Verwendungszweck — als gestalterisches Experiment mit KI-Bildgeneratoren. Die Themen reichen von minimalistischen Slate-Texturen über Naturmakros bis zu cinematischen Tokyo-Night- und Everforest-Serien, zuletzt ergänzt um eine umfangreiche Bonsai-Serie und dunkle Purple-/Grimdark-Motive. Frei verfügbar für private und kommerzielle Nutzung.
 
 ## Formate
 

@@ -12,7 +12,7 @@ github: "https://github.com/hnsstrk/vergissmeinnicht"
 
 Eine native macOS-Oberfläche für Taskwarrior 3.x.
 
-**macOS 14+ · MIT · v0.2.2 · aktiv entwickelt**
+**macOS 14+ · MIT · v0.3.0 · aktiv entwickelt**
 
 ![Vergissmeinnicht — Heute-Perspektive mit Sidebar, Tasks und Toolbar im Dark-Mode](vergissmeinnicht-heute.png "Hauptfenster mit Sidebar-Perspektiven, Task-Liste und Toolbar")
 
@@ -27,6 +27,8 @@ Wer Taskwarrior auf dem Mac nutzen will, hatte bisher die Wahl zwischen der CLI 
 **QuickCapture.** Per `Cmd+N` oder aus der Menubar. Inline-Syntax für Tags, Projekte, Fälligkeit, Priorität: `Steuer abgeben +finanzen project:home due:friday priority:H`.
 
 **Bulk-Operationen.** Multi-Selection mit Kontextmenü für Done, Delete, Tag, Due, Priority, Projektwechsel — der eigentliche Mehrwert gegenüber der CLI bei vielen Tasks auf einmal.
+
+**Detailspalte im Mail-Stil.** Optionale dritte Spalte neben der Task-Liste zeigt den ausgewählten Task inline statt nur im separaten Detail-Fenster — Umschaltung über Toolbar, Menü oder ⌥⌘0, breiter als zuvor als Default. Bei Multi-Selection erlaubt sie Bulk-Editing von Projekt, Tags, Fälligkeit, Termin und Priorität nach der macOS-„Multiple Values"-Konvention.
 
 **Drag & Drop.** Tasks auf Projekte, Tags oder den Eingang ziehen.
 
