@@ -9,12 +9,12 @@ Diese Datei definiert die Prüfkriterien für Blog-Entwürfe. Der blog-qualitaet
 ### Pflicht (Artikel wird nicht veröffentlicht ohne diese Punkte)
 
 - [ ] **Persönliche Stimme** — Text folgt dem Register Prosa der `schreibwerkstatt` (Ich-Perspektive erwünscht); Prüfung via `stilcheck.sh`
-- [ ] **Keine direkte Leseranrede** — kein "du", "Sie", "ihr"
+- [ ] **Leseranrede nach Register** — direkte Anrede ist erlaubt und erwünscht, wo das Register Prosa sie vorsieht (Fragenkette an die Leser, Einladung zum Ausprobieren)
 - [ ] **Keine vagen Aussagen** ohne konkrete Belege oder Zahlen
 - [ ] **Code-Beispiele vorhanden** bei technischen Themen (Pflicht)
 - [ ] **Hugo-Frontmatter vollständig** — title, date, draft, description, tags
 - [ ] **`<!--more-->` Marker vorhanden** — nach dem Einstiegsabsatz, vor der ersten Überschrift
-- [ ] **Fazit vorhanden** und NICHT zusammenfassend ("Zusammenfassend lässt sich sagen" ist verboten)
+- [ ] **Offener Schluss** — keine Zusammenfassung, kein förmliches Fazit; der Text endet nach dem Register Prosa (offene Frage, Ausblick oder Einladung)
 - [ ] **Korrekte deutsche Umlaute** — ä, ö, ü, ß (niemals ae, oe, ue, ss)
 - [ ] **Einstieg ohne "In diesem Artikel"** — Hook verwenden
 - [ ] **Alternativen respektvoll erwähnt** — keine Abwertung anderer Tools/Ansätze
@@ -78,7 +78,7 @@ Der Qualitätsprüfer sucht aktiv nach diesen Mustern:
 - Marketing: "game-changer", "next-level", "Killer-Feature"
 - Enthusiasmus: "Wahnsinn!", "Mega!", "Hammer!"
 
-### Verbotene Fazit-Muster
+### Verbotene Schluss-Muster
 ```
 Zusammenfassend lässt sich sagen
 In diesem Artikel haben wir

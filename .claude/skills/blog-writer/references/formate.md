@@ -20,7 +20,7 @@ Diese Datei definiert die verfügbaren Blog-Formate mit Struktur, Anwendungshinw
 5. **Tiefgang** — Detaillierte Beschreibung des gewählten Ansatzes mit Code
 6. **Praxis** — Konkrete Code-Beispiele, Konfigurationen, Messwerte
 7. **Was nicht funktioniert hat** — Sackgassen, Fehler, Grenzen
-8. **Fazit** — Einordnung und Ausblick (NICHT zusammenfassend)
+8. **Schluss** — offen nach Register Prosa: Ausblick, offene Frage oder Einladung (keine Zusammenfassung)
 
 **Typische Einstiege:**
 - **Problem-Hook:** "Wer mehr als 50 RSS-Feeds abonniert hat, kennt das Problem…"
@@ -176,23 +176,23 @@ Jeder Artikel beginnt mit einem **Hook** — einem Einstieg, der Relevanz herste
 
 ---
 
-## Fazit-Varianten
+## Schluss-Varianten (offener Schluss nach Register Prosa)
 
-Das Fazit ist KEINE Zusammenfassung. Leser, die bis hierhin gelesen haben, brauchen keine Wiederholung.
+Der Schluss ist offen — keine Zusammenfassung, kein förmliches Fazit. Leser, die bis hierhin gelesen haben, brauchen keine Wiederholung.
 
-| Fazit-Typ | Beschreibung | Passt zu |
+| Schluss-Typ | Beschreibung | Passt zu |
 |-----------|-------------|----------|
 | **Vorwärtsblickend** | Was kommt als Nächstes? Offene Fragen | Build Log, Longread |
 | **Abwägend** | Stärken und Schwächen einordnen | Vergleich, Erfahrungsbericht |
 | **Einladend** | Leser zu eigenem Experimentieren ermutigen | Tutorial, How-To |
 | **Einordnend** | Ergebnisse in größeren Kontext stellen | Longread, Erfahrungsbericht |
 
-**Verbotene Fazit-Einstiege:**
+**Verbotene Schluss-Einstiege:**
 - "Zusammenfassend lässt sich sagen…"
 - "In diesem Artikel haben wir gesehen…"
 - "Abschließend möchte ich festhalten…"
 
-**Erlaubte Fazit-Einstiege:**
+**Erlaubte Schluss-Einstiege:**
 - "Die Frage, ob X sinnvoll ist, hängt davon ab…"
 - "Offen bleibt, wie sich X bei Y verhält."
 - "Wer X in Betracht zieht, sollte Z bedenken."
