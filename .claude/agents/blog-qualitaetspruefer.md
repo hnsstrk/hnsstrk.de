@@ -119,7 +119,7 @@ Glob for `content/blog/*.md` and check:
 ## Checkliste
 
 ### Pflichtkriterien
-- [x] / [ ] Keine Ich-Perspektive
+- [x] / [ ] Persönliche Stimme (Register Prosa der schreibwerkstatt)
 - [x] / [ ] Keine direkte Leseranrede
 - [x] / [ ] Keine vagen Aussagen ohne Belege
 - [x] / [ ] Code-Beispiele vorhanden
@@ -138,8 +138,8 @@ Glob for `content/blog/*.md` and check:
 
 ## Stilprüfung — Befunde
 
-### Ich-Perspektive
-[Treffer mit Zeilennummer und Kontext, oder "Keine Treffer"]
+### Stimme (Register Prosa der schreibwerkstatt)
+[Abweichungen vom Register mit Zeilennummer und Kontext, oder "Keine Befunde"]
 
 ### Vage Aussagen
 [Treffer mit Zeilennummer und Verbesserungsvorschlag]

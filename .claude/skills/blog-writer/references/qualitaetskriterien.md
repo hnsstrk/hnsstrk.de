@@ -8,7 +8,7 @@ Diese Datei definiert die Prüfkriterien für Blog-Entwürfe. Der blog-qualitaet
 
 ### Pflicht (Artikel wird nicht veröffentlicht ohne diese Punkte)
 
-- [ ] **Keine Ich-Perspektive** — kein "ich", "mein", "mir" im gesamten Text
+- [ ] **Persönliche Stimme** — Text folgt dem Register Prosa der `schreibwerkstatt` (Ich-Perspektive erwünscht); Prüfung via `stilcheck.sh`
 - [ ] **Keine direkte Leseranrede** — kein "du", "Sie", "ihr"
 - [ ] **Keine vagen Aussagen** ohne konkrete Belege oder Zahlen
 - [ ] **Code-Beispiele vorhanden** bei technischen Themen (Pflicht)
@@ -37,7 +37,7 @@ Diese Datei definiert die Prüfkriterien für Blog-Entwürfe. Der blog-qualitaet
 - [ ] **Code-Blöcke mit Sprachangabe** — ```bash, ```toml, ```yaml etc.
 - [ ] **Absätze maximal 4–6 Sätze**
 - [ ] **Zwischenüberschriften** als Orientierungshilfe
-- [ ] **Keine Sperrlisten-Wörter** (siehe schreibstil.md)
+- [ ] **Keine Sperrlisten-Wörter** (siehe schreibstil.md) und keine Verbots-Phrasen des schreibwerkstatt-Profils
 - [ ] **Interne Verlinkung** zu verwandten Blog-Posts geprüft
 
 ### SEO und Meta
@@ -65,12 +65,6 @@ Diese Datei definiert die Prüfkriterien für Blog-Entwürfe. Der blog-qualitaet
 ## Stilprüfung — Muster suchen
 
 Der Qualitätsprüfer sucht aktiv nach diesen Mustern:
-
-### Ich-Perspektive (Regex-Muster)
-```
-\b(ich|mein|meinem|meinen|meiner|meines|mir)\b
-```
-Jeder Treffer ist ein Fehler. Keine Ausnahmen (außer in Zitaten, die als solche gekennzeichnet sind).
 
 ### Vage Aussagen
 - "deutlich schneller" → Wie viel schneller? Zahlen!
