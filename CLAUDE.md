@@ -162,7 +162,7 @@ Alle Konzepte, Entscheidungen, technische Dokumentation und ADRs werden im Obsid
 
 | System | Vault-Basispfad |
 |--------|----------------|
-| macOS (MacBook) | `/Users/hnsstrk/Meine Ablage/Vault Obsidian/` |
+| Europa (macOS) | `/Users/hnsstrk/Meine Ablage/Vault Obsidian/` |
 | Linux (Ganymed) | `/home/hnsstrk/Insync/hans.juergen.stark@gmail.com/Google Drive/Vault Obsidian/` |
 
 **Projektordner im Vault:** `Projekte/hnsstrk.de/`
