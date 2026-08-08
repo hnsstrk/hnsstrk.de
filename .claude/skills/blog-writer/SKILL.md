@@ -21,7 +21,7 @@ Korrekte Umlaute in ALLEN Inhalten: ä, ö, ü, ß, Ä, Ö, Ü. Niemals ae, oe, 
 Vor jedem Schreibvorgang ALLE Referenzen lesen:
 
 ```
-references/schreibstil.md        — Stil-Quelle (verweist auf schreibwerkstatt Register Prosa) + blog-spezifische Sach-Regeln
+references/schreibstil.md        — Stil-Quelle (Register Prosa der schreibwerkstatt, mit Fallback) + blog-spezifische Sach-Regeln
 references/formate.md            — Format-Templates mit Struktur und Hooks
 references/qualitaetskriterien.md — Prüfcheckliste
 references/frontmatter-referenz.md — Hugo-Frontmatter und Shortcodes
@@ -87,7 +87,7 @@ Jetzt den Artikel schreiben. Dabei:
 
 1. **Referenzen laden** — ALLE vier Reference-Dateien lesen
 2. **Format-Template** aus `references/formate.md` als Strukturvorlage verwenden
-3. **Schreibstil**: Register Prosa des globalen Skills `schreibwerkstatt` (persönliche Stimme) + Sach-Regeln aus `references/schreibstil.md`
+3. **Schreibstil**: Register Prosa des globalen Skills `schreibwerkstatt` (persönliche Stimme) + Sach-Regeln aus `references/schreibstil.md`. **Ist `schreibwerkstatt` nicht verfügbar, neutral-sachlich schreiben und das im Ergebnis vermerken** — siehe Callout in `references/schreibstil.md`
 4. **Frontmatter** gemäß `references/frontmatter-referenz.md` erstellen
 5. **Bestehende Blog-Posts** lesen: `content/blog/*/index.md` im Hugo-Projekt — Stil und Tonalität abgleichen
 6. **Hugo-Features** gezielt einsetzen:
@@ -180,7 +180,7 @@ Wenn der User zufrieden ist:
 - **Transparenz** — bei jeder Entscheidung erklären warum
 
 ### Inhalt
-- **Persönliche Stimme** — Register Prosa der `schreibwerkstatt`; Ich-Perspektive erwünscht
+- **Persönliche Stimme** — Register Prosa der `schreibwerkstatt`; Ich-Perspektive erwünscht. Fehlt der Skill: neutral-sachlich, ohne nachgeahmte Ich-Stimme
 - **Konkretheit** — Zahlen, Versionen, Konfigurationen statt vager Aussagen
 - **Ehrlichkeit** — Grenzen und Fehler gleichberechtigt dokumentieren
 - **Respekt** — andere Tools/Ansätze nicht abwerten

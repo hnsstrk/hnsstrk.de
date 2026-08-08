@@ -140,6 +140,7 @@ Glob for `content/blog/*.md` and check:
 
 ### Stimme (Register Prosa der schreibwerkstatt)
 [Abweichungen vom Register mit Zeilennummer und Kontext, oder "Keine Befunde"]
+[Ist `schreibwerkstatt` in dieser Sitzung nicht verfügbar: keine Stimmen-Befunde melden, sondern "Register nicht prüfbar — schreibwerkstatt fehlt, Text ist neutral-sachlich zu bewerten"]
 
 ### Vage Aussagen
 [Treffer mit Zeilennummer und Verbesserungsvorschlag]

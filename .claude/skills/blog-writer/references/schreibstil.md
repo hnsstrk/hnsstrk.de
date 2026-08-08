@@ -2,6 +2,16 @@
 
 **Stimme, Ton und Perspektive kommen aus dem globalen Skill `schreibwerkstatt`, Register Prosa** — die persönliche Ich-Stimme des Autors (ironisch, pointiert, konkret; destilliert aus 272 eigenen Blog-Beiträgen 2007–2018). Vor jedem Entwurf das Register Prosa der schreibwerkstatt laden; Stil-Prüfung über deren Werkzeuge (`stilcheck.sh`, `lesbarkeit.py`). Ich-Perspektive ist erwünscht (User-Entscheidung 2026-08-07; die frühere unpersönliche Fassung dieser Datei liegt in der Git-Historie).
 
+> [!important] Ohne `schreibwerkstatt` wird neutral geschrieben
+> Der Skill `schreibwerkstatt` liegt **global** (`~/.claude/skills/`) und wird nicht über dieses Repository verteilt — er enthält die persönliche Stimme des Autors und hat in einem öffentlichen Repo nichts verloren.
+>
+> **Vor dem Schreiben prüfen, ob er verfügbar ist** (in der Skill-Liste der Sitzung oder unter `~/.claude/skills/schreibwerkstatt/`).
+>
+> - **Verfügbar** → Register Prosa verwenden, persönliche Ich-Stimme.
+> - **Nicht verfügbar** → **neutral-sachlich** schreiben: klare Fachprosa, keine nachgeahmte Ich-Stimme, keine Ironie, keine Pointen. Alle Regeln dieser Datei gelten weiter — sie sind register-unabhängig.
+>
+> Im Ergebnis **ausdrücklich vermerken**, dass ohne Stil-Unterbau geschrieben wurde. Ein Text, der unbemerkt neutral klingt, ist schlechter als einer, der es angekündigt tut.
+
 Diese Datei ergänzt nur, was blog-spezifisch und register-unabhängig ist:
 
 ## Grundhaltung
