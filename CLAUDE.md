@@ -151,7 +151,13 @@ Push auf `main` → GitHub Action baut SSH-Verbindung auf → triggert `build-hn
 - **Code:** Englisch (Variablen, Funktionen, HTML-Attribute, CSS-Klassen)
 - **Commits:** Konventionelle Commits (`feat:`, `fix:`, `docs:`, `style:`, `chore:`)
 - **Branches:** `main` als Produktionsbranch
-- **Content:** `content/blog/` ist gitignored — Blog-Inhalte werden separat verwaltet
+- **Content:** Blog-Inhalte liegen im Repository (`content/blog/`, 41 Dateien) und werden mit
+  ihm versioniert. Es gibt **keine** Ignore-Regel dafür — eine frühere Fassung dieser Zeile
+  behauptete das Gegenteil und hätte einen neuen Beitrag stillschweigend unveröffentlicht
+  gelassen (korrigiert am 11.08.2026)
+- **Veröffentlichen ist der Push:** Ein Push auf `main` triggert den Deploy und stellt den
+  Text ins Netz. Ein fertiger Beitrag wird deshalb nicht ungefragt gepusht, sondern dem
+  Autor vorgelegt
 
 
 ## Projektdokumentation
