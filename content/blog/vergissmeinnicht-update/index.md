@@ -28,7 +28,7 @@ Im August hatte ich versprochen, dass als Nächstes das Diktat kommt. Am 12.08. 
 ```mermaid
 flowchart TD
     MIC[Mikrofonknopf in der Schnelleingabe]
-    MIC --> REC[Aufnahme mit pw-record]
+    MIC --> REC[PipeWire-Aufnahme mit pw-record]
     REC --> STT[Transkription lokal: openai-whisper oder whisper.cpp]
     STT --> TITLE[Text wird an das Titelfeld angehängt]
     TITLE --> BTN[Knopf: mit KI interpretieren]
@@ -37,7 +37,7 @@ flowchart TD
     OK --> TASK[Aufgabe in der Replica]
 ```
 
-Der Pfeil zwischen Titelfeld und KI war in der ersten Fassung kein Knopf. Das Transkript lief automatisch in die Interpretation. Gehalten hat das ein paar Stunden: Noch am selben Abend habe ich es mir anders gewünscht, und seitdem schreibt das Diktat nur noch ins Feld.
+Der Pfeil zwischen Titelfeld und KI war in der ersten Fassung kein Knopf. Das Transkript lief automatisch in die Interpretation. Gehalten hat das nur bis zum Abend: Noch am selben Tag habe ich es mir anders gewünscht, und seitdem schreibt das Diktat nur noch ins Feld.
 
 Aus dem Feedback dieses einen Abends wurden sechzehn Issues. Die wichtigsten Entscheidungen daraus:
 
@@ -45,7 +45,7 @@ Aus dem Feedback dieses einen Abends wurden sechzehn Issues. Die wichtigsten Ent
 |---|---|---|
 | Diktat und KI in einem Schritt? | Getrennt, die Interpretation läuft erst auf Knopfdruck | Meine Entscheidung nach dem ersten Abend mit der automatischen Fassung |
 | Wo wird das Diktat eingestellt? | Eigene Kategorie „Diktat“ in den Einstellungen | Man kommt an die Spracherkennung, ohne an einem API-Schlüssel vorbeizuscrollen |
-| Knopf zeigen, wenn die Kette nicht bereitsteht? | Gesperrt statt versteckt, der Grund steht im Tooltip | Das Diktat braucht kein Sprachmodell, war ohne KI-Konfiguration aber unsichtbar |
+| Knopf zeigen, wenn Transkription oder KI-Anbindung nicht eingerichtet sind? | Gesperrt statt versteckt, der Grund steht im Tooltip | Das Diktat braucht kein Sprachmodell, war ohne KI-Konfiguration aber unsichtbar |
 | Darf die KI Felder überschreiben? | Nur die, zu denen sie etwas sagt | Ein Modell, das zu einem Feld schweigt, hat darüber nichts entschieden |
 | Welcher Stand läuft gerade? | Jeder Build nennt Commit und Datum | An einem Tag mit mehreren Installationen war die Version allein nichts wert |
 
@@ -53,17 +53,17 @@ Die zwei Spracherkennungen sind fest eingebaut, aber als Entweder-oder: `openai-
 
 Vier Tage später wollte ich wissen, auf welchem Rechenwerk das eigentlich läuft. In der Projektdoku stand: auf der CPU. Das stimmt auch — nur ist es keine Eigenschaft der App. Vergissmeinnicht übergibt Whisper gar keine Gerätewahl, Whisper sucht sich selbst eine Grafikkarte, und auf meinem Linux-Rechner ist schlicht die PyTorch-Variante ohne GPU-Unterstützung installiert. Die Grafikkarte daneben hat also frei, weil ich das falsche Paket habe.
 
-Zwei Wege würden das ändern. Umgesetzt ist keiner.
+Zwei Wege würden das ändern: die PyTorch-Variante mit GPU-Unterstützung ins System holen, was dann alles trifft, was das System-Python benutzt, oder das Diktat auf `whisper.cpp` umstellen, für das ein GPU-Build schon auf der Platte liegt. Umgesetzt ist keiner.
 
 ## Der Wächter
 
-Zum selben Abend gehört die unangenehmste Stelle dieses Berichts. Ich hatte festgestellt, dass nach jeder Installation die Adresse meines Sync-Servers aus der Konfiguration verschwindet. Doch die Installation war unschuldig.
+Zum Abend des 12.08. gehört die unangenehmste Stelle dieses Berichts. Ich hatte festgestellt, dass nach jeder Installation die Adresse meines Sync-Servers aus der Konfiguration verschwindet. Doch die Installation war unschuldig.
 
-Schuld waren die Testläufe der App. Vergissmeinnicht KDE prüft seine Oberfläche mit eingebauten Testhaken, die ohne Bildschirm laufen. Drei dieser Haken leerten Einstellungen wie die Sync-Adresse und stellten sie nicht verlässlich wieder her. Die Arbeitsregeln verlangten für solche Läufe ein Wegwerf-Verzeichnis für die Daten. Von der Konfiguration stand dort nichts, also lief jeder Test gegen meine echte.
+Schuld waren die Testläufe der App. Vergissmeinnicht KDE prüft seine Oberfläche mit eingebauten Testoptionen (`--test-…`), die ohne Bildschirm laufen. Drei dieser Testoptionen leerten Einstellungen wie die Sync-Adresse und stellten sie nicht verlässlich wieder her. Die Arbeitsregeln — die Anweisungsdatei des Projekts für die KI-Agenten — verlangten für solche Läufe ein Wegwerf-Verzeichnis für die Daten. Von der Konfiguration stand dort nichts, also lief jeder Test gegen meine echte.
 
 Das war der erste Verlust: Weg waren die Sync-Adresse, der Modellname und die Whisper-Pfade. Der zweite kam bei der Fehlersuche. Ausgerechnet ein Lauf, der den Fehler mit dem alten Verhalten nachstellen sollte, hat noch mehr von meiner Einrichtung gelöscht, und das war nicht wiederherstellbar.
 
-Seitdem steht ganz vorn im Programm ein Wächter:
+Seitdem steht ganz vorn im Programm ein Wächter, eine Schutzprüfung beim Programmstart:
 
 ```rust
 fn verweigere_testlauf_auf_echten_daten() {
@@ -83,23 +83,25 @@ fn verweigere_testlauf_auf_echten_daten() {
 }
 ```
 
-Jeder Lauf mit `--test-` bricht ab, solange nicht beide Pfade von den Standardorten wegzeigen. Die Haken stellen außerdem wieder her, was sie verändern.
+Jeder Lauf mit `--test-` bricht ab, solange nicht beide Pfade von den Standardorten wegzeigen. Die Testoptionen stellen außerdem wieder her, was sie verändern.
 
 Der Wächter stand am selben Abend. Gut eine Stunde später kam der dritte Verlust: Meine Konfiguration wurde erneut überschrieben.
 
 Die Ursache dafür ist bis heute nicht geklärt. Es gibt drei Verdachtsspuren: ein Hilfsprogramm, das eine Demo-Konfiguration schreibt und kein Testlauf ist, also am Wächter vorbeigeht; die laufende App selbst; und ein parallel laufender älterer Build.
 
-Was ich daraus mitnehme, ist wenig schmeichelhaft: Die erste Untersuchung hat bei der ersten überzeugenden Erklärung aufgehört. Die Testhaken waren schuldig, nur eben nicht allein.
+Was ich daraus mitnehme, ist wenig schmeichelhaft: Die erste Untersuchung hat bei der ersten überzeugenden Erklärung aufgehört. Die Testoptionen waren schuldig, nur eben nicht allein.
 
-Acht Tage später fiel beim Aufräumen noch auf, dass die Arbeitsregeln weiterhin nur das eine Verzeichnis verlangten. Wer sich an die Regel gehalten hätte, wäre am eigenen Wächter gescheitert.
+Am 20.08. fiel beim Aufräumen noch auf, dass die Arbeitsregeln weiterhin nur das eine Verzeichnis verlangten. Wer sich an die Regel gehalten hätte, wäre am eigenen Wächter gescheitert.
 
 ## Aufräumen
 
-Am 20.08. sind die Agenten-Rollen aus dem KDE-Projekt verschwunden. Fünf Definitionen waren es zuletzt — Entwickler, Prüfer, Rechercheur, Redakteur, UX-Experte —, zusammen 290 Zeilen. Was sie an Sachwissen trugen, steht jetzt in der einen Anweisungsdatei, die dadurch von 81 auf 137 Zeilen gewachsen ist. Eine Ersparnis ist das trotzdem: Jeder Aufruf eines solchen Agenten kostete 1.500 bis 2.500 Token, und das mehrfach pro Sitzung. Beim Schwesterprojekt Denkzettel hatte derselbe Rückbau neun Tage vorher angefangen, nachzulesen in [Papierkrieg](/blog/denkzettel-prozess-rueckbau/).
+Am 20.08. sind die Agenten-Rollen aus dem KDE-Projekt verschwunden. Fünf Definitionen waren es zuletzt — Entwickler, Prüfer, Rechercheur, Redakteur, UX-Experte —, zusammen 290 Zeilen. Was sie an Sachwissen trugen, steht jetzt in der einen Anweisungsdatei, die dadurch von 81 auf 137 Zeilen gewachsen ist.
 
-Am selben Tag wurde das Projekt durchgehend englisch — mit einer Ausnahme. Die Quellsprache der Oberfläche bleibt Deutsch, das Englische entsteht als Übersetzung mit 300 Zeichenketten. Beim Durchsehen fiel ein Hinweistext auf, der englischsprachigen Nutzern den Suchoperator `projekt:` empfahl. Der funktioniert sogar. Auf Englisch heißt er nur anders.
+Eine Ersparnis ist das trotzdem: Jeder Aufruf eines solchen Agenten kostete 1.500 bis 2.500 Token, und das mehrfach pro Sitzung. Beim Schwesterprojekt Denkzettel hatte derselbe Rückbau neun Tage vorher angefangen, nachzulesen in [Papierkrieg](/blog/denkzettel-prozess-rueckbau/).
 
-Drei Tage später kam das Plugin ponytail dazu, das einem KI-Agenten vor jeder Zeile Code die Frage stellt, ob sie überhaupt nötig ist. Gemessen kostet es rund 1.300 Token je Sitzungsstart. Wichtiger war, was beim Einbinden herauskam: Die Version stand seit dem 12.08. auf 0.4.0, im Changelog gab es dazu aber keinen Abschnitt.
+Am selben Tag wurde das KDE-Projekt durchgehend englisch — mit einer Ausnahme. Die Quellsprache der Oberfläche bleibt Deutsch, das Englische entsteht als Übersetzung mit 300 Zeichenketten. Beim Durchsehen fiel ein Hinweistext auf, der englischsprachigen Nutzern den Suchoperator `projekt:` empfahl. Der funktioniert sogar. Auf Englisch heißt er nur anders.
+
+Drei Tage später kam das Plugin ponytail dazu, das einem KI-Agenten vor jeder Zeile Code die Frage stellt, ob sie überhaupt nötig ist. Gemessen kostet es rund 1.300 Token je Sitzungsstart. Wichtiger war, was beim Einbinden herauskam: Die KDE-Version stand seit dem 12.08. auf 0.4.0, im Changelog gab es dazu aber keinen Abschnitt.
 
 Der Release-Workflow schneidet die Notizen mit `awk` aus dem Changelog. Findet `awk` nichts, schreibt es eine leere Datei und meldet Erfolg. Ein Tag `v0.4.0` hätte also eine Veröffentlichung mit leerem Text erzeugt. Dagegen kam eine Prüfung in den Workflow, und die hatte beim ersten Versuch selbst ein Loch (hier verkürzt):
 
@@ -108,7 +110,7 @@ Der Release-Workflow schneidet die Notizen mit `awk` aus dem Changelog. Findet `
 + grep -q '[^[:space:]]' release-notes.md || exit 1
 ```
 
-`[ -s ]` fragt nur, ob die Datei größer als null Byte ist. Ein vorhandener, aber leerer Abschnitt liefert eine Leerzeile, also ein Byte, und wäre durchgerutscht. Gefunden hat das ein zweiter Durchgang in frischem Kontext — nicht ich.
+`[ -s ]` fragt nur, ob die Datei größer als null Byte ist. Ein vorhandener, aber leerer Abschnitt liefert eine Leerzeile, also ein Byte, und wäre durchgerutscht. Gefunden hat das ein zweiter Durchgang durch eine neu gestartete KI-Sitzung ohne Vorwissen — nicht ich.
 
 Am Abend des 23.08. ging die 0.4.0 für KDE dann wirklich hinaus. Das Paket habe ich danach heruntergeladen und ausgepackt, statt der grünen Meldung zu glauben: fünfzehn Einträge, die deutsche README dabei, Release-Notizen mit 353 Zeilen.
 
@@ -139,11 +141,11 @@ Das Layout bietet dem Inhalt höchstens 320 Punkt an und übernimmt, was der Inh
 
 Die 0.3.1 war danach schnell veröffentlicht, zusammen mit einem Update der Bibliothek `rustls`. Nur auf meinem eigenen Rechner ließ sie sich nicht bauen. Der Rust-Compiler aus Homebrew, Version 1.98.1, fand im Release-Profil keine einzige Makro-Bibliothek mehr — aber nur, wenn zusätzlich `MACOSX_DEPLOYMENT_TARGET=14.0` gesetzt war. Debug ging. Release ohne die Variable ging auch. Dieselbe Version in der offiziellen Fassung baute in der CI ohne Murren.
 
-Im Mai hatte ich über `rustup` geschrieben — aus anderem Anlass —, der Aufwand stehe nicht im Verhältnis zum Nutzen. Jetzt stand er im Verhältnis. Homebrews Rust ist deinstalliert und hat beim Gehen noch 1,6 Gigabyte LLVM mitgenommen.
+Im [Beitrag vom Mai](/blog/vergissmeinnicht/) hatte ich über `rustup` geschrieben — aus anderem Anlass —, der Aufwand stehe nicht im Verhältnis zum Nutzen. Jetzt stand er im Verhältnis. Homebrews Rust ist deinstalliert und hat beim Gehen noch 1,6 Gigabyte LLVM mitgenommen.
 
 ## Der Baum
 
-Die 0.4.0 für den Mac entstand in einer Nacht, in rund drei Stunden, gebaut von einem Agenten als Teamleiter mit Zuarbeitern für Entwurf, SwiftUI, die Rust-Brücke, Übersetzung und Tests.
+Die 0.4.0 für den Mac entstand in rund drei Stunden einer Nacht, gebaut von mehreren KI-Agenten, die an Entwurf, SwiftUI, Rust-Brücke, Übersetzung und Tests arbeiteten, geleitet von einem weiteren Agenten.
 
 Im Mai war noch offen, wie Unteraufgaben aussehen sollen: eine eigene Konvention oder Taskwarriors `depends`. Es ist `depends` geworden. Die Baumansicht ist reine Darstellung, geschrieben wird dabei nichts. Oben steht die Voraussetzung, eingerückt darunter alles, was auf sie wartet.
 
@@ -155,12 +157,12 @@ Dazu kam die Sortierung nach Dringlichkeit, gerechnet mit Taskwarriors Standardk
 
 ## Was schiefging
 
-Einiges steht schon oben. Der Rest in Kürze:
+Mehreres steht schon oben. Der Rest in Kürze:
 
-- Ein Dateirechte-Test war lokal grün und in der CI rot. Der Container läuft als root, und root lässt sich von `chmod 555` nichts verbieten.
-- Der KI-Teil der Oberflächentests ist in der CI seit seiner Einführung nie gelaufen. Seit dem 12.08. prüft sie 123 Punkte je Push statt 82 und bricht ab, wenn der KI-Teil übersprungen wird.
-- Beim Fernsteuern der Mac-App per Skript ging ungefragt das Detailfenster einer echten Aufgabe auf. Es wurde ohne Eingabe wieder geschlossen. Die Screenshots mit meinen echten Aufgaben sind gelöscht.
-- Die Mac-App synchronisiert bei jedem Start, auch wenn „Nur manuell“ eingestellt ist. Das ist als Fehler erfasst und offen.
+- KDE: Ein Dateirechte-Test war lokal grün und in der CI rot. Der Container läuft als root, und root lässt sich von `chmod 555` nichts verbieten.
+- KDE: Der KI-Teil der Oberflächentests ist in der CI seit seiner Einführung nie gelaufen. Seit dem 12.08. prüft sie 123 Punkte je Push statt 82 und bricht ab, wenn der KI-Teil übersprungen wird.
+- Mac: Beim Fernsteuern der App per Skript ging ungefragt das Detailfenster einer echten Aufgabe auf. Es wurde ohne Eingabe wieder geschlossen. Die Screenshots mit meinen echten Aufgaben sind gelöscht.
+- Mac: Die App synchronisiert bei jedem Start, auch wenn „Nur manuell“ eingestellt ist. Das ist als Fehler erfasst und offen.
 
 Der letzte Punkt hat eine Folge, die man diesem Beitrag ansieht: Er hat kein Bild vom Baum. Für einen Screenshot müsste die App mit einem Demo-Datensatz starten — und würde ihn beim Start auf meinen echten Sync-Server schieben und meine echten Aufgaben in die Demo holen. Das geht nur mit gezogenem Netzwerkstecker.
 

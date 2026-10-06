@@ -5,6 +5,7 @@ draft: false
 description: "15 Titelbilder meiner Rollenspiel-Seite bekommen einen gemeinsamen Zeichenstil — erzeugt mit FLUX 3 direkt bei Black Forest Labs statt über OpenRouter."
 tags: ["flux", "bildgenerierung", "black-forest-labs", "openrouter", "comfyui", "rollenspiel", "claude-code"]
 featured_image: "gurps-mirror.webp"
+featured_alt: "Ein Zwerg mit Fackel und ein Mann im dunklen Mantel stehen in einem Minenstollen vor einem hohen Spiegel mit Runenrahmen, rechts grüne Kristalle"
 toc: true
 ---
 
@@ -14,59 +15,58 @@ Die Titelbilder meiner Rollenspiel-Seite [online-resources.de](https://online-re
 
 ## Siebzehn Läufe für eine Tür
 
-Im August habe ich hier [über die Heimarbeit geschrieben](/blog/ai-services-local-first/): Die Cover entstehen lokal, mit [ComfyUI](https://github.com/Comfy-Org/ComfyUI) und Flux.2 Klein auf Ganymed, und für den Rest standen [OpenRouter](https://openrouter.ai/) und die Schnittstelle von [Black Forest Labs](https://bfl.ai/) auf der Liste. Die Liste ist inzwischen abgearbeitet, nur anders als gedacht.
+Im August habe ich hier [unter dem Titel „Heimarbeit“ über die lokale Bilderzeugung geschrieben](/blog/ai-services-local-first/): Die Cover entstehen lokal, mit [ComfyUI](https://github.com/Comfy-Org/ComfyUI) und Flux.2 Klein auf Ganymed, und für den Rest standen [OpenRouter](https://openrouter.ai/) und die Schnittstelle von [Black Forest Labs](https://bfl.ai/) auf der Liste. Die Liste ist inzwischen abgearbeitet, nur anders als gedacht.
 
 Ende August kam der Weg über OpenRouter dazu, mit FLUX.2 pro. Am 3. Oktober habe ich OpenRouter zum Regelfall erklärt und das lokale Modell zur Ausnahme. Das hielt gut eine Stunde.
 
-Der Grund waren zwei Cover. Das erste zeigt meinen Schmied Edric, der nachts einen Toten auf einem Handwagen durch die Gasse zieht. Black Forest Labs prüft jeden Auftrag auf Gewalt, und „a dead man wrapped in a canvas shroud“ kam mit dem Vermerk „flagged for graphic violence“ zurück. Diese Beanstandungen sind ein großes Problem, wenn man Grafiken für Rollenspielrunden erstellen möchte. Die Fassung mit „a long load under a canvas tarpaulin“ lief dreimal ohne Beanstandung durch. Man lernt also, Leichen zu umschreiben wie ein Bestatter im Kundengespräch.
+Vorausgegangen waren an diesem Abend zwei Cover. Das erste zeigt meinen Schmied Edric, der nachts einen Toten auf einem Handwagen durch die Gasse zieht. Black Forest Labs prüft jeden Auftrag auf Gewalt, und „a dead man wrapped in a canvas shroud“ kam mit dem Vermerk „flagged for graphic violence“ zurück. Diese Beanstandungen sind ein großes Problem, wenn man Grafiken für Rollenspielrunden erstellen möchte. Die Fassung mit „a long load under a canvas tarpaulin“ lief dreimal ohne Beanstandung durch. Man lernt also, Leichen zu umschreiben.
 
-Danach folgten ein Wagen, der erst auf eine Achse gebracht werden musste, eine gemalte Signatur unten rechts, die immer wiederkam, ein Edric mit zu kurzen Beinen und Boote an Land. Zwölf bezahlte Läufe und 0,915 US-Dollar später war das Bild fertig, zusammengesetzt aus Cloud-Läufen, lokalen Ausschnitten und einer Gammakorrektur.
+Danach folgten ein Wagen, der erst auf eine Achse gebracht werden musste, eine gemalte Signatur unten rechts, die immer wiederkam, ein Edric mit zu kurzen Beinen und Boote an Land. Zwölf bezahlte Läufe und 0,915 US-Dollar später war das Bild fertig, zusammengesetzt aus Cloud-Läufen, lokalen Ausschnitten und einer Gammakorrektur, also einer nachträglichen Angleichung der Helligkeit an ein Vorbild.
 
 Das zweite Cover zeigt Edric, der ein Verhörzimmer verlässt. Fünfzehn bezahlte Läufe ohne brauchbares Ergebnis, weil ich fünfmal an demselben Bildaufbau geflickt habe — Wand frontal, Figur links, Öffnung rechts, keine Raumtiefe. In einer Fassung führte in der Zelle eine Treppe zu einem Fenster. Erst ein Neuanfang mit anderem Aufbau brachte das Bild, nach siebzehn Läufen und 1,26 US-Dollar.
 
 Das Geld ist dabei das kleinere Problem. Ein ganzer Abend für zwei Bilder ist das größere.
 
-## Der direkte Draht
+## Direkt bei Black Forest Labs
 
-In derselben Nacht ging es um [FLUX 3 Image](https://bfl.ai/models/flux-3-image), das Black Forest Labs seit dem 1. Oktober anbietet. [Claude Code](https://code.claude.com/docs/en/overview) hat den Skill `flux-cover` — das ist die Anleitung samt Skript, nach der bei mir die Cover entstehen — erst auf FLUX 3 über OpenRouter umgebaut. Kurz darauf habe ich entschieden, das Modell direkt bei Black Forest Labs anzusprechen.
+In derselben Nacht ging es um [FLUX 3 Image](https://bfl.ai/models/flux-3-image), das Black Forest Labs seit dem 1. Oktober anbietet. [Claude Code](https://code.claude.com/docs/en/overview) hat den Skill `flux-cover` — das ist die Anleitung samt Skript, nach der bei mir die Cover entstehen — erst auf FLUX 3 über OpenRouter umgebaut. Kurz darauf habe ich entschieden, das Modell direkt bei Black Forest Labs anzusprechen. Der Grund: Die direkte Schnittstelle kostet je Bild dasselbe und gibt zwei Dinge her, die über OpenRouter fehlen.
 
 | Frage | OpenRouter | direkt bei Black Forest Labs |
 |---|---|---|
-| Strenge der Inhaltsprüfung einstellen | ja | ja |
-| Websuche des Modells vor dem Rendern abschalten | nein | ja |
+| Websuche des Modells an- und abschalten (FLUX 3 kann vor dem Rendern im Netz nachschlagen) | nein | ja |
 | Vom Modell erweiterter Prompt in der Antwort | nein | ja |
-| Preis je Bild | gleich | gleich |
 
-Der dritte Punkt ist der wertvollste. FLUX 3 erweitert den Prompt, bevor es malt, und auf dem direkten Weg bekommt man diese Fassung zurück. Man sieht dann, was das Modell verstanden hat, statt es am Bild zu erraten.
+Den Ausschlag gab der erweiterte Prompt. FLUX 3 erweitert den Prompt, bevor es malt, und auf dem direkten Weg bekommt man diese Fassung zurück. Man sieht dann, was das Modell verstanden hat, statt es am Bild zu erraten.
 
 OpenRouter bleibt als Ausweichweg erhalten. Der Aufruf für einen Entwurf sieht seitdem so aus:
 
 ```bash
 S=.claude/skills/flux-cover/scripts
 
-# Entwurf in 1K: erst das Stilbild, dann je Figur eine Setkarte
+# Entwurf in 1K (1360 × 768 Pixel): erst das Stilbild, dann je Figur eine Setkarte,
+# ein Bild der Figur in vier Ansichten. --weg bfl geht direkt an Black Forest Labs.
 python3 $S/cover.py --prompt-datei motiv.txt --layout motiv.layout.json \
-  --aufloesung 1K \
+  --weg bfl --aufloesung 1K \
   --referenz $S/../stilbilder/hausstil-illustration.webp \
   --referenz $S/../figuren/dnd5e/edric-stonepath.jpg \
   --ziel entwurf-1.webp
 ```
 
-Neu an FLUX 3 ist das Layout: eine Liste von Bildelementen mit Rahmen in einem Raster von 0 bis 1000. Der erste bezahlte Lauf, noch in derselben Nacht, hat alle sechs Rahmen getroffen — schmale einflügelige Tür, die Figur passt hindurch. Und er sah aus wie ein digitales Rendering. Der Stil der Reihe war komplett verfehlt.
+Neu an FLUX 3 ist das Layout: eine Liste von Bildelementen mit Rahmen in einem Raster von 0 bis 1000. Der erste bezahlte Lauf hat alle sechs Rahmen getroffen — schmale einflügelige Tür, die Figur passt hindurch. Und er sah aus wie ein digitales Rendering. Der Stil der Reihe war komplett verfehlt.
 
 ## Computergrafik aus den Neunzigern
 
-Der Vormittag gehörte dem Stil. Die ersten drei Versuche habe ich neben vier vorhandene Cover gelegt und messen lassen: Den neuen Bildern fehlte Farbsättigung (48 bis 77 gegen 97 bis 139) und der Abfall ins Dunkle. Zwei weitere Entwürfe mit ausgeschriebenem Licht und den Farbwerten der Reihe lagen bei der Sättigung im Bereich der Reihe.
+Der Vormittag gehörte dem Stil. Die ersten drei Versuche habe ich neben vier vorhandene Cover gelegt und messen lassen: Den neuen Bildern fehlte Farbsättigung (Mittelwert 48 bis 77 gegen 97 bis 139 bei der Reihe), und sie waren zu hell (Median der Helligkeit 30 bis 48 gegen 12 beim Vorbild). Zwei weitere Entwürfe mit ausgeschriebenem Licht und den Farbwerten der Reihe lagen bei der Sättigung im Bereich der Reihe.
 
 Mein Urteil dazu lautete: Computergrafik aus den Neunzigern.
 
-Gemessen richtig, angeschaut falsch. Danach haben wir fast alles probiert, was naheliegt. Den Entwurf von FLUX.2 pro neu malen lassen — das Modell stellte die Figur aus dem Stilbild in den Vordergrund. Den Entwurf vom lokalen Klein-Modell neu malen lassen — Farbe und Hell-Dunkel stimmten, das Bild war aber eher zu dunkel und im falschen Format. Sieben Entwürfe in gezeichneten Stilen, Graphic Novel, europäischer Comic, Manga. Die gelingen FLUX 3 ohne Vorlage, ich habe sie trotzdem verworfen.
+Gemessen richtig, angeschaut falsch. Danach haben wir drei Wege probiert. Den Entwurf von FLUX.2 pro neu malen lassen — das Modell stellte die Figur aus dem Stilbild in den Vordergrund. Den Entwurf vom lokalen Klein-Modell neu malen lassen — Farbe und Hell-Dunkel stimmten, das Bild war bei dieser Aufgabe aber eher zu dunkel und im falschen Format. Sieben Entwürfe in gezeichneten Stilen, Graphic Novel, europäischer Comic, Manga. Die gelingen FLUX 3 ohne Vorlage, ich habe sie trotzdem verworfen.
 
-Weitergebracht hat ein Satz. Man gibt dem Modell ein fertiges Bild als erste Vorlage und beauftragt es, dieses Bild als andere Szene neu zu malen: Technik behalten, Inhalt komplett ersetzen. Kerkergang und Hafen trugen danach beide die Malweise des Vorbilds.
+Weitergebracht hat ein Satz. Man gibt dem Modell ein fertiges Bild als erste Vorlage, also als mitgeschicktes Referenzbild, und beauftragt es, dieses Bild als andere Szene neu zu malen: Technik behalten, Inhalt komplett ersetzen. Kerkergang und Hafen trugen danach beide die Malweise des Vorbilds.
 
-Dann wollte ich es doch gezeichneter haben. Drei Entwürfe mit geändertem Stiltext bei gleichem Stilbild zeigten kaum einen Unterschied zum Ölbild. Also wurde das Stilbild selbst umgezeichnet, in Tusche und Gouache, und das hat gewirkt.
+Dann wollte ich es doch gezeichneter haben. Drei Entwürfe mit geändertem Stiltext bei gleichem Stilbild zeigten kaum einen Unterschied zum Ölbild. Also wurde das Stilbild selbst umgezeichnet, in Tusche und Gouache, einer deckenden Wasserfarbe, und das hat gewirkt.
 
-Die Lehre daraus steht jetzt im Skill, und sie ist ernüchternd schlicht: Die Vorlage bestimmt das Medium, der Text kommt dagegen nicht an.
+Die Lehre daraus steht jetzt im Skill, und sie ist schlicht: Die Vorlage bestimmt das Medium, der Text kommt dagegen nicht an.
 
 ## Ein Stilbild und ein Absatz
 
@@ -85,9 +85,9 @@ none of its people, clothes, furniture or walls. Replace the content of the
 picture completely:
 ```
 
-Nach dem Doppelpunkt folgt die Szene. Der Baustein wird nicht umformuliert, und ein fertiges Cover dient nie als Stilbild — sonst wandert der Stil von Bild zu Bild weiter, wie bei der stillen Post.
+Nach dem Doppelpunkt folgt die Szene. Der Baustein wird nicht umformuliert, und ein fertiges Cover dient nie als Stilbild — sonst verändert sich der Stil von Bild zu Bild.
 
-Der vorletzte Satz steht da aus Erfahrung. Ohne ihn zieht die Kleidung der Figur aus dem Stilbild in die neue Szene um.
+Der vorletzte Satz steht da aus Erfahrung. Ohne ihn erscheint die Kleidung der Figur aus dem Stilbild auch in der neuen Szene.
 
 ```mermaid
 flowchart TD
@@ -104,7 +104,7 @@ flowchart TD
 
 ## Fünf Figuren, fünf Zeichner
 
-Ein Stil reicht nicht, wenn Edric in jedem Bild anders aussieht. Für wiederkehrende Figuren braucht das Modell einen Figurenbogen als Vorlage: dieselbe Figur von vorn, von der Seite, von hinten und als Brustbild.
+Ein Stil reicht nicht, wenn Edric in jedem Bild anders aussieht. Für wiederkehrende Figuren braucht das Modell einen Figurenbogen als Vorlage: dieselbe Figur von vorn, von der Seite, von hinten und als Brustbild. Die fertige Fassung eines solchen Bogens heißt bei mir Setkarte.
 
 Für die fünf Figuren der D&D-Runde gab es Porträts, allerdings aus fünf verschiedenen Stilen. Die Bogen daraus sahen entsprechend aus. Drei Verfahren später wusste ich, was alles nicht geht:
 
@@ -135,36 +135,36 @@ Aus dem Gruppenbild entstand je Figur ein Ausschnitt und daraus die Setkarte. Zw
 
 ![Setkarte einer Figur: derselbe stämmige Mann mit weißgrauem Haar und grauem Bart in einem langen Ledermantel, dreimal stehend von vorn, von der Seite und von hinten, rechts daneben als Brustbild](edric-set-card.webp "Edrics Setkarte — vier Ansichten, die bei jedem Cover als Vorlage mitgehen")
 
-Die D&D-Figuren haben zusammen rund 0,75 US-Dollar gekostet.
+Bis zu den ersten Setkarten haben die D&D-Figuren rund 0,75 US-Dollar gekostet, die Neufassung mit einheitlichen Rahmen weitere 0,12.
 
 ## Elf Bilder umzeichnen
 
 Mit Stilbild und Setkarten standen dann die elf vorhandenen Cover der Reihe an. Die Motive gab es schon, also wurde nichts neu erfunden: Das alte Cover geht als erste Vorlage in den Lauf, der Auftrag heißt umzeichnen, und Aufbau, Blickpunkt, Ort, Gegenstände, Farben und Licht bleiben, wie sie sind. Wo eine Figur im Bild steht, kommt ihre Setkarte als zweite Vorlage dazu.
 
-![Nachtszene als Ölgemälde: ein Mann zieht einen zweirädrigen Handwagen mit einer Plane durch eine Fachwerkgasse, unter der Plane ragen zwei Stiefel hervor, hinten eine beleuchtete Tür](handwagen-before.webp "Vorher: das Cover vom 10. September, zwölf Läufe mit FLUX.2 pro")
+![Nachtszene als Ölgemälde: ein Mann zieht einen zweirädrigen Handwagen mit einer Plane durch eine Fachwerkgasse, unter der Plane ragen zwei Stiefel hervor, hinten eine beleuchtete Tür](handwagen-before.webp "Vorher: das Cover zum Beitrag über die Sitzung vom 10. September, entstanden am 3. Oktober in zwölf Läufen mit FLUX.2 pro")
 
 ![Dieselbe Szene als Tuschezeichnung mit deckenden Farben: gleicher Wagen, gleiche Gasse, gleiche Tür, der Mann trägt jetzt den Ledermantel und das blaue Tuch am Arm aus seiner Setkarte](handwagen-house-style.webp "Nachher: dasselbe Motiv im Hausstil, Edric nach seiner Setkarte")
 
-Sechzehn Läufe in der Stufe 1K, 0,384 US-Dollar. Fünf davon waren Nachläufe: Drei Bilder kamen im ersten Lauf kaum umgezeichnet zurück, zwei hatten einen gezeichneten Papierrand bekommen. Die vier Cover für meine GURPS-Beiträge von 2006 und 2007 waren am Vormittag schon im selben Stil entstanden — eines davon steht über diesem Text.
+Sechzehn Läufe in der Stufe 1K, 0,384 US-Dollar. Fünf davon waren Nachläufe: Drei Bilder kamen im ersten Lauf kaum umgezeichnet zurück, zwei hatten einen gezeichneten Papierrand bekommen. Die vier Cover für meine GURPS-Beiträge von 2006 und 2007 waren am Vormittag schon im selben Stil entstanden — eines davon ist das Titelbild dieses Beitrags.
 
 ## Was schiefging
 
-Am frühen Nachmittag waren die elf Cover veröffentlicht. Zwanzig Minuten später wollte ich sie in 2K.
+Am frühen Nachmittag waren die elf Cover veröffentlicht. Zwanzig Minuten später wollte ich sie in 2K. Drei Dinge gingen schief.
 
-Die Stufe 1K liefert 1360 × 768 Pixel. Das Theme zeigt das Cover über die ganze Fensterbreite, und die Dateien waren auf 2912 × 1632 hochgerechnet. Also alle fünfzehn noch einmal, diesmal in 2K: Der abgenommene Entwurf geht als einzige Vorlage zurück ans Modell, mit dem Auftrag, ihn genau so in höherer Auflösung wiederzugeben. Fünfzehn Läufe zu je 0,05 US-Dollar, zusammen 0,75. Aufbau, Figuren und Einzelheiten blieben erhalten. Im Skill steht seitdem: kein Cover aus einem hochskalierten 1K-Entwurf.
+Erstens die Auflösung. Die Stufe 1K liefert 1360 × 768 Pixel. Das Theme zeigt das Cover über die ganze Fensterbreite, und die Dateien waren auf 2912 × 1632 hochgerechnet. Also alle fünfzehn noch einmal, diesmal in 2K: Der abgenommene Entwurf geht als einzige Vorlage zurück ans Modell, mit dem Auftrag, ihn genau so in höherer Auflösung wiederzugeben. Fünfzehn Läufe zu je 0,05 US-Dollar, zusammen 0,75. Aufbau, Figuren und Einzelheiten blieben erhalten. Im Skill steht seitdem: kein Cover aus einem hochskalierten 1K-Entwurf.
 
-Die Helligkeit ist das zweite Dauerthema. FLUX 3 liefert jede Szene heller als bestellt, und weder ein dunkles Stilbild noch Sätze wie `dark and low-key` halten es davon ab. Jedes Bild wird deshalb nach dem Rendern ohne Modell abgedunkelt:
+Zweitens die Helligkeit. FLUX 3 liefert jede Szene heller als bestellt, und weder ein dunkles Stilbild noch Sätze wie `dark and low-key` (dunkel, mit wenig Licht) halten es davon ab. Jedes Bild wird deshalb nach dem Rendern ohne Modell abgedunkelt:
 
 ```bash
 python3 nachbearbeiten.py gamma entwurf.webp vorbild.webp entwurf-dunkel.webp
 ```
 
-Und drittens ist Edric auf seiner Setkarte über fünfzig. Er ist vierzig und früh ergraut. Zwei Bearbeitungsläufe sollten ihn verjüngen; der erste hat das Gesicht etwas geglättet und die Brauen gedunkelt, der zweite hat gar nichts mehr bewirkt. Die leicht verjüngte Fassung ist jetzt die gültige.
+Drittens ist Edric auf seiner Setkarte über fünfzig. Er ist vierzig und früh ergraut. Zwei Bearbeitungsläufe sollten ihn verjüngen; der erste hat das Gesicht etwas geglättet und die Brauen gedunkelt, der zweite hat gar nichts mehr bewirkt. Die leicht verjüngte Fassung ist jetzt die gültige.
 
 ## Stand am Abend
 
 Alle fünfzehn Cover sind in 2K online, elf zu D&D, vier zu GURPS. Für meine DSA-Reihe gibt es ein eigenes Stil-Set in Gouache und Tusche; neue Cover für die bestehenden Beiträge dort habe ich nicht in Auftrag gegeben.
 
-Ein Wort zum Preis, weil er gerade schmeichelt. Abgerechnet wurden in der Stufe 1K 0,024 US-Dollar je Bild und in 2K 0,05. Das ist ein Einführungsrabatt von 50 Prozent, der bis zum 8. Oktober gilt; die Listenpreise sind 0,048 und 0,100 US-Dollar. Die sind mir auch recht (Stand Oktober 2026).
+Ein Hinweis zum Preis: Er gilt nur befristet. Abgerechnet wurden in der Stufe 1K 0,024 US-Dollar je Bild und in 2K 0,05. Das ist ein Einführungsrabatt von 50 Prozent, der bis zum 8. Oktober gilt; die Listenpreise sind 0,048 und 0,100 US-Dollar. Die sind mir auch recht (Stand Oktober 2026).
 
 Offen ist, ob der Stil hält, wenn das nächste Motiv nicht umgezeichnet wird, sondern neu entsteht. Die GURPS-Bilder sprechen dafür. Das nächste Cover für Edrics Notizen wird es zeigen — und ich bin gespannt, wie viele Läufe die nächste Tür braucht …

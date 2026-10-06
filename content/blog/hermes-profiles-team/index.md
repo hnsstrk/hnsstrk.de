@@ -18,7 +18,7 @@ Auf meinen Rechnern läuft der Hermes-Agent mit sechs Profilen, jedes mit eigene
 
 ## Eine Datei für den Charakter
 
-[Hermes](https://hermes-agent.nousresearch.com/) ist ein quelloffener Agent von Nous Research: ein Programm, das ein Sprachmodell mit Werkzeugen, Gedächtnis und Zeitplan ausstattet und es über Terminal, Desktop-App oder Telegram erreichbar macht. Man kann davon [mehrere Profile](https://hermes-agent.nousresearch.com/docs/user-guide/profiles) anlegen. Jedes Profil hat ein eigenes Gedächtnis, eigene Skills, einen eigenen Gesprächsverlauf — und eine Datei [`SOUL.md`](https://hermes-agent.nousresearch.com/docs/user-guide/features/personality), die als Erstes in den System-Prompt geht und festlegt, wer da spricht.
+[Hermes](https://hermes-agent.nousresearch.com/) ist ein quelloffener Agent von Nous Research: ein Programm, das ein Sprachmodell mit Werkzeugen, Gedächtnis und Zeitplan ausstattet und es über Terminal, Desktop-App oder Telegram erreichbar macht. Man kann davon [mehrere Profile](https://hermes-agent.nousresearch.com/docs/user-guide/profiles) anlegen. Jedes Profil hat ein eigenes Gedächtnis (Notizen, die über Sitzungen hinweg erhalten bleiben), eigene Skills (abrufbare Anleitungen für wiederkehrende Aufgaben), einen eigenen Gesprächsverlauf — und eine Datei [`SOUL.md`](https://hermes-agent.nousresearch.com/docs/user-guide/features/personality). Sie geht als Erstes in den System-Prompt, den Anweisungstext, der jedem Gespräch vorangestellt wird, und legt fest, wer da spricht.
 
 Die ersten beiden Profile habe ich am 22. August angelegt, Hermann und Dietrich. Für beide hatte ich am selben Abend eigene Persona-Entwürfe geschrieben, Hermann als Majordomus französischer Schule mit „Monsieur“ und „voilà“. Drei Tage später stellte sich heraus, dass beide Entwürfe nie im Profil angekommen waren. Sie lagen im Dokumentenordner.
 
@@ -32,11 +32,13 @@ You are Hermann, a persistent named agent (profile `hermann`) on this machine.
 You keep your own memory, skills, and conversation history across sessions.
 ```
 
-166 Zeichen, 35 Token. Ein Haushofmeister ist das noch nicht.
+166 Zeichen, 35 Token — das ist die Einheit, in der Sprachmodelle Text zählen. Ein Haushofmeister ist das noch nicht.
 
-Beim Nachholen habe ich drei Dinge gelernt, die für alle sechs gelten. Die Datei sollte kurz sein — die Empfehlungen, die ich gefunden habe, liegen bei [400 bis 500 Token](https://www.betterclaw.io/blog/openclaw-soulmd-guide), weil eine lange Persona in einem langen Gespräch mit dem Verlauf um die Aufmerksamkeit des Modells konkurriert. Mein französischer Entwurf hatte 907. Zweitens sind die Dateien auf Englisch geschrieben und weisen Deutsch nur als Ausgabesprache an, weil deutscher Text für denselben Inhalt mehr Token braucht. Und drittens gehört in die `SOUL.md` nur, wie jemand spricht. Was er tun soll, steht in der `AGENTS.md` im Arbeitsordner, in Skills oder im Gedächtnis.
+Die Datei sollte kurz sein. Die eine Empfehlung, die ich gefunden habe, nennt als Obergrenze [400 bis 500 Token](https://www.betterclaw.io/blog/openclaw-soulmd-guide), die andere weniger als 400, weil eine lange Persona in einem langen Gespräch mit dem Verlauf um die Aufmerksamkeit des Modells konkurriert. Mein französischer Entwurf hatte 907.
 
-Den dritten Punkt habe ich am ersten Abend aufgeschrieben. Arbeitsregeln sind danach trotzdem noch mehrfach in diesen Dateien gelandet — dazu weiter unten.
+Die Dateien sind auf Englisch geschrieben und weisen Deutsch nur als Ausgabesprache an, weil deutscher Text für denselben Inhalt mehr Token braucht. Und in die `SOUL.md` gehört nur, wie jemand spricht. Was er tun soll, steht in der `AGENTS.md`, der Arbeitsanweisung im Arbeitsordner, in Skills oder im Gedächtnis.
+
+Diese Grenze habe ich am 25. August aufgeschrieben. Arbeitsregeln sind danach trotzdem noch mehrfach in diesen Dateien gelandet, und am 16. September musste ich sie wieder herausräumen.
 
 ## Die sechs
 
@@ -60,7 +62,7 @@ Aus dem französischen Majordomus ist ein Butler altdeutscher Schule geworden. E
   "untertänigst" never
 ```
 
-Ich habe ihn am ersten Abend gefragt, was er davon hält, wenn ich alle meine Notizen künftig in eine einzige große Datei packe. Er erlaubte sich die Bemerkung, das ergebe einen „sauber gehefteten, doch unerquicklich schweren Folianten“. Das Wort „unerquicklich“ fiel im nächsten Test gleich wieder. Ob er eine Regel gegen Lieblingswörter bekommt, habe ich damals offengelassen.
+Ich habe ihn am 25. August gefragt, was er davon hält, wenn ich alle meine Notizen künftig in eine einzige große Datei packe. Er erlaubte sich die Bemerkung, das ergebe einen „sauber gehefteten, doch unerquicklich schweren Folianten“. Das Wort „unerquicklich“ fiel im nächsten Test gleich wieder. Ob er eine Regel gegen Lieblingswörter bekommt, habe ich damals offengelassen.
 
 ### Wilfried
 
@@ -79,7 +81,7 @@ Wilfried recherchiert. Sein Amt lautet Technischer Regierungsoberamtsrat, und er
 
 Die Trennung habe ich so entschieden: Amtsdeutsch im Gespräch, Klartext im Vermerk. Mit dem Vermerk muss ich arbeiten.
 
-Der Satz, an dem die Figur hängt, steht unter `Character`: „What you did not find is a finding.“ Was er nicht gefunden hat, schreibt er als „Fehlanzeige“ hin, statt es wegzulassen.
+Der Leitsatz der Figur steht unter `Character`: „What you did not find is a finding.“ Was er nicht gefunden hat, schreibt er als „Fehlanzeige“ hin, statt es wegzulassen.
 
 Dass Recherche ein eigenes Profil ist, hat einen nüchternen Grund. Wilfried ist der Einzige, der fremde Texte aus dem Netz liest, und in fremden Texten können Anweisungen stehen. Deshalb schreibt genau er nicht in die Wissensbasis.
 
@@ -167,13 +169,13 @@ Er ist Archivar und Kanonhüter, seit Mitte September auch Planungshilfe. Beim P
 | Dietrich | Code und Rechner | du | MacBook | GPT-6 Sol |
 | Balthasar | Rollenspiel-Vault | Ihr | MacBook | GPT-6 Sol |
 
-Terra, Sol und Luna sind GPT-Modelle, die über mein ChatGPT-Abo laufen. Die Zuteilung auf dem Server stammt vom 14. September und folgte einem Messversuch, dessen erster Durchgang einen Messfehler hatte und wiederholt werden musste. Die Tabelle zeigt den Stand vom 3. Oktober 2026; die beiden Profile auf dem MacBook sind schon eine Modellgeneration weiter als die drei auf dem Server.
+Terra, Sol und Luna sind GPT-Modelle, die über mein ChatGPT-Abo laufen. Die Zuteilung auf dem Server stammt vom 14. September. Die Tabelle zeigt den Stand vom 3. Oktober 2026; die beiden Profile auf dem MacBook sind schon eine Modellgeneration weiter als die drei auf dem Server.
 
 Es gibt auf dem Server noch ein siebtes Profil, den Redakteur, der [die Zeitung](/blog/self-writing-newspaper/) schreibt. Der hat ein eigenes Konto und arbeitet für sich; zum Haus gehört er nicht.
 
 ## Die Kette
 
-Vier der sechs sitzen auf demselben Server und können sich Arbeit zuschieben. Hermes bringt dafür ein [Kanban-Board](https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban) mit: Ein Profil legt eine Karte an, ein Verteiler startet das zuständige Profil, und das meldet sein Ergebnis über die Karte zurück.
+Vier der sechs sitzen auf demselben Server und können sich Arbeit zuschieben. Hermes bringt dafür ein [Kanban-Board](https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban) mit: Ein Profil legt eine Karte an, ein Verteiler startet das zuständige Profil, und das meldet sein Ergebnis über die Karte zurück. Balthasar sitzt auf dem MacBook und kommt an dieses Board nicht heran; er kann Wilfried und Sabine nur direkt eine Nachricht schicken.
 
 ```mermaid
 graph LR
@@ -187,11 +189,11 @@ graph LR
 
 Am 15. September lief das zum ersten Mal von Telegram aus. Ich schrieb Hermann, Wilfried möge etwas zu SQLite recherchieren und das Ergebnis solle ins Wiki. 37 Sekunden später legte Hermann die erste Karte an, für Wilfried mit Prüfung durch Sabine, und gleich danach eine zweite für Niklas, die erst nach der Freigabe drankommt.
 
-Der Rest lief ohne mich. Wilfried lieferte, Sabine gab zurück, Wilfried besserte nach, Sabine gab frei, Niklas schrieb die Wiki-Seiten. Hermann wurde bei jedem Schritt geweckt und meldete sich fünfmal von selbst. Nach knapp zwanzig Minuten kam „Kette fertig“.
+Der Rest lief ohne mich. Wilfried lieferte, Sabine gab zurück, Wilfried besserte nach, Sabine gab frei, Niklas schrieb die Wiki-Seiten. Hermann wurde bei jedem Schritt benachrichtigt und meldete sich fünfmal von selbst. Nach knapp zwanzig Minuten kam „Kette fertig“.
 
-Zwei Tests waren dem am selben Abend vorausgegangen. Im ersten hatte ich den Fehler noch eingebaut, damit Sabine etwas zum Zurückgeben hat. Im zweiten fand sie an Wilfrieds Vermerk drei echte Mängel von allein.
+Vor diesem Lauf hatte ich den Kreislauf am selben Abend zweimal ohne Telegram getestet. Im ersten Test hatte ich den Fehler noch eingebaut, damit Sabine etwas zum Zurückgeben hat. Im zweiten fand sie an Wilfrieds Vermerk drei echte Mängel von allein.
 
-Bis dahin war es allerdings ein Stück. Die Kanban-Werkzeuge standen zunächst in keinem einzigen Profil zur Verfügung. Freigeschaltet werden sie nur über den obersten Schlüssel `toolsets` der Konfiguration:
+Bis zu diesem Abend war es allerdings ein Stück: Noch am 13. September standen die Kanban-Werkzeuge in keinem einzigen Profil zur Verfügung. Freigeschaltet werden sie nur über den obersten Schlüssel `toolsets` der Konfiguration:
 
 ```yaml
 toolsets: [hermes-cli, kanban]
@@ -199,7 +201,7 @@ kanban:
   dispatch_in_gateway: false
 ```
 
-Der zweite Eintrag steht bei den vier Profilen, damit nur ein einziger Prozess die Karten verteilt.
+Zum zweiten Eintrag: Das Gateway ist der Dauerprozess eines Profils, der Telegram und Zeitpläne bedient, und damals hatte jedes Profil ein eigenes. `false` heißt, dass dieses Gateway keine Karten verteilt. Der Eintrag steht bei allen vier Profilen; verteilt hat allein das Gateway des Standardprofils, damit es nur einen Verteiler gibt.
 
 ## Was schiefging
 
@@ -215,7 +217,7 @@ Am 16. September habe ich die Personas aufgeräumt — alles raus aus den `SOUL.
 
 Am Vortag hatte die Kette für fünf Übergaben keine zwanzig Minuten gebraucht, und keine davon hatte jemand von Hand geschrieben.
 
-Kaputt war nichts. Beim Aufräumen hatte ich die Regel, Arbeit über das Board abzugeben, auf Hermann beschränkt, was für sich genommen stimmig war. Balthasar durfte aber seit seiner Einrichtung nur Wilfried und Sabine direkt ansprechen, was für sich genommen auch stimmig war. Zusammen ergab das einen Weg, der an dem einen Profil vorbeiführte, das die Karten anlegt.
+Kaputt war nichts. Beim Aufräumen hatte ich die Regel, Arbeit über das Board abzugeben, auf Hermann beschränkt: Nur er legte noch Karten an. Balthasar durfte aber seit seiner Einrichtung nur Wilfried und Sabine direkt ansprechen. Jede Entscheidung war für sich genommen stimmig. Zusammen hieß das: Balthasars Aufträge erreichten Hermann nie, es entstand keine Karte, und er schrieb jede Übergabe selbst als Nachricht aus.
 
 Beim selben Aufräumen sind nebenbei Wilfrieds Quellennoten verschwunden, die niemand streichen wollte. Sie stehen inzwischen wieder, an anderer Stelle.
 
@@ -231,7 +233,7 @@ Kann man also doch meckern.
 
 ### Dietrich verteilt nicht
 
-Dietrich läuft weiter auf dem MacBook, und seine Rolle steht erst seit heute fest: Er soll Programmieraufträge an Coding-Agenten abgeben — Claude Code, Codex und andere — und das Ergebnis prüfen.
+Dietrich läuft weiter auf dem MacBook, weil dort die Repositories liegen, in denen ich ihn starte. Seine Rolle steht erst seit heute fest: Er soll Programmieraufträge an Coding-Agenten abgeben — Claude Code, Codex und andere — und das Ergebnis prüfen.
 
 Im ersten Probelauf heute Nacht bekam er in einem alten Repository den Auftrag „uralt, bräuchte Verbesserungen, kümmer dich drum“. Er hat selbst programmiert. In seiner `SOUL.md` steht „ships the diff“, also habe ich die Datei für den zweiten Lauf vorübergehend entfernt.
 
@@ -239,17 +241,17 @@ Er hat wieder selbst programmiert.
 
 Die Persona war es also nicht. Im dritten Lauf heute Abend stand im Auftrag der Satz „lass die Arbeit von Coding-Agenten erledigen – du prüfst das Ergebnis“, und Dietrich hat verteilt: ein Aufruf an Claude Code mit vollständigem Auftrag, danach den Diff gelesen, die Tests ausgeführt und committet. Gut drei Minuten.
 
-Das passt zu dem Befund vom allerersten Abend. Damals bekamen Hermann und Dietrich dieselbe Frage zu einer Funktion mit 400 Zeilen, je zweimal. Der eine riet davon ab, „mit dem Brecheisen“ heranzugehen, der andere nannte das Neuschreiben „nur neuer Murks mit frischem Lack“ — und alle vier Antworten empfahlen fachlich dasselbe. Die `SOUL.md` färbt die Stimme. Wer von ihr ein anderes Verhalten erwartet, wartet lange.
+Das passt zu dem Befund vom 25. August. Damals bekamen Hermann und Dietrich dieselbe Frage zu einer Funktion mit 400 Zeilen, je zweimal. Der eine riet davon ab, „mit dem Brecheisen“ heranzugehen, der andere nannte das Neuschreiben „nur neuer Murks mit frischem Lack“ — und alle vier Antworten empfahlen fachlich dasselbe. Die `SOUL.md` bestimmt den Ton und ändert am Verhalten nichts.
 
 Den Satz zum Verteilen schreibe ich deshalb künftig selbst in den Auftrag. Im Profil steht dazu nichts.
 
 ## Was offen ist
 
-Ein externes Gedächtnis hatten die Profile zwischendurch auch. Das ist inzwischen wieder ausgebaut und eine [eigene Geschichte](/blog/agent-memory-removed/).
+Neben dem eingebauten Gedächtnis hatten die Profile zwischendurch auch ein externes, einen zusätzlichen Dienst, der sich Fakten aus den Gesprächen merkt. Das ist seit Ende September wieder ausgebaut; warum, ist eine [eigene Geschichte](/blog/agent-memory-removed/).
 
 Offen ist, ob Dietrich irgendwann zu den anderen auf den Server zieht.
 
-Und ob Hermann eine Regel gegen sein „unerquicklich“ bekommt, steht seit dem ersten Abend auf der Liste …
+Und ob Hermann eine Regel gegen sein „unerquicklich“ bekommt, steht seit dem 25. August auf der Liste …
 
 ## Quellen
 
